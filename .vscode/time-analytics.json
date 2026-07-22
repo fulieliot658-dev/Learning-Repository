@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "project": {
+    "totalFocusTime": 906104808,
+    "totalActiveTime": 8643704
+  },
+  "files": {
+    "javascript.html": {
+      "pending": 4703380,
+      "focus": 65562377
+    },
+    "Chatbot.html": {
+      "pending": 895060,
+      "focus": 8307425
+    },
+    "musicboot.html": {
+      "pending": 1999586,
+      "focus": 18155068
+    },
+    "JavaScript2.html": {
+      "pending": 337079,
+      "focus": 25242336
+    },
+    "CSS1.html": {
+      "pending": 198899,
+      "focus": 3590269
+    },
+    "CSS8.html": {
+      "pending": 0,
+      "focus": 75525
+    },
+    "CSS 1.html": {
+      "pending": 476497,
+      "focus": 5503841
+    },
+    "CSS5.html": {
+      "pending": 0,
+      "focus": 18497
+    },
+    "CSS6.html": {
+      "pending": 0,
+      "focus": 14394
+    },
+    "CSS7.html": {
+      "pending": 21356,
+      "focus": 219095
+    },
+    "CSS3.html": {
+      "pending": 0,
+      "focus": 4077548
+    },
+    "index.html": {
+      "pending": 0,
+      "focus": 126390
+    },
+    "index2.html": {
+      "pending": 4598,
+      "focus": 130541
+    }
+  },
+  "deleted": {
+    "active": 7249,
+    "focus": 350889
+  }
+}
