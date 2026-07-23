@@ -37,11 +37,40 @@ function factorial(number){
 }
 console.log(factorial(3));
     //
-
+    function countdown(start_val){
+        console.log(start_val);
+        if(start_val<1){
+            return countdown();
+        }
+        else if(start_val>1){
+            return countdown(--start_val);
+        }
+    }
+    console.log(countdown(10));
     //
-
+let killerRabbit = { type: "killer", speak() { console.log("GRRR!"); } };
+let blackRabbit  = { type: "black",  speak() { console.log("GRRR!"); } };
     //
+class Player {
+  draw() { console.log("Rendering Player sprite at (10, 20)..."); }
+}
 
+class Enemy {
+  draw() { console.log("Rendering Enemy sprite at (50, 80)..."); }
+}
+
+class Obstacle {
+  draw() { console.log("Rendering Rock sprite at (30, 40)..."); }
+}
+
+// A single function that handles ANY entity, as long as it has a draw() method
+function renderScreen(entities) {
+  for (let entity of entities) {
+    entity.draw(); // It doesn't care WHAT it is, only that it can draw()
+  }
+}
+
+renderScreen([new Player(), new Enemy(), new Obstacle()]);
     //
 
     //
