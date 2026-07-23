@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 917498627,
-    "totalActiveTime": 9082068
+    "totalFocusTime": 926101102,
+    "totalActiveTime": 9356341
   },
   "files": {
     "javascript.html": {
@@ -22,8 +22,8 @@
       "focus": 25242336
     },
     "CSS1.html": {
-      "pending": 198899,
-      "focus": 3590269
+      "pending": 201918,
+      "focus": 3633186
     },
     "CSS8.html": {
       "pending": 0,
@@ -50,8 +50,8 @@
       "focus": 4077548
     },
     "index.html": {
-      "pending": 431061,
-      "focus": 5296577
+      "pending": 702315,
+      "focus": 6821000
     },
     "index2.html": {
       "pending": 4598,
@@ -63,7 +63,7 @@
     },
     ".git/COMMIT_EDITMSG": {
       "pending": 504,
-      "focus": 37561
+      "focus": 52753
     }
   },
   "deleted": {
