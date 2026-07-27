@@ -72,13 +72,44 @@ function renderScreen(entities) {
 
 renderScreen([new Player(), new Enemy(), new Obstacle()]);
     //
-
+    let youGotThis = function () {
+console.log("You're doing really well, keep coding!");
+};
+setTimeout(youGotThis, 1000);
     //
-
+function randomPointOnCircle(radius) {
+let angle = Math.random() * 2 * Math.PI;
+return {x: radius * Math.cos(angle),
+y: radius * Math.sin(angle)};
+}
+console.log(randomPointOnCircle(2));
+// → {x: 0.3667, y: 1.966
     //
-
+    let val = 10;
+function tester(val){
+    val += 10;
+    if(val < 100){
+        return tester(val);
+    }
+    return val;
+}
+tester(val);
+console.log(val);
     //
-
+    let one = ()=>{
+console.log(1);};one();
+let two = ()=>{
+console.log(2);
+    };two();
+    let three = ()=>{
+        console.log(3);
+        one();
+        two();
+    };three();
+    let four = ()=>{
+        console.log('four');
+        setTimeout(()=>{one(), three()}, 500);
+    };four();
     //
 
     //
