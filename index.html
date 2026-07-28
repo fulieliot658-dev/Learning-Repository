@@ -119,22 +119,109 @@ console.log(2);
     
     //
     </script>
-    <style></style>
+    <style>
+        :root{
+            --milk-white: rgb(255, 230, 245);
+            --red: rgba(255, 56, 41, 0.7);
+            --grey: rgb(129, 129, 129);
+            --dark-grey: rgba(133, 132, 132, 0.363);
+        }
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 300;
+            font-size: small;
+        }
+        body{
+          background-color: var(--milk-white);
+        }
+        main{
+          display: flex;
+          flex-direction: row;
+        }
+        hr{
+            display: flex;
+        }
+        .left{
+            
+        }
+        .logo{
+           
+        }
+        .options{}
+        a{
+      text-decoration: none;
+      color:black;
+    }
+    a:hover{
+        background-color: aliceblue;
+    }
+    .top{
+        
+    }
+        .hero{
+          
+        }
+        .list{
+          
+        }
+        .daily{
+          
+        }
+        .daily-container{}
+        .state{}
+        .temp{}
+        .mood{}
+        .config{}
+        .address{}
+        .main-container{}
+        .nav{}
+        .profile-data{}
+        .status{}
+        .greeting{}
+        .name{}
+        .buttons{}
+        .btn1{}
+        .btn2{}
+        .background{}
+        .sections{}
+        h3{}
+        .guide{}
+        p{}
+        img{}
+        .section1{}
+        .label1{}
+        .index1{}
+        .section2{}
+        .label2{}
+        .index2{}
+        .net{}
+        .pass{}
+        .det1{}
+        .det2{}
+        .btn3{}
+        .section3{}
+        .label3{}
+        .index3{}
+    </style>
 </head>
 <body>
 <main>
-    <div class="left">
+    <section class="left">
+        <div class="top">
         <div class="logo">
             <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\logo.svg" alt="Sun Logo" srcset="">
         </div>
         <hr>
         <div class="options">
             <div class="hero">
-               <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-bed.svg" alt="" srcset=""><a href="">Your stay</a>
-               <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-house.svg" alt="" srcset=""><a href="">The house</a>
-               <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-pin.svg" alt="" srcset=""><a href="">Around town</a>
-               <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast-outline.svg" alt="" srcset=""><a href="">Breakfast</a>
-               <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-mail.svg" alt="" srcset=""><a href="">Messages</a>
+               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-bed.svg" alt="" srcset="">Your stay</a>
+               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-house.svg" alt="" srcset="">The house</a>
+               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-pin.svg" alt="" srcset="">Around town</a>
+               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast-outline.svg" alt="" srcset="">Breakfast</a>
+               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-mail.svg" alt="" srcset="">Messages</a>
             </div>
             <div class="daily">
                 <div class="daily_container">
@@ -145,18 +232,19 @@ console.log(2);
                 <hr>
                 <div class="config">
                     <span class="address">
-                        EST. 1987
+                        EST. 1987<br>
 
-                        MAISON SOLIEL · 12 RUE DES OLIVIERS · CASSIS
+                        MAISON SOLIEL · 12 RUE DES OLIVIERS · CASSIS<br>
 
                         &copy; 2026 MAISON SOLIEL
                     </span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="nav">
-        <div class="profile_data">
+        </div>
+    </section>
+    <section class="nav">
+        <div class="profile-data">
             <span class="status">BOOKING · CONFIRMED</span>
             <span class="greeting">Bienvenue, <span class="name">Lucia.</span></span>
         </div>
@@ -164,20 +252,19 @@ console.log(2);
             <button class="btn1">Print receipt</button>
             <button class="btn2">Add to calendar</button>
         </div>
-    </div>
     <div class="main-container">
         <div class="background">
             <img src="C:\Users\Ayuketah\Pictures\Camera Roll\football.webp" alt="Your background image" srcset="">
         </div>
         <div class="sections">
             <div class="section1">
-                <div class="icon1"><span class="label1"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-wifi.svg" alt="Keys" srcset="">
+                <div class="icon1"><span class="label1"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-key.svg" alt="Keys" srcset="">
                     Arrival</span>
                     <span class="index1">01</span>
                 </div>
                 <div class="head1"><h3>Check-in from 15:00</h3>
                 <span class="guide">Sat, 25 April</span></div>
-                <p>Ring the brass bell by the blue door, If we're at the market, the key is in the terracotta pot b y the olive tree.</p>
+                <p>Ring the brass bell by the blue door, If we're at the market, the key is in the terracotta pot by the olive tree.</p>
             </div>
             <div class="section2">
                  <div class="icon2"><span class="label2"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-wifi.svg" alt="Wifi" srcset="">
@@ -200,6 +287,7 @@ console.log(2);
             </div>
         </div>
     </div>
+    </section>
 </main>
     <script></script>
 </body>
