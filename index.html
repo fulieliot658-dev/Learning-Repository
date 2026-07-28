@@ -157,7 +157,7 @@ console.log(2);
             column-gap: 10rem;
         }
         .logo{
-           
+           border-bottom: 1px solid var(--dark-grey);
         }
         a{
       text-decoration: none;
@@ -182,7 +182,9 @@ console.log(2);
           z-index: 1;
           bottom: 0;
         }
-        .daily-container{}
+        .daily-container{
+           border-bottom: 1px solid var(--dark-grey);
+        }
         .state{}
         .temp{}
         .mood{}
@@ -203,6 +205,7 @@ console.log(2);
         .profile-data{
             display: flex;
             flex-direction: column;
+
         }
         .status{}
         .greeting{}
@@ -211,6 +214,7 @@ console.log(2);
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            column-gap: 5px;
         }
         .btn1{
             padding: 2px;
@@ -229,13 +233,11 @@ console.log(2);
             font-weight: 800;
             border: 1px solid var(--dark-grey);
         }
-        /* .background{3} */
-
         .sections{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-
+            column-gap: 20px;
         }
         h3{}
         .guide{}
@@ -245,10 +247,15 @@ console.log(2);
             border: 1px solid var(--dark-grey);
             background-color: aliceblue;
             border-radius: 10px;
+            width: 
         }
         .label1{}
         .index1{}
-        .section2{}
+        .section2{
+             border: 1px solid var(--dark-grey);
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
         .label2{}
         .index2{}
         .net{}
@@ -256,7 +263,11 @@ console.log(2);
         .det1{}
         .det2{}
         .btn3{}
-        .section3{}
+        .section3{
+             border: 1px solid var(--dark-grey);
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
         .label3{}
         .index3{}
     </style>
@@ -268,7 +279,6 @@ console.log(2);
         <div class="logo">
             <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\logo.svg" alt="Sun Logo" srcset="">
         </div>
-        <hr>
             <div class="hero">
                <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-bed.svg" alt="" srcset="">Your stay</a>
                <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-house.svg" alt="" srcset="">The house</a>
@@ -283,7 +293,6 @@ console.log(2);
                     <span class="temp">27°</span>
                     <span class="mood">Sunny · light breeze</span>
                 </div>
-                <hr>
                     <span class="address">
                         EST. 1987<br>
 
