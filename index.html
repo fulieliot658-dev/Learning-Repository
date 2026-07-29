@@ -135,14 +135,20 @@ console.log(2);};two();
     }
     //
     class person{
-        #person;
         constructor(firstname, lastname){
             this.firstname =firstname ;
             this.lastname =lastname ;
         }
+        fullname(){
+            console.log(this.firstname + this.lastname);
+        }
     }
     let friend = new person("John" ,"Doe");
     let friend2 = new person("Marco", "Polo");
+    let full_name= friend.fullname();
+    let full_name2= friend2.fullname();
+    console.log(full_name);
+    console.log(full_name2);
     console.log(`Hello ${friend.firstname} ${friend.lastname} and ${friend2.firstname} ${friend2.lastname} !`);
     //
     
