@@ -100,8 +100,8 @@ console.log(val);
     let one = ()=>{
 console.log(1);};one();
 let two = ()=>{
-console.log(2);
-    };two();
+console.log(2);};two();
+    
     let three = ()=>{
         console.log(3);
         one();
@@ -112,11 +112,58 @@ console.log(2);
         setTimeout(()=>{one(), three()}, 500);
     };four();
     //
+    //
+    let number =()=>{Number(prompt("Enter a number bteween 1 and 10"))};number();
+    let guess = Math.floor(Math.random()*10)+1;
+    let i=0;
+    while(i<11){
+        if(number>guess){
+            console.log("Too high, Try again");
+            i++;
+            continue;
+        }
+        else if(number<guess){
+              console.log("Too low, Try again");
+            i++;
+             number();
+            continue;
+        }
+        else{
+            console.log("Found");
+            break;
+        }
+    }
+    //
+    class person{
+        #person;
+        constructor(firstname, lastname){
+            this.firstname =firstname ;
+            this.lastname =lastname ;
+        }
+    }
+    let friend = new person("John" ,"Doe");
+    let friend2 = new person("Marco", "Polo");
+    console.log(`Hello ${friend.firstname} ${friend.lastname} and ${friend2.firstname} ${friend2.lastname} !`);
+    //
+    
+    //
 
     //
-    
+
     //
-    
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
     //
     </script>
     <style>
@@ -125,6 +172,9 @@ console.log(2);
             --red: rgba(255, 56, 41, 0.7);
             --grey: rgb(129, 129, 129);
             --dark-grey: rgba(133, 132, 132, 0.363);
+            --brown: rgb(206, 19, 19);
+            --blue: rgb(1, 1, 175);
+            --violet:rgb(131, 4, 131);
         }
         *{
             padding: 0%;
@@ -182,7 +232,7 @@ console.log(2);
           z-index: 1;
           bottom: 0;
         }
-        .daily-container{
+        .daily_container{
            border-bottom: 1px solid var(--dark-grey);
         }
         .state{}
@@ -213,7 +263,8 @@ console.log(2);
         .buttons{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: left;
+            align-items: flex-end;
             column-gap: 5px;
         }
         .btn1{
@@ -250,14 +301,21 @@ console.log(2);
             width: 
         }
         .label1{}
-        .index1{}
+        .icon1{ 
+            color: var(--brown);
+            
+        }
         .section2{
              border: 1px solid var(--dark-grey);
             background-color: aliceblue;
             border-radius: 10px;
         }
         .label2{}
-        .index2{}
+        .icon2{
+             color: var(--blue);
+             display: flex;
+             column-gap: 5rem;
+        }
         .net{}
         .pass{}
         .det1{}
@@ -269,7 +327,11 @@ console.log(2);
             border-radius: 10px;
         }
         .label3{}
-        .index3{}
+        .icon3{
+             color: var(--violet);
+             display: flex;
+             column-gap: 5rem;
+        }
     </style>
 </head>
 <body>
@@ -320,7 +382,7 @@ console.log(2);
         <div class="sections-container">
         <div class="sections">
             <div class="section1">
-                <div class="icon1"><span class="label1"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-key.svg" alt="Keys" srcset="" class="key">
+                <div class="icon1"><span class="label1"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-key.svg" alt="Keys" srcset="" class="key" style="background-color: rgb(121, 0, 0); border-radius: 5px;">
                     Arrival</span>
                     <span class="index1">01</span>
                 </div>
@@ -329,7 +391,7 @@ console.log(2);
                 <p>Ring the brass bell by the blue door, If we're at the market, the key is in the terracotta pot by the olive tree.</p>
             </div>
             <div class="section2">
-                 <div class="icon2"><span class="label2"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-wifi.svg" alt="Wifi" srcset="">
+                 <div class="icon2"><span class="label2"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-wifi.svg" alt="Wifi" srcset="" style="background-color: rgb(0, 0, 151); border-radius: 5px;">
                     WIFI</span>
                     <span class="index2">02</span>
                 </div>
@@ -339,7 +401,7 @@ console.log(2);
                 <div class="password"><span class="pass">PASSWORD</span><span class="det2">soliel-2026</span><button class="btn3">COPY</button></div>
             </div>
             <div class="section3">
-                 <div class="icon3"><span class="label3"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast.svg" alt="Breakfast" srcset="">
+                 <div class="icon3"><span class="label3"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast.svg" alt="Breakfast" srcset="" style="background-color: rgb(180, 9, 180); border-radius: 5px;">
                     Breakfast</span>
                     <span class="index3">03</span>
                 </div>
