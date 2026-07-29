@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\favicon-32x32.png" type="image/x-icon">
     <title>Document</title>
     <script type="text/javascript">
     //
@@ -161,11 +160,11 @@ console.log(2);};two();
             this.#pin=pin;
         }
         get balance(){
-            this.#balance = initialBalance;
+            return this.#balance;
         }
         set balance(value){
             if(typeof value ===String&& this.#pin.trim().length===4){
-                this.#balance=initialBalance;
+                this.#balance= balance;
             }
         else{
             console.log("[ERROR]: Empty PIN!");
@@ -180,20 +179,20 @@ console.log(2);};two();
                     if(enteredPin!==this.#pin){
                         console.log("[ERROR]: Incorrect PIN");
                     }
-                    else if(amount<=this.#balance){
+                    else if(amount>=this.#balance){
                         console.log("[ERROR]: Insufficient funds");
                     }
                     else{
-                        let new_balance2 = this.#balance-amount;
+                        let new_balance2 = amount-this.#balance;
                         console.log(`Remaining balance ${new_balance2}`);
                     }
                 }
-                transfer(amount, recipientWallet, eneteredPin){
+                transfer(amount, recipientWallet, enteredPin){
                       if(enteredPin===this.#pin && this.#balance!==0){
                         let new_balance3= this.#balance-amount;
                         return new_balance3;
+                         console.log(`Successful transfer. ${recipientWallet}balance becomes ${new_balance3}`);
                         recipientWallet.deposit(amount);
-                        console.log(`Successful transfer. ${recipientWallet}balance becomes ${new_balance3}`);
                     }
                 }
             }
@@ -236,254 +235,9 @@ walletA.transfer(4000, walletB, "1234");
 
     //
     </script>
-    <style>
-        :root{
-            --milk-white: rgb(255, 230, 245);
-            --red: rgba(255, 56, 41, 0.7);
-            --grey: rgb(129, 129, 129);
-            --dark-grey: rgba(133, 132, 132, 0.363);
-            --brown: rgb(206, 19, 19);
-            --blue: rgb(1, 1, 175);
-            --violet:rgb(131, 4, 131);
-        }
-        *{
-            padding: 0%;
-            margin: 0%;
-            box-sizing: border-box;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: 300;
-            font-size: small;
-        }
-        body{
-          background-color: var(--milk-white);
-        }
-        main{
-          display: flex;
-          flex-direction: row;
-        }
-        @media only screen and (max-width: 375px) {
-            main{
-                width: 100%;
-                height:100%;
-            }
-        }
-        hr{
-            display: flex;
-        }
-        .left{
-            display: flex;
-            width: clamp(10rem, 40% , 20rem);
-            flex-direction: column;
-            column-gap: 10rem;
-        }
-        .logo{
-           border-bottom: 1px solid var(--dark-grey);
-        }
-        a{
-      text-decoration: none;
-      color:black;
-    }
-    a:hover{
-        background-color: aliceblue;
-    }
-    .option-list{
-        z-index: 1000;
-        top: 0;
-    }
-        .hero{
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-        }
-        .list{
-            padding-bottom: 10px;
-        }
-        .daily{
-          z-index: 1;
-          bottom: 0;
-        }
-        .daily_container{
-           border-bottom: 1px solid var(--dark-grey);
-        }
-        .state{}
-        .temp{}
-        .mood{}
-        .address{}
-        .main-container{}
-        .nav{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: normal;
-            padding: 0;
-        }
-        .main-nav{
-             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        .profile-data{
-            display: flex;
-            flex-direction: column;
-
-        }
-        .status{}
-        .greeting{}
-        .name{}
-        .buttons{
-            display: flex;
-            flex-direction: row;
-            justify-content: left;
-            align-items: flex-end;
-            column-gap: 5px;
-        }
-        .btn1{
-            padding: 2px;
-            outline: none;
-            border-radius: 20px;
-            background-color: aliceblue;
-            color: black;
-            font-weight: 800;
-            border: 1px solid var(--dark-grey)
-        }
-        .btn2{
-             outline: none;
-            border-radius: 20px;
-            background-color: black;
-            color: aliceblue;
-            font-weight: 800;
-            border: 1px solid var(--dark-grey);
-        }
-        .sections{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            column-gap: 20px;
-        }
-        h3{}
-        .guide{}
-        p{}
-        img{}
-        .section1{
-            border: 1px solid var(--dark-grey);
-            background-color: aliceblue;
-            border-radius: 10px;
-            width: 
-        }
-        .label1{}
-        .icon1{ 
-            color: var(--brown);
-            
-        }
-        .section2{
-             border: 1px solid var(--dark-grey);
-            background-color: aliceblue;
-            border-radius: 10px;
-        }
-        .label2{}
-        .icon2{
-             color: var(--blue);
-             display: flex;
-             column-gap: 5rem;
-        }
-        .net{}
-        .pass{}
-        .det1{}
-        .det2{}
-        .btn3{}
-        .section3{
-             border: 1px solid var(--dark-grey);
-            background-color: aliceblue;
-            border-radius: 10px;
-        }
-        .label3{}
-        .icon3{
-             color: var(--violet);
-             display: flex;
-             column-gap: 5rem;
-        }
-    </style>
+   
 </head>
 <body>
-<main>
-    <section class="left">
-        <div class="option-list">
-        <div class="logo">
-            <img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\logo.svg" alt="Sun Logo" srcset="">
-        </div>
-            <div class="hero">
-               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-bed.svg" alt="" srcset="">Your stay</a>
-               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-house.svg" alt="" srcset="">The house</a>
-               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-pin.svg" alt="" srcset="">Around town</a>
-               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast-outline.svg" alt="" srcset="">Breakfast</a>
-               <a href="" class="list"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-mail.svg" alt="" srcset="">Messages</a>
-            </div>
-        </div>
-            <div class="daily">
-                <div class="daily_container">
-                    <span class="state">TODAY IN CASSIS</span>
-                    <span class="temp">27°</span>
-                    <span class="mood">Sunny · light breeze</span>
-                </div>
-                    <span class="address">
-                        EST. 1987<br>
-
-                        MAISON SOLIEL · 12 RUE DES OLIVIERS · CASSIS<br>
-
-                        &copy; 2026 MAISON SOLIEL
-                    </span>
-        </div>
-    </section>
-    <section class="nav">
-        <div class="main-nav">
-        <div class="profile-data">
-            <span class="status">BOOKING · CONFIRMED</span>
-            <span class="greeting">Bienvenue, <span class="name">Lucia.</span></span>
-        </div>
-        <div class="buttons">
-            <button class="btn1">Print receipt</button>
-            <button class="btn2">Add to calendar</button>
-        </div>
-    </div>
-    <div class="main-container">
-        <div class="background">
-            <img src="C:\Users\Ayuketah\Pictures\Camera Roll\football.webp" alt="Your background image" srcset="">
-        </div>
-        <div class="sections-container">
-        <div class="sections">
-            <div class="section1">
-                <div class="icon1"><span class="label1"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-key.svg" alt="Keys" srcset="" class="key" style="background-color: rgb(121, 0, 0); border-radius: 5px;">
-                    Arrival</span>
-                    <span class="index1">01</span>
-                </div>
-                <div class="head1"><h3>Check-in from 15:00</h3>
-                <span class="guide">Sat, 25 April</span></div>
-                <p>Ring the brass bell by the blue door, If we're at the market, the key is in the terracotta pot by the olive tree.</p>
-            </div>
-            <div class="section2">
-                 <div class="icon2"><span class="label2"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-wifi.svg" alt="Wifi" srcset="" style="background-color: rgb(0, 0, 151); border-radius: 5px;">
-                    WIFI</span>
-                    <span class="index2">02</span>
-                </div>
-                <div class="head2"><h3>Le Soliel · Guest</h3>
-                <span class="guide">Password below</span></div>
-                <div class="network"><span class="net">NETWORK</span><span class="det1">Le Soliel · Guest</span></div>
-                <div class="password"><span class="pass">PASSWORD</span><span class="det2">soliel-2026</span><button class="btn3">COPY</button></div>
-            </div>
-            <div class="section3">
-                 <div class="icon3"><span class="label3"><img src="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\icon-breakfast.svg" alt="Breakfast" srcset="" style="background-color: rgb(180, 9, 180); border-radius: 5px;">
-                    Breakfast</span>
-                    <span class="index3">03</span>
-                </div>
-                <div class="head3"><h3>Served 8 - 10:30</h3>
-                <span class="guide">On the terrace</span></div>
-                <p>Fresh figs, Marseille honey, pain au levain, and espresso, Gluten-free option? Leave a note the night before.</p>
-            </div>
-        </div>
-    </div>
-    </div>
-    </section>
-</main>
-    <script></script>
+    
 </body>
 </html>
