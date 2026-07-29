@@ -140,7 +140,7 @@ console.log(2);};two();
             this.lastname =lastname ;
         }
         fullname(){
-            console.log(this.firstname + this.lastname);
+            return this.firstname +" "+ this.lastname;
         }
     }
     let friend = new person("John" ,"Doe");
@@ -151,7 +151,71 @@ console.log(2);};two();
     console.log(full_name2);
     console.log(`Hello ${friend.firstname} ${friend.lastname} and ${friend2.firstname} ${friend2.lastname} !`);
     //
-    
+    class MobileMoneyWallet{
+        #phoneNumber;
+        #balance;
+        #pin;
+        constructor(phoneNumber, pin, initialBalance){
+            this.#phoneNumber =phoneNumber;
+            this.#balance= initialBalance;
+            this.#pin=pin;
+        }
+        get balance(){
+            this.#balance = initialBalance;
+        }
+        set balance(value){
+            if(typeof value ===String&& this.#pin.trim().length===4){
+                this.#balance=initialBalance;
+            }
+        else{
+            console.log("[ERROR]: Empty PIN!");
+        }}
+            deposit(amount){
+                if(amount>0){
+                   let new_balance=this.#balance+amount;
+                   return new_balance;
+                   console.log(`New balance ${new_balance}`);
+                }}
+                withdraw(amount, enteredPin){
+                    if(enteredPin!==this.#pin){
+                        console.log("[ERROR]: Incorrect PIN");
+                    }
+                    else if(amount<=this.#balance){
+                        console.log("[ERROR]: Insufficient funds");
+                    }
+                    else{
+                        let new_balance2 = this.#balance-amount;
+                        console.log(`Remaining balance ${new_balance2}`);
+                    }
+                }
+                transfer(amount, recipientWallet, eneteredPin){
+                      if(enteredPin===this.#pin && this.#balance!==0){
+                        let new_balance3= this.#balance-amount;
+                        return new_balance3;
+                        recipientWallet.deposit(amount);
+                        console.log(`Successful transfer. ${recipientWallet}balance becomes ${new_balance3}`);
+                    }
+                }
+            }
+            // 1. Create two wallets
+const walletA = new MobileMoneyWallet("670000001", "1234", 10000);
+const walletB = new MobileMoneyWallet("670000002", "5678", 2000);
+
+// 2. Read formatted balance
+console.log(walletA.balance); // Expected: "10,000 FCFA"
+
+// 3. Test failed withdrawal (Wrong PIN)
+walletA.withdraw(3000, "0000"); // Expected: [ERROR]: Incorrect PIN.
+
+// 4. Test failed withdrawal (Insufficient funds)
+walletA.withdraw(50000, "1234"); // Expected: [ERROR]: Insufficient funds.
+
+// 5. Test successful transfer
+walletA.transfer(4000, walletB, "1234"); 
+// Expected: Successful transfer. walletA balance becomes "6,000 FCFA", walletB balance becomes "6,000 FCFA"
+
+// 6. Test security (Direct access must fail)
+// console.log(walletA.#balance); // Should throw a SyntaxError
     //
 
     //
