@@ -172,7 +172,6 @@ console.log(2);};two();
             deposit(amount){
                 if(amount>0){
                    let new_balance=this.#balance+amount;
-                   return new_balance;
                    console.log(`New balance ${new_balance}`);
                 }}
                 withdraw(amount, enteredPin){
@@ -190,7 +189,6 @@ console.log(2);};two();
                 transfer(amount, recipientWallet, enteredPin){
                       if(enteredPin===this.#pin && this.#balance!==0){
                         let new_balance3= this.#balance-amount;
-                        return new_balance3;
                          console.log(`Successful transfer. ${recipientWallet}balance becomes ${new_balance3}`);
                         recipientWallet.deposit(amount);
                     }
@@ -216,7 +214,14 @@ walletA.transfer(4000, walletB, "1234");
 // 6. Test security (Direct access must fail)
 // console.log(walletA.#balance); // Should throw a SyntaxError
     //
+    class animal_sounds{
+        constructor(name, sound){
+            this.name=name;
+            this.sound=sound;
+        }
 
+    }
+    let dog = new animal_sounds("dog", "barks");
     //
 
     //
