@@ -219,11 +219,34 @@ walletA.transfer(4000, walletB, "1234");
             this.name=name;
             this.sound=sound;
         }
-
+        animal_sound(){
+            console.log(`${this.name} speaks by ${this.sound}`);
+        }
     }
-    let dog = new animal_sounds("dog", "barks");
+    let animal = new animal_sounds("dog", "barking");
+    let animal2 = new animal_sounds("cock", "crowing");
+    animal.animal_sound();
+    animal_sounds.prototype.nitch="kennel";
+    console.log(animal.nitch);
     //
-
+    class employees{
+        constructor(name1, name2, duration){
+            this.name1=name1;
+            this.name2=name2;
+            this.duration=duration;
+        }
+    }
+    const emp1 = new employees("Will", "Smith", 4 );
+    const emp2 =new employees("Mark", "Wahlberg", 6);
+    employees.prototype.form = function(){
+        console.log(`${this.name1} ${this.name2} has worked for ${this.duration}`);
+    };
+    const emp_arr =[];
+    emp_arr.push(emp1);
+    emp_arr.push(emp2);
+    console.log(emp_arr);
+    console.table(emp_arr);
+    console.log(emp1.form());
     //
 
     //
