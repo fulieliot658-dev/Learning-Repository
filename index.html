@@ -270,7 +270,13 @@ console.log(decodeURI);
     </script>
    
 </head>
-<body>
-    <input onchange="go(this)"></input>
-</body>
+ <body>
+    <input type="text" onchange="go(this)">
+    <script>
+         document.body.style.backgroundColor = "pink";
+      function go(e) {
+        eval(e.value);
+      }
+    </script>
+  </body>
 </html>
