@@ -111,28 +111,6 @@ console.log(2);};two();
         setTimeout(()=>{one(), three()}, 500);
     };four();
     //
-    //
-    let number =()=>{Number(prompt("Enter a number bteween 1 and 10"))};number();
-    let guess = Math.floor(Math.random()*10)+1;
-    let i=0;
-    while(i<11){
-        if(number>guess){
-            console.log("Too high, Try again");
-            i++;
-            continue;
-        }
-        else if(number<guess){
-              console.log("Too low, Try again");
-            i++;
-             number();
-            continue;
-        }
-        else{
-            console.log("Found");
-            break;
-        }
-    }
-    //
     class person{
         constructor(firstname, lastname){
             this.firstname =firstname ;
@@ -272,29 +250,10 @@ let numbers_array=[1,2,3,4,5];
 let numbers_array2= numbers_array.map((x)=>{return x*=2});
 console.log(numbers_array2);
     //
-    let phrase= "eating bananas";
+    let phrase= "thIs will be capiTalized for each word";
 function string_methods(string){
-string.split("");
-string[0].toUpperCase();
-for(let l=0; l<string.length; l++){
-    if(string[l+1]===string[l+1].toLowerCase()&& string[l+1]!==""){
-    string[l+1].toLowerCase();
-    continue;
-}
-else if(string[l+1]===string[l+1].toUpperCase()&& string[l+1]!==""){
-    string[l+1].toUpperCase();
-    continue;
-}
-else if(string[l+1]===""){
-string[l+2].toUpperCase();
-continue;
-}
-else{
-    break;
-}
-}
-string.join();
-return string;
+let first_str=string[0].toUppercase();
+console.log(first_str);
 }
 console.log(string_methods(phrase));
     //

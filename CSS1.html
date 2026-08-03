@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\favicon-32x32.png" type="image/x-icon">
     <title>Document</title>
+    <script type="text/javascript">
+        let number =()=>{Number(prompt("Enter a number bteween 1 and 10"))};number();
+    let guess = Math.floor(Math.random()*10)+1;
+    let i=0;
+    while(i<11){
+        if(number>guess){
+            console.log("Too high, Try again");
+            i++;
+            continue;
+        }
+        else if(number<guess){
+              console.log("Too low, Try again");
+            i++;
+             number();
+            continue;
+        }
+        else{
+            console.log("Found");
+            break;
+        }
+    }
+    </script>
  <style>
         :root{
             --milk-white: rgb(255, 230, 245);
