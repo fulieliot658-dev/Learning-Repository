@@ -248,14 +248,61 @@ walletA.transfer(4000, walletB, "1234");
     console.table(emp_arr);
     console.log(emp1.form());
     //
-let URI = "http://example.com/index.html/submit?name=";
+let URI = "http://example.com/index.html/submit?name=marc/";
 let encodeURI =encodeURIComponent(URI);
 console.log(encodeURI);
 let decodeURI =decodeURIComponent(encodeURI);
 console.log(decodeURI);
 
+    //assume, pesonal, your best, dedication, greet
+    let fruits =['banana', 'apple', 'pineapple', 'plum'];
+    fruits.copyWithin(0, 2);
+    console.log(fruits);
     //
-//682683590, 653591169, 679920838, 653351383, 671481184, 672143570, 673643649, 650778664, 641127889, 676107554, 680741086, 654970113, 672244748, 654239314
+    let names = ["Laurence", "Mike", "Larry", "Kim", "Joanne", "Laurence", "Mike", 
+"Laurence", "Mike", "Laurence", "Mike"];
+
+let filter_names =
+names.filter((element, index)=>{
+    return names.indexOf(element)===index;
+});
+console.log(filter_names);
+    //
+let numbers_array=[1,2,3,4,5];
+let numbers_array2= numbers_array.map((x)=>{return x*=2});
+console.log(numbers_array2);
+    //
+    let phrase= "eating bananas";
+function string_methods(string){
+string.split("");
+string[0].toUpperCase();
+for(let l=0; l<string.length; l++){
+    if(string[l+1]===string[l+1].toLowerCase()&& string[l+1]!==""){
+    string[l+1].toLowerCase();
+    continue;
+}
+else if(string[l+1]===string[l+1].toUpperCase()&& string[l+1]!==""){
+    string[l+1].toUpperCase();
+    continue;
+}
+else if(string[l+1]===""){
+string[l+2].toUpperCase();
+continue;
+}
+else{
+    break;
+}
+}
+string.join();
+return string;
+}
+console.log(string_methods(phrase));
+    //
+
+    //
+
+    //
+
     //
 
     //
@@ -271,12 +318,6 @@ console.log(decodeURI);
    
 </head>
  <body>
-    <input type="text" onchange="go(this)">
-    <script>
-         document.body.style.backgroundColor = "pink";
-      function go(e) {
-        eval(e.value);
-      }
-    </script>
+   
   </body>
 </html>

@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1302240762,
-    "totalActiveTime": 14591617
+    "totalFocusTime": 1318339194,
+    "totalActiveTime": 15427817
   },
   "files": {
     "javascript.html": {
@@ -22,8 +22,8 @@
       "focus": 25242336
     },
     "CSS1.html": {
-      "pending": 204347,
-      "focus": 3916904
+      "pending": 402896,
+      "focus": 5350846
     },
     "CSS8.html": {
       "pending": 0,
@@ -50,8 +50,8 @@
       "focus": 4077548
     },
     "index.html": {
-      "pending": 5935162,
-      "focus": 50726287
+      "pending": 6572813,
+      "focus": 58567848
     },
     "index2.html": {
       "pending": 4598,
@@ -67,7 +67,7 @@
     },
     "hotel-booking-confirmation-page-main/style-guide.md": {
       "pending": 0,
-      "focus": 108137
+      "focus": 121225
     },
     "hotel-booking-confirmation-page-main/assets/README-template.md": {
       "pending": 0,

@@ -29,6 +29,7 @@
         main{
           display: flex;
           flex-direction: row;
+          overflow: hidden;
         }
         @media only screen and (max-width: 375px) {
             main{
@@ -44,9 +45,14 @@
             width: clamp(10rem, 40% , 20rem);
             flex-direction: column;
             column-gap: 10rem;
+            border: 1px solid var(--grey);
+            border-radius: 5px;
+            padding-right: 8px;
+            padding-left: 2px;
+            overflow-y: scroll;
         }
         .logo{
-           border-bottom: 1px solid var(--dark-grey);
+           border-bottom: 0.5px solid var(--dark-grey);
         }
         a{
       text-decoration: none;
@@ -54,10 +60,12 @@
     }
     a:hover{
         background-color: aliceblue;
+        border-radius: 5px;
     }
     .option-list{
         z-index: 1000;
         top: 0;
+        padding-bottom: 22rem;
     }
         .hero{
           display: flex;
@@ -68,23 +76,29 @@
             padding-bottom: 10px;
         }
         .daily{
-          z-index: 1;
           bottom: 0;
+          
+          
         }
         .daily_container{
            border-bottom: 1px solid var(--dark-grey);
+           padding-bottom: 3rem;
         }
         .state{}
         .temp{}
         .mood{}
-        .address{}
+        .address{
+            padding-bottom: 15px;
+        }
         .main-container{}
         .nav{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: normal;
-            padding: 0;
+            padding-left: 10px;
+            padding-right: 0;
+            overflow-y: scroll;
         }
         .main-nav{
              display: flex;
@@ -113,7 +127,7 @@
             background-color: aliceblue;
             color: black;
             font-weight: 800;
-            border: 1px solid var(--dark-grey)
+            border: 0.5px solid var(--dark-grey)
         }
         .btn2{
              outline: none;
@@ -122,6 +136,12 @@
             color: aliceblue;
             font-weight: 800;
             border: 1px solid var(--dark-grey);
+        }
+        .background{
+            padding-bottom: 23rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .sections{
             display: flex;
@@ -137,7 +157,8 @@
             border: 1px solid var(--dark-grey);
             background-color: aliceblue;
             border-radius: 10px;
-            width: 
+            width: 20rem;
+            box-shadow: 0 0 8px var(--grey);
         }
         .label1{}
         .icon1{ 
@@ -148,6 +169,8 @@
              border: 1px solid var(--dark-grey);
             background-color: aliceblue;
             border-radius: 10px;
+            width: 20rem;
+            box-shadow: 0 0 8px var(--grey);
         }
         .label2{}
         .icon2{
@@ -164,6 +187,8 @@
              border: 1px solid var(--dark-grey);
             background-color: aliceblue;
             border-radius: 10px;
+            width: 20rem;
+            box-shadow: 0 0 8px var(--grey);
         }
         .label3{}
         .icon3{
