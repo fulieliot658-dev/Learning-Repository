@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1402077253,
-    "totalActiveTime": 17017220
+    "totalFocusTime": 1402083277,
+    "totalActiveTime": 17019755
   },
   "files": {
     "javascript.html": {
@@ -50,8 +50,8 @@
       "focus": 4077548
     },
     "index.html": {
-      "pending": 8148324,
-      "focus": 83604658
+      "pending": 8150859,
+      "focus": 83610682
     },
     "index2.html": {
       "pending": 4598,
