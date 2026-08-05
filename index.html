@@ -302,14 +302,12 @@ console.log(string_methods(phrase));
 // Output: "This Will Be Capitalized For Each Word"
     //
     let sentence = "I love JavaScript";
-    for(let o=0; o<sentence.length;l++){
-        if(sentence[o]==="a"){
-            sentence[0]
-        }
-    }
+    sentence=sentence.toLowerCase();
+    let vowels = ["a", "e", "i", "o", "u"];
+   vowels.forEach((l)=>sentence=sentence.replaceAll(l, vowels.indexOf(l)));
     console.log(sentence);
     //
-
+    console.log(Math.PI);
     //
 
     //
