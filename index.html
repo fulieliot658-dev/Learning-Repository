@@ -343,7 +343,7 @@ console.log(string_methods(phrase));
     //
     console.log(now.setMonth(8));
     //
-    let end_date = new Date(2026, 8, 9, 12, 0, 0, 100).toDateString();
+    let end_date = new Date(2026, 7, 9, 12, 0, 0, 100).toDateString();
     let currentDate = new Date().toDateString();
     console.log(end_date);
    function countDown(endDate, current){
@@ -353,18 +353,19 @@ console.log(string_methods(phrase));
     console.log(current);
     let timeDiff= endDate - current;
     console.log(timeDiff);
-    let days= Math.floor((timeDiff/7));
+    let days= Math.floor((timeDiff/(1000*60*60*24)));
     console.log(days);
-    let hours = (days/60);
+    let hours = ((days*24));
     console.log(hours);
-    let minutes = (hours/60);
+    let minutes = (hours*60);
     console.log(minutes);
-    let seconds =(minutes/60);
+    let seconds =(minutes*60);
     console.log(seconds);
-    let milliSecond=(seconds/100);
+    let milliSecond=(seconds*1000);
     console.log(milliSecond);
-    
-   }
+     let countdown = {`Days:${days}, Hours:${hours}, Minutes:${minutes}, Seconds:${seconds}, Millisecond:${millisecond}`};
+  return countdown;
+    }
    console.log(countDown(end_date, currentDate));
     //
 
