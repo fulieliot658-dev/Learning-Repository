@@ -320,20 +320,52 @@ console.log(string_methods(phrase));
     //
     let now =new Date(2026, 7, 5, 16, 39, 10, 100);
     console.log(now);
-    console.log("Year", d.getFillYear());
-    console.log("Month", d.getFillYear()); 
-    console.log("Date", d.getFillYear());
-    console.log("Hour", d.getFillYear());
-    console.log("Min", d.getFillYear());
-    console.log("Second", d.getFillYear());
-    console.log("Millisecond", d.getFillYear());
-    console.log("Year", d.getFillYear());   
+    console.log("Year", now.getFullYear());
+    console.log("Month", now.getMonth()); 
+    console.log("Date", now.getDate());
+    console.log("Min", now.getMinutes());
+    console.log("Second", now.getSeconds());
+    console.log("Millisecond", now.getMilliseconds());
+    console.log("Timestamp", now.getTime());   
     //
-
+    now.setFullYear(2026);
+    console.log(now);
     //
-
+    let str_date= now.toDateString();
+    str_date= Date.parse(str_date);
+    console.log(str_date);
     //
-
+   function checkEventStatus(eventDateString){
+    let event_date = Date.parse("2026-12-25");
+    let current_date = new Date();
+    let time_diff = (current_date)-(event-date);
+    };
+    //
+    console.log(now.setMonth(8));
+    //
+    let end_date = new Date(2026, 8, 9, 12, 0, 0, 100).toDateString();
+    let currentDate = new Date().toDateString();
+    console.log(end_date);
+   function countDown(endDate, current){
+    endDate= Date.parse(endDate);
+    console.log(endDate);
+     current= Date.parse(current);
+    console.log(current);
+    let timeDiff= endDate - current;
+    console.log(timeDiff);
+    let days= Math.floor((timeDiff/7));
+    console.log(days);
+    let hours = (days/60);
+    console.log(hours);
+    let minutes = (hours/60);
+    console.log(minutes);
+    let seconds =(minutes/60);
+    console.log(seconds);
+    let milliSecond=(seconds/100);
+    console.log(milliSecond);
+    
+   }
+   console.log(countDown(end_date, currentDate));
     //
 
     //
@@ -341,14 +373,9 @@ console.log(string_methods(phrase));
     //
 
     //
-
-    //
-
-    //
     </script>
-   
 </head>
  <body>
    
-  </body>
+ </body>
 </html>
