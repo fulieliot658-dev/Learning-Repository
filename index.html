@@ -3,302 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="C:\Users\Ayuketah\Downloads\Javascript\hotel-booking-confirmation-page-main\assets\images\favicon-32x32.png" type="image/x-icon">
     <title>Document</title>
-    <script type="text/javascript" >
-    //To stop Git from complaining about line endings on a Windows machine, run this single global command in Git Bash:
-    //git config --global core.autocrlf true
-    (function(){
-        console.log("Hello World!");
-    })();
-    //
-    let value = "1000";
-    (function (){
-       let value = "20"
-       console.log(value);
-    })();
-   let result =(()=>{
-    let value = "40";
-    return value;
-   })();
-   console.log(result);
-   console.log(value);
-//
-function factorial(number){
-    let answer= number;
-    if (number===0){
-        return answer =1;
-    }
-    else if(number<0){
-        return '[WARN]: Not a Whole number, please change that value';
-    }
-    else{
-    console.log(`[LOG]: ${answer}*=${factorial(number-1)}`);
-        return  answer*=factorial(number-1);
-    }
-}
-console.log(factorial(3));
-    //
-    function countdown(start_val){
-        console.log(start_val);
-        if(start_val<1){
-            return countdown();
-        }
-        else if(start_val>1){
-            return countdown(--start_val);
-        }
-    }
-    console.log(countdown(10));
-    //
-let killerRabbit = { type: "killer", speak() { console.log("GRRR!"); } };
-let blackRabbit  = { type: "black",  speak() { console.log("GRRR!"); } };
-    //
-class Player {
-  draw() { console.log("Rendering Player sprite at (10, 20)..."); }
-}
-
-class Enemy {
-  draw() { console.log("Rendering Enemy sprite at (50, 80)..."); }
-}
-
-class Obstacle {
-  draw() { console.log("Rendering Rock sprite at (30, 40)..."); }
-}
-
-// A single function that handles ANY entity, as long as it has a draw() method
-function renderScreen(entities) {
-  for (let entity of entities) {
-    entity.draw(); // It doesn't care WHAT it is, only that it can draw()
-  }
-}
-
-renderScreen([new Player(), new Enemy(), new Obstacle()]);
-    //
-    let youGotThis = function () {
-console.log("You're doing really well, keep coding!");
-};
-setTimeout(youGotThis, 1000);
-    //
-function randomPointOnCircle(radius) {
-let angle = Math.random() * 2 * Math.PI;
-return {x: radius * Math.cos(angle),
-y: radius * Math.sin(angle)};
-}
-console.log(randomPointOnCircle(2));
-// → {x: 0.3667, y: 1.966
-    //
-    let val = 10;
-function tester(val){
-    val += 10;
-    if(val < 100){
-        return tester(val);
-    }
-    return val;
-}
-tester(val);
-console.log(val);
-    //
-    let one = ()=>{
-console.log(1);};one();
-let two = ()=>{
-console.log(2);};two();
-    
-    let three = ()=>{
-        console.log(3);
-        one();
-        two();
-    };three();
-    let four = ()=>{
-        console.log('four');
-        setTimeout(()=>{one(), three()}, 500);
-    };four();
-    //
-    class person{
-        constructor(firstname, lastname){
-            this.firstname =firstname ;
-            this.lastname =lastname ;
-        }
-        fullname(){
-            return this.firstname +" "+ this.lastname;
-        }
-    }
-    let friend = new person("John" ,"Doe");
-    let friend2 = new person("Marco", "Polo");
-    let full_name= friend.fullname();
-    let full_name2= friend2.fullname();
-    console.log(full_name);
-    console.log(full_name2);
-    console.log(`Hello ${friend.firstname} ${friend.lastname} and ${friend2.firstname} ${friend2.lastname} !`);
-    //
-    class MobileMoneyWallet{
-        #phoneNumber;
-        #balance;
-        #pin;
-        constructor(phoneNumber, pin, initialBalance){
-            this.#phoneNumber =phoneNumber;
-            this.#balance= initialBalance;
-            this.#pin=pin;
-        }
-        get balance(){
-            return this.#balance;
-        }
-        set balance(value){
-            if(typeof value ===String&& this.#pin.trim().length===4){
-                this.#balance= balance;
-            }
-        else{
-            console.log("[ERROR]: Empty PIN!");
-        }}
-            deposit(amount){
-                if(amount>0){
-                   let new_balance=this.#balance+amount;
-                   console.log(`New balance ${new_balance}`);
-                }}
-                withdraw(amount, enteredPin){
-                    if(enteredPin!==this.#pin){
-                        console.log("[ERROR]: Incorrect PIN");
-                    }
-                    else if(amount>=this.#balance){
-                        console.log("[ERROR]: Insufficient funds");
-                    }
-                    else{
-                        let new_balance2 = amount-this.#balance;
-                        console.log(`Remaining balance ${new_balance2}`);
-                    }
-                }
-                transfer(amount, recipientWallet, enteredPin){
-                      if(enteredPin===this.#pin && this.#balance!==0){
-                        let new_balance3= this.#balance-amount;
-                         console.log(`Successful transfer. ${recipientWallet}balance becomes ${new_balance3}`);
-                        recipientWallet.deposit(amount);
-                    }
-                }
-            }
-            // 1. Create two wallets
-const walletA = new MobileMoneyWallet("670000001", "1234", 10000);
-const walletB = new MobileMoneyWallet("670000002", "5678", 2000);
-
-// 2. Read formatted balance
-console.log(walletA.balance); // Expected: "10,000 FCFA"
-
-// 3. Test failed withdrawal (Wrong PIN)
-walletA.withdraw(3000, "0000"); // Expected: [ERROR]: Incorrect PIN.
-
-// 4. Test failed withdrawal (Insufficient funds)
-walletA.withdraw(50000, "1234"); // Expected: [ERROR]: Insufficient funds.
-
-// 5. Test successful transfer
-walletA.transfer(4000, walletB, "1234"); 
-// Expected: Successful transfer. walletA balance becomes "6,000 FCFA", walletB balance becomes "6,000 FCFA"
-
-// 6. Test security (Direct access must fail)
-// console.log(walletA.#balance); // Should throw a SyntaxError
-    //
-    class animal_sounds{
-        constructor(name, sound){
-            this.name=name;
-            this.sound=sound;
-        }
-        animal_sound(){
-            console.log(`${this.name} speaks by ${this.sound}`);
-        }
-    }
-    let animal = new animal_sounds("dog", "barking");
-    let animal2 = new animal_sounds("cock", "crowing");
-    animal.animal_sound();
-    animal_sounds.prototype.nitch="kennel";
-    console.log(animal.nitch);
-    //
-    class employees{
-        constructor(name1, name2, duration){
-            this.name1=name1;
-            this.name2=name2;
-            this.duration=duration;
-        }
-    }
-    const emp1 = new employees("Will", "Smith", 4 );
-    const emp2 =new employees("Mark", "Wahlberg", 6);
-    employees.prototype.form = function(){
-        console.log(`${this.name1} ${this.name2} has worked for ${this.duration}`);
-    };
-    const emp_arr =[];
-    emp_arr.push(emp1);
-    emp_arr.push(emp2);
-    console.log(emp_arr);
-    console.table(emp_arr);
-    console.log(emp1.form());
-    //
-let URI = "http://example.com/index.html/submit?name=marc/";
-let encodeURI =encodeURIComponent(URI);
-console.log(encodeURI);
-let decodeURI =decodeURIComponent(encodeURI);
-console.log(decodeURI);
-
-    //assume, pesonal, your best, dedication, greet
-    let fruits =['banana', 'apple', 'pineapple', 'plum'];
-    fruits.copyWithin(0, 2);
-    console.log(fruits);
-    //
-    let names = ["Laurence", "Mike", "Larry", "Kim", "Joanne", "Laurence", "Mike", 
-"Laurence", "Mike", "Laurence", "Mike"];
-
-let filter_names =
-names.filter((element, index)=>{
-    return names.indexOf(element)===index;
-});
-console.log(filter_names);
-    //
-let numbers_array=[1,2,3,4,5];
-let numbers_array2= numbers_array.map((x)=>{return x*=2});
-console.log(numbers_array2);
-    //
-    let phrase= "thIs will be capiTalized for each word";
-function string_methods(string) {
-    let filter_phrase = string.toLowerCase();
-    let filter_str1 = filter_phrase.split("");
-    
-    // 1. Capitalize and re-assign the very first character
-    filter_str1[0] = filter_str1[0].toUpperCase();
-    
-    // 2. Loop through the entire character array
-    for (let l = 0; l < filter_str1.length; l++) {
-        // Check if the current character is a space
-        if (filter_str1[l] === " ") {
-            // Capitalize the character right after the space
-            filter_str1[l + 1] = filter_str1[l + 1].toUpperCase();
-        }
-    }
-    
-    // 3. Join the character array back together and return AFTER the loop completes
-    return filter_str1.join("");
-}
-
-console.log(string_methods(phrase));
-// Output: "This Will Be Capitalized For Each Word"
-//let phrase = "thIs will be capiTalized for each word";
-
-function string_methods(string) {
-    // 3. Lowercase everything first
-    let filter_phrase = string.toLowerCase();
-    
-    // 4. Empty array to hold converted words
-    let capitalized_words = [];
-    
-    // 5. Split by space " " to get an array of words
-    let words = filter_phrase.split(" ");
-    
-    // 6. Loop through each word using forEach
-    words.forEach((word) => {
-        // 7. Isolate 1st letter, uppercase it, then append the rest using slice()
-        let formattedWord = word.slice(0, 1).toUpperCase() + word.slice(1);
-        
-        // 8. Add formatted word to array
-        capitalized_words.push(formattedWord);
-    });
-    
-    // 9 & 10. Join back into a space-separated string and return
-    return capitalized_words.join(" ");
-}
-
+    <script type="text/javascript">
 console.log(string_methods(phrase));
 // Output: "This Will Be Capitalized For Each Word"
     //
@@ -328,6 +35,7 @@ console.log(string_methods(phrase));
     console.log("Millisecond", now.getMilliseconds());
     console.log("Timestamp", now.getTime());   
     //
+
     now.setFullYear(2026);
     console.log(now);
     //
@@ -363,20 +71,20 @@ console.log(string_methods(phrase));
     console.log(seconds);
     let milliSecond=(seconds*1000);
     console.log(milliSecond);
-     let countdown = {`Days:${days}, Hours:${hours}, Minutes:${minutes}, Seconds:${seconds}, Millisecond:${millisecond}`};
+     let countdown = {days, hours, minutes, seconds, milliSecond};
   return countdown;
     }
    console.log(countDown(end_date, currentDate));
     //
-
+    
     //
     
     //
 
     //
     </script>
-</head>
- <body>
-   
- </body>
-</html>
+    </head>
+    <body>
+        
+    </body>
+    <html>

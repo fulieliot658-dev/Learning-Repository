@@ -218,6 +218,163 @@
              display: flex;
              column-gap: 5rem;
         }
+        /*<style>
+        :root {
+  --color: rgb(0, 0, 34);
+  --color2: rgba(255, 255, 255, 0.062);
+  --color3: rgb(124, 0, 124);
+  --color4: rgb(242, 242, 255);
+  --color5: rgb(168, 168, 168);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(at 100% 100%, var(--color) 0, transparent 50%),
+              rgba(1, 1, 36, 0.534);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+
+.main {
+  width: 100%;
+  max-width: 500px; 
+  min-height: auto;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 15px;
+  background: var(--color2);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  gap: 1.25rem;
+}
+
+
+.hero {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: aqua;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: aliceblue;
+  font-weight: 400;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.4;
+}
+
+
+#input {
+  border: 2px solid white;
+  width: 100%;
+  max-width: 320px;
+  padding: 0.75em 1em;
+  border-radius: 12px;
+  font-weight: 400;
+  outline: none;
+  background: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s ease;
+}
+
+#input:focus,
+#input:hover {
+  border-color: var(--color3);
+}
+
+button {
+  border: 2px solid white;
+  width: 100%;
+  max-width: 320px;
+  padding: 0.75em 1em;
+  color: rgb(0, 0, 34);
+  border-radius: 12px;
+  font-weight: 600;
+  background-color: rgb(56, 248, 159);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: rgb(251, 255, 254);
+  color: blue;
+  transform: translateY(-2px);
+}
+
+.response {
+  font-weight: 600;
+  color: #29c7f7;
+  text-align: center;
+  word-break: break-word;
+}
+    </style>
+</head>
+ <body>
+    <div class="main">
+        <span class=" hero">Countdown Timer</span>
+   <p>Insert the date in this format: (Year, month index, date, hours, minutes, seconds, milliseconds).</p>
+   <input type="text" name="" id="input">
+   <button id="button">Compile</button>
+   <div class="response"></div>
+   </div>
+    <script>
+        const inputEl = document.querySelector("#input");
+const ans = document.querySelector(".response");
+const btn = document.querySelector("#button");
+
+btn.addEventListener("click", function () {
+  const rawInput = inputEl.value.trim();
+
+  if (!rawInput) {
+    ans.innerHTML = "Please enter comma-separated date values. Enter format: YYYY, MM, DD, h, m, s, ms";
+    return;
+  }
+
+  
+  const dateArgs = rawInput.split(",").map(num => Number(num.trim()));
+
+  const targetDate = new Date(...dateArgs).getTime();
+  const current = Date.now();
+
+  if (isNaN(targetDate)) {
+    ans.innerHTML = "Invalid entry. Enter format: YYYY, MM, DD, h, m, s, ms";
+    return;
+  }
+
+  let timeDiff = targetDate - current;
+
+  if (timeDiff <= 0) {
+    ans.innerHTML = "Countdown finished or date is in the past!";
+    return;
+  }
+
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  ans.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+});
+    </script>
+ </body>
+</html>
+*/
     </style>
 </head>
 <body>
