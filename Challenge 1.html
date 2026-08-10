@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="C:\Users\Ayuketah\Downloads\social-links-profile-main\assets\images\favicon-32x32.png" type="image/x-icon">
+    <title>Document</title>
+    <style> 
+    :root{
+  --Green: hsl(75, 94%, 57%);
+
+--White: hsl(0, 0%, 100%);
+
+--Grey_700: hsl(0, 0%, 20%);
+--Grey_800: hsl(0, 0%, 12%);
+--Grey_900: hsl(0, 0%, 8%);
+    }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            max-width: fit-content;
+           background-color: var(--Grey_900);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-container{
+            width: clamp(30em, 70%, 40em);
+            height: clamp(40em, 70%, 50em);
+            background-color: var(--Grey_800);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(0.9em, 40%, 2em);
+            gap: 1em;
+            border-radius: 15px;
+        }
+        img{
+            border-radius: 50%;
+             width: clamp(2em, 50%, 6em);
+              height: clamp(2em, 50%, 6em);
+        }
+        .name{
+            color:var(--White);
+            font-weight: 600;
+            font-size: xx-large;
+            text-align: center;
+        }
+        .hero{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .location{
+            color: var(--Green);
+            font-weight: 500;
+        }
+        .description{
+            color: var(--White)
+        }
+        a{
+            text-decoration: none;
+            color: var(--White);
+            font-weight: 600;
+            background-color: var(--Grey_700);
+            padding: clamp(8px, 50%, 10px);
+            width: clamp(4em, 70%, 10em);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <img src="C:\Users\Ayuketah\Downloads\social-links-profile-main\assets\images\avatar-jessica.jpeg" alt="Jessica_Randall_photo.png" srcset="">
+        <div class="hero"><span class="name">Jessica Randall</span>
+        <span class="location">London, United Kingdom</span></div>
+        <span class="description">"Front-end developer and avid reader."</span>
+        <a href="http://"><abbr title="An open source repository for saving screenshots of user work."><details><summary>GitHub</summary>You can click this link: github.com</details></abbr></a>
+        <a href="http://">Frontend Mentor</a>
+        <a href="http://">LinkedIn</a>
+        <a href="http://">Twitter</a>
+        <a href="http://">Instagram</a>
+    </div>
+</body>
+</html>
