@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1479250812,
-    "totalActiveTime": 19988087
+    "totalFocusTime": 1484581417,
+    "totalActiveTime": 20544264
   },
   "files": {
     "javascript.html": {
@@ -23,7 +23,7 @@
     },
     "CSS1.html": {
       "pending": 479279,
-      "focus": 5717100
+      "focus": 5732482
     },
     "CSS8.html": {
       "pending": 0,
@@ -51,7 +51,7 @@
     },
     "index.html": {
       "pending": 10392794,
-      "focus": 101585917
+      "focus": 101595400
     },
     "index2.html": {
       "pending": 4598,
@@ -74,8 +74,12 @@
       "focus": 7772
     },
     "Challenge 1.html": {
-      "pending": 663906,
-      "focus": 4341354
+      "pending": 729550,
+      "focus": 6557106
+    },
+    "Challenge_2.html": {
+      "pending": 490533,
+      "focus": 5073182
     }
   },
   "deleted": {

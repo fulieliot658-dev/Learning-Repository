@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="C:\Users\Ayuketah\Downloads\social-links-profile-main\assets\images\favicon-32x32.png" type="image/x-icon">
+    <title>Document</title>
+    <style>
+        :root{
+            /* ## Primary */
+
+--Blue_100: hsl(225, 100%, 94%);
+--Blue_700: hsl(245, 75%, 52%);
+/* Neutral */
+--Blue_50: hsl(225, 100%, 98%);
+--Gray_600: hsl(224, 23%, 55%);
+--Blue_950: hsl(223, 47%, 23%);
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            max-width: 100vw;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--Blue_100);
+        }
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: clamp(10rem, 50%, 20rem);
+            height: clamp(clamp(30rem, 50%, 40rem));
+            padding: 0 3em;
+            background-color: var(--Blue_50);
+            border-radius: 15px;
+            gap: 1em;
+        }
+        .large_img{
+           border-radius: 1.1em 1.1em 0 0;
+           flex: 0 1 1;
+        }
+        .description{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <img src="C:\Users\Ayuketah\Downloads\order-summary-component-main\images\illustration-hero.svg" alt="Podcast_img.png" srcset="" class="large_img" style="width:20em; height:10em;">
+        <span class="title">Order Summary</span>
+        <p class="description">You can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like.</p>
+        <div class="plan">
+            <span class="label">
+                <img src="C:\Users\Ayuketah\Downloads\order-summary-component-main\images\icon-music.svg" alt="" srcset=""><span class="plan-details"><p class="plan-title">Annual Plan</p><span class="plan-price">$59.99/year</span>
+            </span> 
+            <a href="http://" class="change">Change</a>
+        </div>
+        <button class="purchase">Proceed to Payment</button>
+        <a href="http://" class="cancel">Cancel Order</a>
+    </div>
+</body>
+</html>

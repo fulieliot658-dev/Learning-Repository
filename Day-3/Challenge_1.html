@@ -23,21 +23,21 @@
         }
         body{
             min-height: 100vh;
-            max-width: fit-content;
+            max-width: 100vw;
            background-color: var(--Grey_900);
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .main-container{
-            width: clamp(30em, 70%, 40em);
-            height: clamp(40em, 70%, 50em);
+            width: clamp(25em, 30%, 35em);
+            height: clamp(40em, 50%, 50em);
             background-color: var(--Grey_800);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: clamp(0.9em, 40%, 2em);
+            padding: clamp(0.9em, 20%, 2em);
             gap: 1em;
             border-radius: 15px;
         }
@@ -45,6 +45,7 @@
             border-radius: 50%;
              width: clamp(2em, 50%, 6em);
               height: clamp(2em, 50%, 6em);
+              flex-shrink: 0;
         }
         .name{
             color:var(--White);
@@ -69,8 +70,12 @@
             color: var(--White);
             font-weight: 600;
             background-color: var(--Grey_700);
-            padding: clamp(8px, 50%, 10px);
-            width: clamp(4em, 70%, 10em);
+            padding: clamp(0.5em, 50%, 1em);
+            width: clamp(20em, 30%, 30em);
+             border-radius: 15px;
+             display: flex;
+             justify-content: center;
+             flex-shrink: 0;
         }
     </style>
 </head>
