@@ -78,8 +78,24 @@
     console.log(Math.pow(x, 2));
     //
     function checkEventStatus(eventDateString){
+    let eventDateString2= new Date(Date.parse(eventDateString));
+    let eventDateStringYear= eventDateString2.getTime();
+       console.log(eventDateStringYear);
       let current_date = new Date();
-    }
+      let current_year= current_date.getTime();
+      console.log(current_year);
+      let x = current_year-eventDateStringYear;
+      let days = Math.floor(x/1000/60/60/24);
+      if(x<0){
+        console.log(`Event is in ${days} days `);
+      }
+     else if(x===0){
+        console.log("Event is today");
+      }
+      else{
+        console.log(`Event was ${days} days ago`);
+      }
+    }checkEventStatus("2026-12-25");
     //
 
     //
