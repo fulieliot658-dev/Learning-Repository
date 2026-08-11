@@ -84,7 +84,7 @@
       let current_date = new Date();
       let current_year= current_date.getTime();
       console.log(current_year);
-      let x = current_year-eventDateStringYear;
+      let x = current_year.getTime()-eventDateStringYear.getTime();
       let days = Math.floor(x/1000/60/60/24);
       if(x<0){
         console.log(`Event is in ${Math.abs(days)} days `);
@@ -97,11 +97,20 @@
       }
     }checkEventStatus("2026-12-25");
     //
-
-    //
-
-    //
-
+    class User{
+      #password;
+      constructor(username, email){
+        this.#password =password;
+        this.username =username;
+        this.email =email;
+      }
+      get password(){
+        return this.#password;
+      }
+      set password(newPassword){
+       if(newPassword.length >= 6) {this.#password = newPassword};
+      }
+    }
     //
 
     //
