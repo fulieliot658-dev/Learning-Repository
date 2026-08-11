@@ -87,13 +87,13 @@
       let x = current_year-eventDateStringYear;
       let days = Math.floor(x/1000/60/60/24);
       if(x<0){
-        console.log(`Event is in ${days} days `);
+        console.log(`Event is in ${Math.abs(days)} days `);
       }
      else if(x===0){
         console.log("Event is today");
       }
       else{
-        console.log(`Event was ${days} days ago`);
+        console.log(`Event was ${Math.abs(days)} days ago`);
       }
     }checkEventStatus("2026-12-25");
     //
