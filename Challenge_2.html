@@ -11,6 +11,7 @@
     --Blue_700: hsl(245, 75%, 52%);
     --Blue_50: hsl(225, 100%, 98%);
     --Gray_600: hsl(224, 23%, 55%);
+    --Gray_300: hsl(227, 100%, 95%);
     --Blue_950: hsl(223, 47%, 23%);
   }
 
@@ -39,7 +40,7 @@
     border-radius: 15px;
     overflow: hidden; /* Clips image overflow to respect border-radius */
     padding-bottom: 2em; /* Bottom padding for content spacing */
-    gap: 1em;
+    gap: 1.5em;
   }
 
   .large_img {
@@ -60,10 +61,26 @@
   }
 .plan{
    display: flex;
-   flex-direction: row;
    justify-content: space-between;
    align-items: center;
-   gap: 4em;
+   gap: 7em;
+   background-color: var(--Gray_300);
+   border-radius: 10px;
+   padding: 0.5em;
+}
+.label{
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 1em;
+}
+a, .change{
+    color: var(--Blue_700);
+    font-weight: 600;
+}
+.cancel{
+    text-decoration: none;
+    color: var(--Gray_600);
 }
 </style>
 
