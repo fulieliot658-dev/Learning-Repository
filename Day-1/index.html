@@ -84,7 +84,7 @@
       let current_date = new Date();
       let current_year= current_date.getTime();
       console.log(current_year);
-      let x = current_year.getTime()-eventDateStringYear.getTime();
+      let x = current_year-eventDateStringYear;
       let days = Math.floor(x/1000/60/60/24);
       if(x<0){
         console.log(`Event is in ${Math.abs(days)} days `);
@@ -99,18 +99,48 @@
     //
     class User{
       #password;
-      constructor(username, email){
-        this.#password =password;
-        this.username =username;
-        this.email =email;
+      constructor(username, email, password){
+        this.#password = password;
+        this.username = username;
+        this.email = email;
       }
       get password(){
         return this.#password;
       }
       set password(newPassword){
-       if(newPassword.length >= 6) {this.#password = newPassword};
+       if(newPassword.length >= 6) {this.#password = newPassword;}
+      else{
+        console.log('[LOG]: Invalid password length. Try again')
+      }
+      }
+      authenticate(attempt){
+        if (attempt === this.#password){
+          console.log('[LOG]: Authentication successful');
+        }
+        else {
+          console.log('[ERROR]: Authentication failed. Invalid Password, try again');
+        }
+      }}
+      class Admin extends User{
+        constructor(username, email, password, permission){
+          super(username, email, password);
+          this.permission= permission;
+        }
+      
+      hasPermission(permissionName){
+        return this.permission.includes(permissionName);
       }
     }
+    User.prototype.getDomain = function (){
+      return this.email.split('@')[1];
+    };
+    // Test script setup to verify your classes
+const admin = new Admin("eliot_dev", "eliot@minetopiasoftware.cm", "secr3tPass", ["delete_user"]);
+
+console.log(admin.username);                     // "eliot_dev"
+console.log(admin.authenticate("secretPass"));   // true
+console.log(admin.hasPermission("delete_user")); // true
+console.log(admin.getDomain());                  // "minetopiasoftware.cm"
     //
 
     //
@@ -131,6 +161,28 @@
 
     //
 
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+
+    //
+    
     //
 
     //
@@ -141,6 +193,6 @@
     </script>
     </head>
     <body>
-        
+      
     </body>
     <html>
