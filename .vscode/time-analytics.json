@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1529943513,
-    "totalActiveTime": 22725696
+    "totalFocusTime": 1541641521,
+    "totalActiveTime": 23095933
   },
   "files": {
     "javascript.html": {
@@ -62,8 +62,8 @@
       "focus": 61430
     },
     ".git/COMMIT_EDITMSG": {
-      "pending": 504,
-      "focus": 52753
+      "pending": 30705,
+      "focus": 208659
     },
     "hotel-booking-confirmation-page-main/style-guide.md": {
       "pending": 0,
@@ -90,8 +90,8 @@
       "focus": 226513
     },
     "Day-1/index.html": {
-      "pending": 1821166,
-      "focus": 9556444
+      "pending": 2161202,
+      "focus": 14014879
     }
   },
   "deleted": {
