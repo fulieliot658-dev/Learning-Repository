@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Area Calculator</title>
+<style>
+body {
+  background: #e0e5ec;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.box {
+  background: #e0e5ec;
+  padding: 30px;
+  width: 450px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px #a3b1c6, -20px -20px 60px #ffffff;
+}
+
+.inputarea {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h2{
+    color: #030411;
+}
+select, input {
+  padding: 10px;
+  border: none;
+  background: #e0e5ec;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
+  color: #333;
+}
+
+input {
+  width: 100px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  background: #e0e5ec;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:active {
+  box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
+}
+
+.preview-wrapper {
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+  border-radius: 15px;
+  box-shadow: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
+}
+
+#myShape {
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  transition: all 0.2s ease;
+}
+
+.res {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Area Calculator</h2>
+
+<div class="inputarea">
+  <label for="shapeSelect">Shape:</label>
+  <select id="shapeSelect" onchange="toggleInputs()">
+    <option value="square">Square</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="circle">Circle</option>
+    <option value="triangle">Triangle</option>
+  </select>
+</div>
+
+<div class="inputarea" id="dim1-group">
+  <span id="label1">Side:</span>
+  <input type="number" id="val1" value="100">
+</div>
+
+<div class="inputarea" id="dim2-group" style="display:none;">
+  <span id="label2">Height:</span>
+  <input type="number" id="val2" value="100">
+</div>
+
+<button onclick="doMath()">COMPUTE</button>
+
+<div class="preview-wrapper">
+  <div id="myShape"></div>
+</div>
+
+<div class="res">
+Area: <span id="ans">0</span> px²
+</div>
+
+</div>
+
+<script>
+function toggleInputs() {
+  var shape = document.getElementById('shapeSelect').value;
+  var dim2Group = document.getElementById('dim2-group');
+  var label1 = document.getElementById('label1');
+  var label2 = document.getElementById('label2');
+
+  if (shape === 'square') {
+    dim2Group.style.display = 'none';
+    label1.innerText = 'Side:';
+  } else if (shape === 'rectangle') {
+    dim2Group.style.display = 'flex';
+    label1.innerText = 'Width:';
+    label2.innerText = 'Height:';
+  } else if (shape === 'circle') {
+    dim2Group.style.display = 'none';
+    label1.innerText = 'Radius:';
+  } else if (shape === 'triangle') {
+    dim2Group.style.display = 'flex';
+    label1.innerText = 'Base:';
+    label2.innerText = 'Height:';
+  }
+  doMath();
+}
+
+function doMath() {
+  var shape = document.getElementById('shapeSelect').value;
+  var v1 = Number(document.getElementById('val1').value);
+  var v2 = Number(document.getElementById('val2').value);
+  var s = document.getElementById('myShape');
+  var area = 0;
+
+  // Reset basic shape styles
+  s.style.width = '0px';
+  s.style.height = '0px';
+  s.style.borderRadius = '0px';
+  s.style.background = '#e0e5ec';
+  s.style.borderLeft = 'none';
+  s.style.borderRight = 'none';
+  s.style.borderBottom = 'none';
+
+  if (shape === 'square') {
+    area = v1 * v1;
+    s.style.width = v1 + 'px';
+    s.style.height = v1 + 'px';
+    s.style.borderRadius = '10px';
+  } else if (shape === 'rectangle') {
+    area = v1 * v2;
+    s.style.width = v1 + 'px';
+    s.style.height = v2 + 'px';
+    s.style.borderRadius = '10px';
+  } else if (shape === 'circle') {
+    area = Math.PI * (v1 * v1);
+    s.style.width = (v1 * 2) + 'px';
+    s.style.height = (v1 * 2) + 'px';
+    s.style.borderRadius = '50%';
+  } else if (shape === 'triangle') {
+    area = 0.5 * v1 * v2;
+    s.style.background = 'transparent';
+    s.style.width = '0px';
+    s.style.height = '0px';
+    s.style.borderLeft = (v1 / 2) + 'px solid transparent';
+    s.style.borderRight = (v1 / 2) + 'px solid transparent';
+    s.style.borderBottom = v2 + 'px solid #e0e5ec';
+  }
+
+  document.getElementById('ans').innerText = area.toFixed(2);
+}
+
+toggleInputs();
+</script>
+
+</body>
+</html>
