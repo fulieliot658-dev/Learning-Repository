@@ -22,17 +22,55 @@
 --Grey-500: hsl(217, 19%, 35%);
 --Dark-blue: hsl(219, 29%, 14%);
 --Black: hsl(0, 0%, 7%);
---background: url("C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\bg-pattern-quotation.svg");
---backgorund-repeat: no-repeat;
+--background: url("images/bg-pattern-quotation.svg");
+--backgr0und-repeat: no-repeat;
     }
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500; 
+      font-size: 0.95em;
+    }
+    body{
+      background-color: var(--purple-50);
+      background: var(--purple-300);
+      /* background-repeat: var(--background-repeat); */
+      background-position: center; 
+      min-height: 100vh;
+      flex: 1;
+    }
+    img{
+      border-radius: 50%;
+      width: 1.5em; 
+      height: auto;
+      border: 1px solid var(--Grey-200);
+    }
+    p{
+      color: var(--Grey-400);
+    }
+    .Daniel, .Jonathan, .Jeanette, .Patrick, .Kira{
+      color: var(--White);
+      font-weight: 500;
+    }
+    .title{
+      color: var(--White);
+      font-weight: 700;
+    }
+    .grid1{background-color: var();}
+    .grid2{}
+    .grid3{}
+    .grid4{}
+    .grid5{}
   </style>
 </head>
 <body>
   <main>
-  <div class="grid1"><div class= "details1"><span class="Daniel"><img src="C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\image-daniel.jpg" alt="">Daniel Clifford
-  Verified Graduate</span></div>
+  <div class="grid1"><div class= "details1"><span class="Daniel"><img src="images/image-daniel.jpg" alt="">Daniel Clifford</span><p>
+  Verified Graduate</p></div>
 
-  <span class="title1">I received a job offer mid-course, and the subjects I learned were current, if not more so, 
+  <span class="title">I received a job offer mid-course, and the subjects I learned were current, if not more so, 
   in the company I joined. I honestly feel I got every penny’s worth.</span>
 
   <p>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a 
@@ -41,26 +79,26 @@
   The next 12 weeks was the best - and most grueling - time of my life. Since completing 
   the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p></div>
 
-  <div class="grid2"><div class=details2><span class="Jonathan"><img src="C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\image-jeanette.jpg" alt="" srcset="">Jonathan Walters
-  Verified Graduate</span></div>
+  <div class="grid2"><div class=details2><span class="Jonathan"><img src="images/image-jeanette.jpg" alt="" srcset="">Jonathan Walters</span><p>
+  Verified Graduate</p></div>
 
-  <span class="title2">The team was very supportive and kept me motivated</span>
+  <span class="title">The team was very supportive and kept me motivated</span>
 
   <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer 
   for a big company. This was one of the best investments I’ve made in myself. ”</p></div>
 
-  <div class="grid3"><div class="details3"><span class="Jeanette"><img src="C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\image-jonathan.jpg" alt="" srcset="">Jeanette Harmon
-  Verified Graduate</span></div>
+  <div class="grid3"><div class="details3"><span class="Jeanette"><img src="images/image-jonathan.jpg" alt="" srcset="">Jeanette Harmon</span><p>
+  Verified Graduate</p></div>
 
-  <span class="title3">An overall wonderful and rewarding experience</span>
+  <span class="title">An overall wonderful and rewarding experience</span>
 
   <p>“Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living 
   while doing something I love. ”</p></div>
 
-  <div class="grid4"><div class="details4"><span class="Patrick"><img src="C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\image-patrick.jpg" alt="" srcset="">Patrick Abrams
-  Verified Graduate</span></div>
+  <div class="grid4"><div class="details4"><span class="Patrick"><img src="images/image-patrick.jpg" alt="" srcset="">Patrick Abrams</span><p>
+  Verified Graduate</p></div>
 
-  <span class="title4">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and 
+  <span class="title">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and 
   learning from their experiences was easy.</span>
 
   <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program 
@@ -68,10 +106,10 @@
   junior developer. The standard is above the rest. You will get the personal attention you need from 
   an incredible community of smart and amazing people. ”</p></div>
 
-  <div class="grid5"><div class="details5"><span class="Kira"><img src="C:\Users\Ayuketah\Downloads\Learning-Repository\Day_7\images\image-kira.jpg" alt="" srcset="">Kira Whittle
-  Verified Graduate</span></div>
+  <div class="grid5"><div class="details5"><span class="Kira"><img src="images/image-kira.jpg" alt="" srcset="">Kira Whittle</span><p>
+  Verified Graduate</p></div>
 
-  <span class="title5">Such a life-changing experience. Highly recommended!</span>
+  <span class="title">Such a life-changing experience. Highly recommended!</span>
 
   <p>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from 
   professionals who can help me learn programming step by step. I was encouraged to enroll by a former 
