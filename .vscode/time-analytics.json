@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1650148154,
-    "totalActiveTime": 26665758
+    "totalFocusTime": 1650469405,
+    "totalActiveTime": 26702436
   },
   "files": {
     "javascript.html": {
@@ -98,12 +98,12 @@
       "focus": 5799754
     },
     "Day_7/style-guide.md": {
-      "pending": 4582,
-      "focus": 139469
+      "pending": 4998,
+      "focus": 141403
     },
     "Day_7/Challenge_5.html": {
       "pending": 2532807,
-      "focus": 26475532
+      "focus": 27057967
     },
     "Day_8/Challenge_6.html": {
       "pending": 0,
@@ -114,8 +114,12 @@
       "focus": 19968
     },
     "Day_8/hotel-booking-confirmation-page-main/Challenge_6.html": {
-      "pending": 3286,
-      "focus": 16064
+      "pending": 39548,
+      "focus": 1176620
+    },
+    "Day_8/hotel-booking-confirmation-page-main/style-guide.md": {
+      "pending": 0,
+      "focus": 22070
     }
   },
   "deleted": {
