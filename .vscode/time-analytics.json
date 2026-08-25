@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1650469405,
-    "totalActiveTime": 26702436
+    "totalFocusTime": 1650545428,
+    "totalActiveTime": 26713034
   },
   "files": {
     "javascript.html": {
@@ -114,8 +114,8 @@
       "focus": 19968
     },
     "Day_8/hotel-booking-confirmation-page-main/Challenge_6.html": {
-      "pending": 39548,
-      "focus": 1176620
+      "pending": 50146,
+      "focus": 1252643
     },
     "Day_8/hotel-booking-confirmation-page-main/style-guide.md": {
       "pending": 0,
