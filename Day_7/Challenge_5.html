@@ -23,7 +23,7 @@
 --Dark-blue: hsl(219, 29%, 14%);
 --Black: hsl(0, 0%, 7%);
 --background: url("images/bg-pattern-quotation.svg");
---backgr0und-repeat: no-repeat;
+--background-repeat: no-repeat;
     }
     *{
       padding: 0;
@@ -48,26 +48,77 @@
       border: 1px solid var(--Grey-200);
     }
     p{
-      color: var(--Grey-400);
+      color: var(--Grey-200);
     }
-    .Daniel, .Jonathan, .Jeanette, .Patrick, .Kira{
+    .Daniel, .Jonathan, .Patrick{
       color: var(--White);
       font-weight: 500;
     }
-    .title{
+    .Jeanette, .Kira{
+      color: var(--Grey-500);
+      font-weight: 500;
+    }
+        .title{
       color: var(--White);
       font-weight: 700;
     }
-    .grid1{background-color: var();}
-    .grid2{}
-    .grid3{}
-    .grid4{}
-    .grid5{}
+    .title1{
+    color: var(--Grey-500);
+      font-weight: 500;
+    }
+    .grid-container{
+      display: grid;
+      grid-auto-columns: 1fr, 100px, 100px, 100px, 1fr;
+      grid-auto-rows: 1fr, 1fr;
+      /* gap: 1rem; */
+      grid-auto-flow: column;
+      place-items: center;
+      max-width: 100vw;
+      min-height: 100vh;
+      padding: 1rem;
+      margin: 1rem;
+      background-color: aquamarine;
+      /* grid-template-areas: 
+      "Grid1, Grid1, Grid2, Grid3"
+      "Grid4, Grid5, Grid5, Grid3"; */
+      grid-auto-flow: row;
+    }
+    .grid1{
+      background-color: var(--Purple-500);
+      grid-column: 1/3;
+      grid-row: 1/2;
+      padding: 0.5rem;
+    }
+    .grid2{
+      background-color: var(--Grey-500);
+      grid-column: 3/4;
+      grid-row: 1/2;
+      padding: 0.5rem;
+    }
+    .grid3{
+      background-color: var(--White);
+      grid-column: 4/5;
+      grid-row: 1/3;
+      padding: 0.5rem;
+    }
+    .grid4{
+      background-color: var(--Dark-blue);
+      grid-column: 1/2; 
+      grid-row: 2/3;
+      padding: 0.5rem;
+    }
+    .grid5{
+      background-color: var(--White);
+      grid-column: 2/4;
+      grid-row: 2/3;
+      padding: 0.5rem;
+    }
   </style>
 </head>
 <body>
-  <main>
-  <div class="grid1"><div class= "details1"><span class="Daniel"><img src="images/image-daniel.jpg" alt="">Daniel Clifford</span><p>
+  <div class="grid-container">
+  <div class="grid1">
+    <div class= "details1"><span class="Daniel"><img src="images/image-daniel.jpg" alt="Daniel Photo">Daniel Clifford</span><p>
   Verified Graduate</p></div>
 
   <span class="title">I received a job offer mid-course, and the subjects I learned were current, if not more so, 
@@ -77,25 +128,31 @@
   transition and have heard some people who had an amazing experience here. I signed up 
   for the free intro course and found it incredibly fun! I enrolled shortly thereafter. 
   The next 12 weeks was the best - and most grueling - time of my life. Since completing 
-  the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p></div>
+  the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
+</div>
 
-  <div class="grid2"><div class=details2><span class="Jonathan"><img src="images/image-jeanette.jpg" alt="" srcset="">Jonathan Walters</span><p>
+  <div class="grid2">
+    <div class=details2><span class="Jonathan"><img src="images/image-jonathan.jpg" alt="Jonathan Walters Photo" srcset="">Jonathan Walters</span><p>
   Verified Graduate</p></div>
 
   <span class="title">The team was very supportive and kept me motivated</span>
 
   <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer 
-  for a big company. This was one of the best investments I’ve made in myself. ”</p></div>
+  for a big company. This was one of the best investments I’ve made in myself. ”</p>
+</div>
 
-  <div class="grid3"><div class="details3"><span class="Jeanette"><img src="images/image-jonathan.jpg" alt="" srcset="">Jeanette Harmon</span><p>
+  <div class="grid3">
+    <div class="details3"><span class="Jeanette"><img src="images/image-jeanette.jpg" alt="Jeanette Harmon Photo" srcset="">Jeanette Harmon</span><p>
   Verified Graduate</p></div>
 
-  <span class="title">An overall wonderful and rewarding experience</span>
+  <span class="title1">An overall wonderful and rewarding experience</span>
 
   <p>“Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living 
-  while doing something I love. ”</p></div>
+  while doing something I love. ”</p>
+</div>
 
-  <div class="grid4"><div class="details4"><span class="Patrick"><img src="images/image-patrick.jpg" alt="" srcset="">Patrick Abrams</span><p>
+  <div class="grid4">
+    <div class="details4"><span class="Patrick"><img src="images/image-patrick.jpg" alt="Patrick Abrams Photo" srcset="">Patrick Abrams</span><p>
   Verified Graduate</p></div>
 
   <span class="title">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and 
@@ -104,12 +161,14 @@
   <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program 
   gave me the confidence necessary to be able to go out in the world and present myself as a capable 
   junior developer. The standard is above the rest. You will get the personal attention you need from 
-  an incredible community of smart and amazing people. ”</p></div>
+  an incredible community of smart and amazing people. ”</p>
+</div>
 
-  <div class="grid5"><div class="details5"><span class="Kira"><img src="images/image-kira.jpg" alt="" srcset="">Kira Whittle</span><p>
+  <div class="grid5">
+    <div class="details5"><span class="Kira"><img src="images/image-kira.jpg" alt="Kira Whittle Photo" srcset="">Kira Whittle</span><p>
   Verified Graduate</p></div>
 
-  <span class="title">Such a life-changing experience. Highly recommended!</span>
+  <span class="title1">Such a life-changing experience. Highly recommended!</span>
 
   <p>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from 
   professionals who can help me learn programming step by step. I was encouraged to enroll by a former 
@@ -118,8 +177,9 @@
   project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial 
   could ever have. In fact, I’ve often referred to it during interviews as an example of my developent 
   experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 
-  100% recommend! ”</p></div>
-  </main>
+  100% recommend! ”</p>
+</div>
+</div>
   
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
