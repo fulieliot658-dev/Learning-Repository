@@ -34,16 +34,17 @@
       font-size: 0.95em;
     }
     body{
-      background-color: var(--purple-50);
-      background: var(--purple-300);
+      background-color: var(--Purple-50);
+      background: var(--Purple-300);
       /* background-repeat: var(--background-repeat); */
       background-position: center; 
       min-height: 100vh;
       flex: 1;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
     }
     img{
       border-radius: 50%;
-      width: 1.5em; 
+      width: 2em; 
       height: auto;
       border: 1px solid var(--Grey-200);
     }
@@ -68,87 +69,94 @@
     }
     .grid-container{
       display: grid;
-      place-items: center;
-      grid-auto-columns: 1fr 1fr 1fr 1fr;
-      grid-auto-rows: 1fr 1fr;
-      gap: 1em;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 10px;
       /* grid-auto-flow: column; */
-      place-items: center;
-      max-width: 100%;
-      height: 100vh;
+      max-width: 1110px;
+      min-height: 100vh;
       padding: 0;
       margin: 0;
-      background-color: aquamarine;
+      background-color: var(--Purple-50);
       grid-auto-flow: row;
     }
-    details{
+    .details{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      gap: 0.5rem;
+      
     }
     .grid1{ 
       /* Daniel */
       background-color: var(--Purple-500);
       grid-column: 1/3;
-      grid-row:1/3;
+      grid-row:1/2;
       padding: 0.5rem;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      background-image: url("images/bg-pattern-quotation.svg");
+      background-repeat: no-repeat;
+      background-position: top 0 right 10%;
     }
     .grid2{ 
       /* Jonathan */
       background-color: var(--Grey-500);
       grid-column: 3/4;
+      grid-row: 1/2;
+      padding: 0.5rem;
+      border-radius: 5px;
+       display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    .grid3{ 
+      /* Jeanette */
+      background-color: var(--White);
+      grid-column: 1/2;
+      grid-row: 2/3;
+      padding: 0.5rem;
+      border-radius: 5px;
+       display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    .grid4{ 
+      /* Patrick */
+      background-color: var(--Dark-blue);
+      grid-column: 2/4; 
+      grid-row: 2/3;
+      padding: 0.5rem;
+      border-radius: 5px;
+       display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    .grid5{ 
+      /* Kira */
+      background-color: var(--White);
+      grid-column: 4/5;
       grid-row: 1/3;
       padding: 0.5rem;
       border-radius: 5px;
        display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-    .grid3{ 
-      /* Jeanette */
-      background-color: var(--White);
-      grid-column: 1/2;
-      grid-row: 2/4;
-      padding: 0.5rem;
-      border-radius: 5px;
-       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .grid4{ 
-      /* Patrick */
-      background-color: var(--Dark-blue);
-      grid-column: 2/4; 
-      grid-row: 2/4;
-      padding: 0.5rem;
-      border-radius: 5px;
-       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .grid5{ 
-      /* Kira */
-      background-color: var(--White);
-      grid-column: 4/5;
-      grid-row: 1/4;
-      padding: 0.5rem;
-      border-radius: 5px;
-       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
   </style>
 </head>
 <body>
   <div class="grid-container">
   <div class="grid1">
-    <div class= "details"><img src="images/image-daniel.jpg" alt="Daniel Photo"><span class="Daniel">Daniel Clifford</span><p>
-  Verified Graduate</p></div>
+    <div class= "details"><img src="images/image-daniel.jpg" alt="Daniel Photo"><span class="Name"><span class="Daniel">Daniel Clifford</span><p>
+  Verified Graduate</p></span></div>
 
   <span class="title">I received a job offer mid-course, and the subjects I learned were current, if not more so, 
   in the company I joined. I honestly feel I got every penny’s worth.</span>
@@ -161,8 +169,8 @@
 </div>
 
   <div class="grid2">
-    <div class=details><img src="images/image-jonathan.jpg" alt="Jonathan Walters Photo" srcset=""><span class="Jonathan">Jonathan Walters</span><p>
-  Verified Graduate</p></div>
+    <div class="details"><img src="images/image-jonathan.jpg" alt="Jonathan Walters Photo" srcset=""><span class="Name"><span class="Jonathan">Jonathan Walters</span><p>
+  Verified Graduate</p></span></div>
 
   <span class="title">The team was very supportive and kept me motivated</span>
 
@@ -171,8 +179,8 @@
 </div>
 
   <div class="grid3">
-    <div class="details"><img src="images/image-jeanette.jpg" alt="Jeanette Harmon Photo" srcset=""><span class="Jeanette">Jeanette Harmon</span><p>
-  Verified Graduate</p></div>
+    <div class="details"><img src="images/image-jeanette.jpg" alt="Jeanette Harmon Photo" srcset=""><span class="Name"><span class="Jeanette">Jeanette Harmon</span><p>
+  Verified Graduate</p></span></div>
 
   <span class="title1">An overall wonderful and rewarding experience</span>
 
@@ -181,8 +189,8 @@
 </div>
 
   <div class="grid4">
-    <div class="details"><img src="images/image-patrick.jpg" alt="Patrick Abrams Photo" srcset=""><span class="Patrick">Patrick Abrams</span><p>
-  Verified Graduate</p></div>
+    <div class="details"><img src="images/image-patrick.jpg" alt="Patrick Abrams Photo" srcset=""><span class="Name"><span class="Patrick">Patrick Abrams</span><p>
+  Verified Graduate</p></span></div>
 
   <span class="title">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and 
   learning from their experiences was easy.</span>
@@ -194,8 +202,8 @@
 </div>
 
   <div class="grid5">
-    <div class="details"><img src="images/image-kira.jpg" alt="Kira Whittle Photo" srcset=""><span class="Kira">Kira Whittle</span><p>
-  Verified Graduate</p></div>
+    <div class="details"><img src="images/image-kira.jpg" alt="Kira Whittle Photo" srcset=""><span class="Name"><span class="Kira">Kira Whittle</span><p>
+  Verified Graduate</p></span></div>
 
   <span class="title1">Such a life-changing experience. Highly recommended!</span>
 

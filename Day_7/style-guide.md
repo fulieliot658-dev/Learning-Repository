@@ -1,13 +1,23 @@
 # Front-end Style Guide
 
-## Layout
+## Layout background-image: url("images/bg-pattern-quotation.svg");
+      background-repeat: no-repeat;
+      background-position: top 0 right 10%;
+    }background-image: url("images/bg-pattern-quotation.svg");
+      background-repeat: no-repeat;
+      background-position: top 0 right 10%;
+    }
 
 The designs were created to the following widths:
-
+grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+      max-width: 1110px;
+      width: 100%;
 - Mobile: 375px
 - Desktop: 1440px
 
-> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
+> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
 
 ## Colors
 
