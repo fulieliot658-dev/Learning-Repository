@@ -10,6 +10,9 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    /* Google Fonts Import for Maison Soleil Design System */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
     :root{
       /* ## Colors */
 
@@ -48,44 +51,269 @@
 --Rose-500: hsl(340, 48%, 52%);
 
     }
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body{
+      min-height: 100vh;
+      flex: 1;
+      padding: 0;
+      margin: 0;
+      max-width: 100%;
+      background-color: var(--Sun-50);
+    }
+    .main-container{
+      padding: 0;
+      margin: 0;
+      display: grid;
+      height: 100vh;
+      max-width: 100vw;
+      width: 1110px;
+      grid-template-columns: 200px auto;
+    }
+    .sidebar{
+      grid-column: 1/2;
+      grid-row: 1;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      border-right: 1px solid var(--Neutral-400);
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+    .head{
+      border-bottom: 1px solid var(--Neutral-400);
+      padding-bottom: 0.5em;
+    }
+    .nav{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .link{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .one{
+      opacity: 0;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    .link:hover{
+      background-color: var(--Neutral-0);
+      .one{
+      border-radius: 50%;
+      width: 20px;
+      background-color: var(--Terracotta-700);
+      color: var(--Sun-50);
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+    }
+    padding: 5px;
+    border-radius: 10px;
+    }
+    /* .link1{
+      display: flex;
+    } */
+    a{
+      text-decoration: none;
+      color: var(--Neutral-900);
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+    a:hover{
+      background-color: var(--Neutral-0);
+      padding: 5px;
+      border-radius: 10px;
+    }
+    .weather{
+      display: flex;
+      flex-direction: column;
+      /* background-color: var(--Sun-500); */
+      border-radius: 10px;
+      padding: 5px;
+      background: url(assets/images/icon-weather.svg) var(--Sun-300);
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: 50px;
+    }
+    .state{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .temp{
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 600;
+    }
+    .status{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .address{
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--Neutral-600);
+      line-height: 1.4;
+    }
+    .bottom{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      bottom: 0;
+      z-index: 0;
+    }
+    .main{
+      grid-column: 2/3;
+      grid-row: 1;
+      padding-left: 1.5em;
+    }
+    .header{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .left{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+   .profile1{
+    font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--Neutral-700);
+    }
+    .welcome{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: x-large;
+      font-weight: 600;
+      color: var(--Neutral-900);
+    }
+    .name{
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-size: x-large;
+      font-weight: 600;
+      color: var(--Terracotta-700);
+    }
+    .right{
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+      padding: 0.5em;
+    }
+    .white{
+      background-color: var(--Neutral-0);
+      color: var(--Neutral-900);
+      border: 1px solid var(--Neutral-400);
+      padding-left: 1em;
+     padding-right: 1em;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .white:hover{
+      background-color: var(--Neutral-900);
+      color: var(--Neutral-0);
+    }
+    .black{
+      background-color: var(--Neutral-900);
+      color: var(--Neutral-0);
+      border: 1px solid var(--Neutral-400);
+      padding-left: 1em;
+      padding-right: 1em;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .black:hover{
+      background-color: var(--Neutral-0);
+      color: var(--Neutral-900);
+    }
+    .reciept-card{
+      background-color: var(--Neutral-0);
+      border-radius: 10px;
+      padding: 1em;
+      width: 100%;
+      margin-top: 1em;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--Neutral-900);
+    }
+    .attribution{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+    }
   </style>
 </head>
 <body>
-
+<div class="main-container">
   <!-- Sidebar starts -->
-
-  Maison Soleil
+<div class="sidebar">
+  <div class="nav">
+  <div class="head"><img src="assets/images/logo.svg" alt="" srcset=""></div>
 
   <!-- Guest navigation -->
-  Your stay
-  1
-  The house
-  Around town
-  Breakfast
-  Messages
 
+  <div class="link"><a href="http://" class="link1"><img src="assets/images/icon-bed.svg" alt="" srcset="">Your stay </a><span class="one">1</span></div>
+  <a href="http://"><img src="assets/images/icon-house.svg" alt="" srcset="">The house</a>
+  <a href="http://"><img src="assets/images/icon-pin.svg" alt="" srcset="">Around town</a>
+  <a href="http://"><img src="assets/images/icon-breakfast-outline.svg" alt="" srcset="">Breakfast</a>
+  <a href="http://"><img src="assets/images/icon-mail.svg" alt="" srcset="">Messages</a>
+</div>
   <!-- Local weather -->
-  Today in Cassis
-  27°
-  Sunny · light breeze
-
-  Est. 1987
-  Maison Soleil · 12 Rue des Oliviers · Cassis
+   <div class="bottom">
+   <div class="weather">
+  <span class="state">Today in Cassis</span>
+  <span class="temp">27°</span>
+  <span class="status">Sunny · light breeze</span>
+</div>
+<div class="address">
+  Est. 1987<br>
+  Maison Soleil · 12 Rue des Oliviers · Cassis<br>
   © 2026 Maison Soleil
-
+  </div>
+  </div>
+</div>
   <!-- Sidebar ends -->
 
   <!-- Main content starts -->
-
-  Booking · Confirmed
-  Bienvenue, Lucia.
-
-  Print receipt
-  Add to calendar
-
+   <div class="main">
+<div class="header">
+  <div class="left">
+  <span class="profile1">Booking · Confirmed</span>
+  <span class="welcome">Bienvenue, <span class="name">Lucia.</span></span>
+</div>
+<div class="right">
+  <button class="white">Print receipt</button>
+  <button class="black">Add to calendar</button>
+  </div>
+</div>  
   <!-- Booking cards start -->
-
+<div class="cards">
   <!-- Receipt card -->
+   <div class="reciept-card">
   Receipt
   № MS-2026
   0421-AH
@@ -111,27 +339,32 @@
   € 730.40
 
   Paid · Wise · GBP
+  </div>
   <!-- Barcode image -->
 
   <!-- Note from host card -->
+   <div class="garrige">
   Welcome
   A note from your host, Margaux.
   We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to notice you.
   Room
   La Garrigue
-
+</div>
+</div>
   <!-- Booking cards end -->
 
   <!-- Guest info row starts -->
 
   <!-- Arrival -->
+   <div class="grid">
   Arrival
   01
   Check-in from 15:00
   Sat, 25 April
   Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.
-
+</div>
   <!-- Wifi -->
+   <div class="grid">
   Wifi
   02
   Le Soleil · Guest
@@ -141,14 +374,17 @@
   Password
   soleil-2026
   Copy
-
+</div>
   <!-- Breakfast -->
+<div class="grid">
   Breakfast
   03
   Served 8 - 10:30
   On the terrace
   Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.
-
+</div>
+</div>
+</div>
   <!-- Guest info row ends -->
 
   <!-- Main content ends -->
