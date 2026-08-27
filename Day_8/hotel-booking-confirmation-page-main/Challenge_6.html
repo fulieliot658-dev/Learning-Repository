@@ -69,9 +69,9 @@
       padding: 0;
       margin: 0;
       display: grid;
-      height: 100vh;
+      height: 100%;
       max-width: 100vw;
-      width: 1110px;
+      width: 100%;
       grid-template-columns: 200px auto;
     }
     .sidebar{
@@ -269,7 +269,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 1em 1em 1em 2em;
+      padding: 1em 1em 3em 2em;
     }
     .reciept-card{
       width: 50%;
@@ -411,10 +411,107 @@ font-size: 0.875rem;
       font-size: larger;
       font-weight: 500;
     }
+    .grids{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      gap: 1.5em;
+    }
+    .grid1{
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      grid-column: 1/2;
+      background-color: var(--Neutral-0);
+      justify-content: space-between;
+      padding: 1em;
+      border: 1px solid var(--Neutral-400);
+      border-radius: 10px;
+    }
+    .grid2{
+     display: flex;
+      flex-direction: column;
+      grid-column: 2/3;
+      background-color: var(--Neutral-0);
+      justify-content: space-between;
+      padding: 1em;
+      border: 1px solid var(--Neutral-400);
+      border-radius: 10px;
+    }
+      .grid3{
+       display: flex;
+      flex-direction: column;
+      grid-column: 3/4;
+      background-color: var(--Neutral-0);
+      justify-content: space-between;
+      padding: 1em;
+      border: 1px solid var(--Neutral-400);
+      border-radius: 10px;
+      }
     .one{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      background-color: aqua;
+    }
+    .two{
+       display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .three{
+       display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .arrival{
+      background-color: var(--Terracotta-400);
+      border-radius: 5px;
+    }
+    .wifi{
+      background-color: var(--Blue-500);
+      border-radius: 5px;
+    }
+    .breakfast{
+      background-color: var(--Rose-500);
+      border-radius: 5px;
+    }
+    #number1{
+      color: var(--Terracotta-400);
+    }
+    #number2{
+      color: var(--Blue-500);
+    }
+    #number3{
+      color: var(--Rose-500);
+    }
+    #arrival{
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+       color: var(--Terracotta-400);
+       align-items: center;
+    }
+    #wifi{
+       display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+      color: var(--Blue-500);
+      align-items: center;
+    }
+    #breakfast{
+       display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+      color: var(--Rose-500);
+      align-items: center;
+    }
+    #one{
+      font-size: 1.5rem;
+    }
+    #date01{
+      text-transform: capitalize;
+      color: var(--Neutral-600);
     }
     .attribution{
       display: flex;
@@ -521,31 +618,33 @@ font-size: 0.875rem;
   <!-- Guest info row starts -->
 
   <!-- Arrival -->
-   <div class="grid">
-    <div class="one"><span class="foot" id="arrival"><img src="assets/images/icon-key.svg" alt="" srcset="">Arrival</span> <span class="times" id="one">01</span></div>
-  <span class="times" id="01">Check-in from 15:00</span>
-  <span class="date01">Sat, 25 April</span>
-  <span>Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.</span>
+   <div class="grids">
+   <div class="grid1">
+    <div class="one"><span class="foot" id="arrival"><img src="assets/images/icon-key.svg" alt="" srcset="" class="arrival">Arrival</span> <span class="times" id="number1">01</span></div>
+  <span class="times" id="one">Check-in from 15:00</span>
+  <span id="date01">Sat, 25 April</span>
+  <span class="details">Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.</span>
 </div>
   <!-- Wifi -->
-   <div class="grid">
-  <span class="foot" id="wifi"><img src="assets/images/icon-wifi.svg" alt="" srcset="">Wifi</span>
-  <span class="times" id="02">02</span>
-  <span class="description"></span>Le Soleil · Guest</span>
-  <span class="description">Password below</span>
+   <div class="grid2">
+  <div class="two"><span class="foot" id="wifi"><img src="assets/images/icon-wifi.svg" alt="" srcset="" class="wifi">Wifi</span>
+  <span class="times" id="number2">02</span></div>
+  <span class="times" id="one">Le Soleil · Guest</span>
+  <span id="date01">Password below</span>
   <span class="description">Network</span>
   <span class="description">Le Soleil · Guest</span>
   <span class="description">Password</span>
   <span class="description">soleil-2026</span>
-  <span class="description">Copy</span>
+  <button id="copy">Copy</button>
 </div>
   <!-- Breakfast -->
-<div class="grid">
-  <span class="foot" id="breakfast"><img src="assets/images/icon-breakfast.svg" alt="" srcset="">Breakfast</span>
-  <span class="times" id="03">03</span>
-  <span class="description"></span>Served 8 - 10:30</span>
-  <span class="description">On the terrace</span>
-  <span class="description">Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.</span>
+<div class="grid3">
+  <div class="three"><span class="foot" id="breakfast"><img src="assets/images/icon-breakfast.svg" alt="" srcset="" class="breakfast">Breakfast</span>
+  <span class="times" id="number3">03</span></div>
+  <span class="times" id="one">Served 8 - 10:30</span>
+  <span id="date01">On the terrace</span>
+  <span class="details">Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.</span>
+</div>
 </div>
 </div>
 </div>
