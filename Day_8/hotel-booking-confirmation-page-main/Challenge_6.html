@@ -411,10 +411,14 @@ font-size: 0.875rem;
       font-size: larger;
       font-weight: 500;
     }
+    .one{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
     .attribution{
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: row;
       font-family: 'Inter', sans-serif;
       font-size: 0.75rem;
     }
@@ -518,30 +522,30 @@ font-size: 0.875rem;
 
   <!-- Arrival -->
    <div class="grid">
-    <div class="01"><span class="foot" id="arrival">Arrival</span> <span class="times" id="one">01</span></div>
+    <div class="one"><span class="foot" id="arrival"><img src="assets/images/icon-key.svg" alt="" srcset="">Arrival</span> <span class="times" id="one">01</span></div>
   <span class="times" id="01">Check-in from 15:00</span>
   <span class="date01">Sat, 25 April</span>
   <span>Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.</span>
 </div>
   <!-- Wifi -->
    <div class="grid">
-  Wifi
-  02
-  Le Soleil · Guest
-  Password below
-  Network
-  Le Soleil · Guest
-  Password
-  soleil-2026
-  Copy
+  <span class="foot" id="wifi"><img src="assets/images/icon-wifi.svg" alt="" srcset="">Wifi</span>
+  <span class="times" id="02">02</span>
+  <span class="description"></span>Le Soleil · Guest</span>
+  <span class="description">Password below</span>
+  <span class="description">Network</span>
+  <span class="description">Le Soleil · Guest</span>
+  <span class="description">Password</span>
+  <span class="description">soleil-2026</span>
+  <span class="description">Copy</span>
 </div>
   <!-- Breakfast -->
 <div class="grid">
-  Breakfast
-  03
-  Served 8 - 10:30
-  On the terrace
-  Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.
+  <span class="foot" id="breakfast"><img src="assets/images/icon-breakfast.svg" alt="" srcset="">Breakfast</span>
+  <span class="times" id="03">03</span>
+  <span class="description"></span>Served 8 - 10:30</span>
+  <span class="description">On the terrace</span>
+  <span class="description">Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.</span>
 </div>
 </div>
 </div>
@@ -550,8 +554,8 @@ font-size: 0.875rem;
   <!-- Main content ends -->
 
   <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</span>
+    <span>Coded by <a href="#">Your Name Here</a>.</span>
   </footer>
 </body>
 </html>
