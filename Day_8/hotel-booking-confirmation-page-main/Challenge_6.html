@@ -55,6 +55,7 @@
       padding: 0;
       margin: 0;
       font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
     }
     body{
       min-height: 100vh;
@@ -86,6 +87,9 @@
     .head{
       border-bottom: 1px solid var(--Neutral-400);
       padding-bottom: 0.5em;
+    }
+    .head:hover{
+      transform: scale(1.05);
     }
     .nav{
       display: flex;
@@ -140,11 +144,21 @@
       flex-direction: column;
       /* background-color: var(--Sun-500); */
       border-radius: 10px;
-      padding: 5px;
+      padding: 0.5em;
+      margin-bottom: 1em;
       background: url(assets/images/icon-weather.svg) var(--Sun-300);
       background-repeat: no-repeat;
-      background-position: top right;
+      background-position: top -10px right -10px;
+      background-size: 4em;
+      border-bottom: 1px solid var(--Neutral-400);
+    }
+    .weather:hover{
+      background: url(assets/images/icon-weather.svg) var(--Sun-500);
+      background-repeat: no-repeat;
+      background-position: top -10px left -10px;
       background-size: 50px;
+      transform: scale(1.05);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
     .state{
       font-family: 'Inter', sans-serif;
@@ -181,6 +195,8 @@
       grid-column: 2/3;
       grid-row: 1;
       padding-left: 1.5em;
+      height: auto;
+      width: auto;
     }
     .header{
       display:flex;
@@ -248,14 +264,152 @@
       color: var(--Neutral-900);
     }
     .cards{
-      width: 100%;
+      width: 80%;
       height: auto;
       display: flex;
       flex-direction: row;
       align-items: center;
+      padding: 1em 1em 1em 2em;
     }
     .reciept-card{
-
+      width: 50%;
+      height: auto;
+      padding: 1em;
+      gap: 0.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 10px;
+      background-color: var(--Neutral-0);
+      box-shadow: 0px 8px 6px rgba(0, 0, 0, 0.1);
+    }
+    .reciept-card:hover{
+      transform: rotate(-5deg);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .head-cart{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .index{
+      display: flex;
+      flex-direction: column;
+    }
+    .date{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1em;
+      padding-left: 2em; 
+      padding-right: 2em;
+       padding-bottom: 1em;
+      border-bottom: 1px solid var(--Neutral-400);
+    }
+    .left-date, .right-date{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .foot{
+      color: var(--Neutral-600);
+      font-family: monospace;
+      text-transform: uppercase;
+    }
+    .times1{
+      font-family: 'Playfair Display', Georgia, serif; 
+      color: var(--Neutral-900);
+      font-size: larger;
+      font-weight: 700;
+      padding-bottom: 1em;
+      border-bottom: 1px solid var(--Neutral-400);
+    }
+    /*  */
+    #times{
+      padding-bottom: 1em;
+    }
+    .times{
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: x-large;
+      font-weight: 600;
+    }
+    .price{
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid var(--Neutral-700);
+    }
+    .list{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .last{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .end{
+      gap: 1em;
+    }
+    .garrige{
+      color: var(--Neutral-0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50%;
+      height: auto;
+      padding: 1em;
+      border-radius: 10px;
+      gap: 1.3em;
+      background: var(--Terracotta-700) url(assets/images/icon-sun.svg);
+      background-repeat: no-repeat;
+      background-position: top 20px right 20px;
+      background-size: 4em;
+      box-shadow: 0px 9px 6px var(--Sun-300);
+    }
+    .garrige:hover{
+      transform: rotate(5deg);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    #foot1{
+      color: var(--Neutral-0);
+      border-top: 1px dashed rgba(190, 190, 190, 0.1);
+      padding-top: 1em;
+      text-transform: uppercase;
+      color: var(--Neutral-400);
+      font-size: 0.875rem;
+    }
+    #foot2{
+color: var(--Neutral-0);
+text-transform: uppercase;
+color: var(--Neutral-400);
+font-size: 0.875rem;
+    }
+    .middle{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2em;
+      margin-top: 3em;
+      margin-bottom: 4em;
+    }
+    .italics{
+      font-style: italic;
+      font-family:'Times New Roman', Times, serif;
+      font-weight: 500;
+      font-size: large;
+      color: var(--Sun-300);
+    }
+    #time{
+      font-size: 2em;
+    }
+    .description{
+      color: var(--Neutral-400);
+    }
+    .Times{
+      font-family: 'Playfair Display', Georgia, serif; 
+      font-size: larger;
+      font-weight: 500;
     }
     .attribution{
       display: flex;
@@ -313,41 +467,49 @@
 <div class="cards">
   <!-- Receipt card -->
    <div class="reciept-card">
-  Receipt
-  № MS-2026
-  0421-AH
-
-  Your stay
-
-  Check in
-  25 Apr
-  Saturday · 15:00
-
-  Check out
-  29 Apr
-  Wednesday · 11:00
-
-  Room · La Garrigue · 4 nights
-  € 620.00
-  Breakfast · 2 guests
-  € 96.00
-  Tourist tax
-  € 14.40
-
-  Total paid
-  € 730.40
-
-  <div class="last"><span class="foot"> Paid · Wise · GBP </span><img src="assets/images/icon-barcode.svg" alt="" srcset=""></div>
+    <div class="head-cart">
+ <span class="foot">Receipt</span>
+  <div class="index"><span class="foot">№ MS-2026</span>
+  <span class="foot">0421-AH</span></div>
+</div>
+  <div class="times1">Your stay</div>
+  <div class="date">
+<div class="left-date">
+  <span class="foot">Check in</span>
+  <span class="times">25 Apr</span>
+  <span>Saturday · 15:00</span></div>
+<div class="right-date">
+  <span class="foot">Check out</span>
+ <span class="times">29 Apr</span>
+  <span>Wednesday · 11:00</span></div></div>
+  <div class="price"><div class="list">
+  <span>Room · La Garrigue · 4 nights</span>
+  <span>€ 620.00</span></div>
+    <div class="list">
+  <span>Breakfast · 2 guests</span>
+  <span>€ 96.00</span></div>
+  <div class="list">
+  <span>Tourist tax</span>
+  <span>€ 14.40</span>
+</div></div>
+<div class="end">
+<div class="last">
+  <span class="foot">Total paid</span>
+  <span class="times" id="times">€ 730.40</span>
+</div>
+  <div class="last"><span class="foot"> Paid · Wise · GBP </span><img src="assets/images/icon-barcode.svg" alt="" srcset=""></div></div>
   </div>
   <!-- Barcode image -->
 
   <!-- Note from host card -->
    <div class="garrige">
-  Welcome
-  A note from your host, Margaux.
-  We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to notice you.
-  Room
-  La Garrigue
+  <span class="foot" id="foot1">Welcome card</span>
+  <div class="middle">
+  <span class="italics">A note from your host,</span> 
+  <span class="times" id="time">Margaux.</span>
+  <span class="description">We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to notice you.</span></div>
+  <span class="foot" id="foot2">Room</span>
+  <span class="Times">La Garrigue</span>
 </div>
 </div>
   <!-- Booking cards end -->
@@ -356,11 +518,10 @@
 
   <!-- Arrival -->
    <div class="grid">
-  Arrival
-  01
-  Check-in from 15:00
-  Sat, 25 April
-  Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.
+    <div class="01"><span class="foot" id="arrival">Arrival</span> <span class="times" id="one">01</span></div>
+  <span class="times" id="01">Check-in from 15:00</span>
+  <span class="date01">Sat, 25 April</span>
+  <span>Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.</span>
 </div>
   <!-- Wifi -->
    <div class="grid">
