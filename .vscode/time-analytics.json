@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1829386527,
-    "totalActiveTime": 30892698
+    "totalFocusTime": 1841210014,
+    "totalActiveTime": 31470660
   },
   "files": {
     "javascript.html": {
@@ -102,8 +102,8 @@
       "focus": 141403
     },
     "Day_7/Challenge_5.html": {
-      "pending": 2532807,
-      "focus": 27108158
+      "pending": 2541701,
+      "focus": 27144359
     },
     "Day_8/Challenge_6.html": {
       "pending": 0,
@@ -115,7 +115,7 @@
     },
     "Day_8/hotel-booking-confirmation-page-main/Challenge_6.html": {
       "pending": 4229810,
-      "focus": 71153183
+      "focus": 71198940
     },
     "Day_8/hotel-booking-confirmation-page-main/style-guide.md": {
       "pending": 0,
@@ -123,11 +123,39 @@
     },
     "Day_9/index.html": {
       "pending": 0,
-      "focus": 19562
+      "focus": 80009
+    },
+    "Day_9/tic-website/.env.local": {
+      "pending": 27006,
+      "focus": 174307
+    },
+    "Day_9/tic-website/src/supabaseClient.js": {
+      "pending": 33931,
+      "focus": 142130
+    },
+    "Day_9/tic-website/src/App.jsx": {
+      "pending": 166789,
+      "focus": 1196893
+    },
+    "Day_9/tic-website/src/index.css": {
+      "pending": 10259,
+      "focus": 124747
+    },
+    "Day_9/tic-website/src/main.jsx": {
+      "pending": 8416,
+      "focus": 136494
+    },
+    "Day_9/tic-website/src/App.css": {
+      "pending": 4467,
+      "focus": 35756
+    },
+    "Day_10/Finanacial_calculator.html": {
+      "pending": 315708,
+      "focus": 1426141
     }
   },
   "deleted": {
-    "active": 7249,
-    "focus": 350889
+    "active": 9741,
+    "focus": 453065
   }
 }
