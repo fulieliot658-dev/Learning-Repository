@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1841855903,
-    "totalActiveTime": 31620450
+    "totalFocusTime": 1843481382,
+    "totalActiveTime": 31915083
   },
   "files": {
     "javascript.html": {
@@ -151,7 +151,11 @@
     },
     "Day_10/Finanacial_calculator.html": {
       "pending": 465498,
-      "focus": 2303588
+      "focus": 2376330
+    },
+    "Day_11/index.html": {
+      "pending": 294633,
+      "focus": 1383785
     }
   },
   "deleted": {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Document</title>
+        <script type="text/javascript">
+            const cart = [
+  { item: "Laptop", price: 1000 },
+  { item: "Mouse", price: 25 },
+  { item: "Keyboard", price: 75 }
+];
+
+// reduce(callback(accumulator, currentValue), initialValue)
+const totalPrice = cart.reduce((total, product) => {
+  return total + product.price;
+}, 0);
+
+console.log(totalPrice); // 1100
+const callback = (total, product) => {
+  return total + product.price;}
+
+function reduce(callback, initialValue){
+if(initialValue===null){
+    initialValue=0;
+}
+for(let i=0; i<array.length; i++){
+let result =callback();
+}
+return result;
+}
+console.log(reduce(callback(), 0));
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
