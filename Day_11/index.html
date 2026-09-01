@@ -17,22 +17,74 @@ const totalPrice = cart.reduce((total, product) => {
 }, 0);
 
 console.log(totalPrice); // 1100
-const callback = (total, product) => {
-  return total + product.price;}
+//
+let car = {
+  model: "Golf",
+  make: "Volkswagen",
+  year: 1999,
+  color: "black",
+};
+for (let prop in car){
+  console.log(car[prop]);//[LOG]: "Golf", "Volkswagen", 1999, "black" (prop as a variable with values)
+ console.log(car.prop); //[ERROR]: (04) undefined (Prop as a real key in the object)
+}
+let a = 5;
+let b = ++a; // b is 6, a is 6
+console.log(a, b);
+let x = 5;
+let y = x++; // y is 5, x is 6
+console.log(x, y);
+//
+for (let current = 20; ; current = current + 1) {
+if (current % 7 == 0) {
+console.log(current);
+break;
+}
+}
+let round=10;
+let hash = (key, count)=>{
+    console.log(key);
+if(count===0){
+return "";
+}
+else{
+    return hash(key+"#", count-1);
+}
+}
+console.log(hash("", round));
+//
+function chessBoard(size){
+   let key ="";
+    console.log(key);
+    for(let i=0; ; ++i){
+        if(i===size){
+            let i=0;
+            key+=`${key}\n`;
 
-function reduce(callback, initialValue){
-if(initialValue===null){
-    initialValue=0;
+        }
+for(let j=1; j<size; ++j){
+if(size%j===0){
+    key+="#";
 }
-for(let i=0; i<array.length; i++){
-let result =callback();
+else{
+    key+="";
 }
-return result;
 }
-console.log(reduce(callback(), 0));
+    }
+    return key;
+}
+chessBoard(8);
+
         </script>
+        <style>
+        
+        </style>
     </head>
     <body>
-        
+        <nav>Navbar</nav>
+        <aside>Sidebar</aside>
+        <main>
+            <h1>Bonjour!</h1>
+        </main>
     </body>
 </html>
