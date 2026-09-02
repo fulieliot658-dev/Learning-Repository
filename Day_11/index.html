@@ -62,7 +62,7 @@ console.log(hash("", round));
         else if(key.trimEnd().endsWith("1")){key+="0";}
     }
 if(i===size){break;}
-    if(key.endsWith("0")){key+="\n"+"0"; }
+    if(key.endsWith("0")){key+="\n""0"; }
     else if(key.endsWith("1")){key+="\n"+"1";}
     }
     return key;
