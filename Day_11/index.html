@@ -59,7 +59,7 @@ console.log(hash("", round));
     for(let i=0; i<size; i++){
         for(let j=1; j<(size); j++){
             if(key.trimEnd().endsWith("0")){key+="1";}
-        else if(key.trimEnd(-).endsWith("1")){key+="0";}
+        else if(key.trimEnd().endsWith("1")){key+="0";}
     }
 if(i===size){break;}
     if(key.endsWith("0")){key+="\n"+"0"; }
