@@ -1302,8 +1302,8 @@ function AiChatbotPulser() {
 
     // Knowledge Search Logic
     setTimeout(() => {
-      let aiReply =
-        "TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
+      // let aiReply =
+      //   "TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
 
       const q = userText.toLowerCase();
 
