@@ -1303,7 +1303,7 @@ function AiChatbotPulser() {
     // Knowledge Search Logic
     setTimeout(() => {
       let aiReply =
-        "Thank you for asking! TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
+        "TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
 
       const q = userText.toLowerCase();
 
@@ -1340,9 +1340,9 @@ function AiChatbotPulser() {
       } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
         aiReply =
           "Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy.";
-      }else if (q.includes()) {
-aiReply = "Sorry, please reach out via our Sign Up button (Get started) for more specific inquiries about staff or programs!";
-      }
+      }else if (q.includes("Hello!") || q.includes("Hi!") || q.includes("Hey!") || q.includes("Greetings!")) {
+aiReply = "Hi! welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today?";}
+else if(q.includes("Please what time is it?")||q.includes("Time")){aiReply=`${Date.now(new Date().toLocaleTimeString)}`}
       setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
     }, 600);
   };
