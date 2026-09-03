@@ -398,30 +398,6 @@ export default function App() {
 />
             </div>
           </div>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            {[
-              { id: "home", label: "Home" },
-              { id: "about", label: "About & Team" },
-              { id: "programs", label: "Programs" },
-              { id: "partners", label: "Partners & Investors" },
-              { id: "media", label: "Media & Blog" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? "bg-blue-50 text-blue-800 border-b-2 border-blue-700"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </nav>
-
           {/* Desktop Sign Up Button with Animated Gradient */}
           <div className="hidden md:flex items-center space-x-4">
             <button
