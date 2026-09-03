@@ -390,9 +390,6 @@ export default function App() {
             onClick={() => handleTabChange("home")}
             className="flex items-center space-x-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-xl shadow-md group-hover:bg-red-600 transition-colors duration-300">
-              TiC (Tech Innovation Center)
-            </div>
             <div className="flex flex-col">
               <img 
   src="/path-to-your-logo/logo.png" 
