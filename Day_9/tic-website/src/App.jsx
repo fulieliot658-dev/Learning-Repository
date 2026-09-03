@@ -1340,9 +1340,9 @@ function AiChatbotPulser() {
       } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
         aiReply =
           `Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy. ${Date.now(new Date().toLocaleTimeString)}`;
-      }else if (q.includes("Hello!") || q.includes("Hi!") || q.includes("Hey!") || q.includes("Greetings!")) {
+      }else if (q.includes("hello!") || q.includes("hi!") || q.includes("hey!") || q.includes("greetings!")) {
 aiReply = `Hi! welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today? ${Date.now(new Date().toLocaleTimeString)}`;}
-else if(q.includes("Please what time is it?")||q.includes("Time")){aiReply=`${Date.now(new Date().toLocaleTimeString)}`}
+else if(q.includes("please what time is it?")||q.includes("time")){aiReply=`${Date.now(new Date().toLocaleTimeString)}`}
       setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
     }, 600);
   };
