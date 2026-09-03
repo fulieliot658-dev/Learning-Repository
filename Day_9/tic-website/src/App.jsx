@@ -398,19 +398,6 @@ export default function App() {
 />
             </div>
           </div>
-          {/* Desktop Sign Up Button with Animated Gradient */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button
-              onClick={() => setShowSignUpModal(true)}
-              className="relative group overflow-hidden rounded-xl p-[2px] focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-red-600 to-blue-700 bg-[length:200%_auto] animate-gradient-x rounded-xl" />
-              <span className="relative block px-5 py-2.5 bg-blue-700 hover:bg-opacity-90 rounded-[10px] text-white text-sm font-bold tracking-wide transition-all">
-                Sign Up Now
-              </span>
-            </button>
-          </div>
-
           {/* Mobile Hamburger Trigger */}
           <button
             onClick={() => setMobileSidebarOpen(true)}
