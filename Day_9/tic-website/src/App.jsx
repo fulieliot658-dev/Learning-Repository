@@ -1,7 +1,45 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "./supabaseClient";
+import {
+  Menu,
+  X,
+  MessageSquare,
+  Send,
+  Bot,
+  User,
+  Sparkles,
+  ExternalLink,
+  ChevronRight,
+  Play,
+  Video,
+  Award,
+  Users,
+  Briefcase,
+  Target,
+  BookOpen,
+  Calendar,
+  Globe,
+  Radio,
+  Share2,
+  Heart,
+  CheckCircle,
+  Lightbulb,
+  Rocket,
+  ShieldCheck,
+  TrendingUp,
+  Cpu,
+  GraduationCap,
+  ArrowRight,
+  Minimize2,
+  Move,
+  ThumbsUp,
+  Flame,
+} from "lucide-react";
 
-// --- FULL PARTNER & INVESTOR DIRECTORY WITH AUTHENTIC LINKS ---
+// ==========================================
+// DATA STRUCTURES & CONSTANTS
+// ==========================================
+
 const PARTNERS = [
   {
     name: "TIC Summit",
@@ -9,7 +47,7 @@ const PARTNERS = [
     logo: "./1631355902238.jpg",
     category: "Flagship Innovation Summit",
     tag: "Youth Innovation",
-    desc: "Annual flagship technology summit hosting youth entrepreneurs, developers, and tech ecosystem builders."
+    desc: "Annual flagship technology summit hosting youth entrepreneurs, developers, and tech ecosystem builders.",
   },
   {
     name: "Skolarr",
@@ -17,7 +55,7 @@ const PARTNERS = [
     logo: "./A Tic logo.jpg",
     category: "Educational Technology",
     tag: "EdTech Infrastructure",
-    desc: "Digital learning platform accelerating student academic success and tech skill acquisition."
+    desc: "Digital learning platform accelerating student academic success and tech skill acquisition.",
   },
   {
     name: "AgricFresh",
@@ -25,7 +63,7 @@ const PARTNERS = [
     logo: "./1723577561905.jpg",
     category: "Agritech Partner",
     tag: "Supply Chain & Tech",
-    desc: "Leveraging technological solutions to transform agricultural supply chains and food security."
+    desc: "Leveraging technological solutions to transform agricultural supply chains and food security.",
   },
   {
     name: "Open Dreams",
@@ -33,7 +71,7 @@ const PARTNERS = [
     logo: "./1631355902238.jpg",
     category: "Educational NGO",
     tag: "Scholarship & Mentorship",
-    desc: "Empowering high-achieving scholars with educational access, mentorship, and international opportunities."
+    desc: "Empowering high-achieving scholars with educational access, mentorship, and international opportunities.",
   },
   {
     name: "DV2S Broadcast Channel",
@@ -41,7 +79,7 @@ const PARTNERS = [
     logo: "./1723577561905.jpg",
     category: "Media & Broadcasting",
     tag: "Video & Streaming",
-    desc: "Official broadcast channel streaming technology webinars, event keynotes, and student presentations."
+    desc: "Official broadcast channel streaming technology webinars, event keynotes, and student presentations.",
   },
   {
     name: "Nervtek",
@@ -49,7 +87,7 @@ const PARTNERS = [
     logo: "./nervtek_logo.jpg",
     category: "Technology Solutions",
     tag: "Software & Hardware",
-    desc: "Engineering innovation hub delivering software development, IoT systems, and technical consulting."
+    desc: "Engineering innovation hub delivering software development, IoT systems, and technical consulting.",
   },
   {
     name: "TogetTech",
@@ -57,7 +95,7 @@ const PARTNERS = [
     logo: "./jamie_pajoel_international_logo.jpg",
     category: "International Incubator",
     tag: "Global Expansion",
-    desc: "Connecting African tech innovators with North American technology networks and investment bridges."
+    desc: "Connecting African tech innovators with North American technology networks and investment bridges.",
   },
   {
     name: "DelTech Hub",
@@ -65,7 +103,7 @@ const PARTNERS = [
     logo: "./nervtek_logo.jpg",
     category: "Startup Incubator",
     tag: "Coworking & Innovation",
-    desc: "Tech ecosystem space supporting early-stage technical startups with hardware, mentorship, and cloud tools."
+    desc: "Tech ecosystem space supporting early-stage technical startups with hardware, mentorship, and cloud tools.",
   },
   {
     name: "MTN Cameroon",
@@ -73,7 +111,7 @@ const PARTNERS = [
     logo: "./ecobankcameroun_logo.jpg",
     category: "Telecom Partner",
     tag: "Connectivity & Cloud",
-    desc: "Telecommunications enterprise delivering mobile connectivity, digital payment, and infrastructure support."
+    desc: "Telecommunications enterprise delivering mobile connectivity, digital payment, and infrastructure support.",
   },
   {
     name: "Orange Cameroon",
@@ -81,7 +119,7 @@ const PARTNERS = [
     logo: "./ecobankcameroun_logo.jpg",
     category: "Telecom & Digital Services",
     tag: "Digital Ecosystem",
-    desc: "Global telecommunications leader providing enterprise connectivity and backing digital skills development."
+    desc: "Global telecommunications leader providing enterprise connectivity and backing digital skills development.",
   },
   {
     name: "Camtel",
@@ -89,934 +127,1372 @@ const PARTNERS = [
     logo: "./ecobankcameroun_logo.jpg",
     category: "National Telecom Partner",
     tag: "Fiber & Infrastructure",
-    desc: "Cameroon's national telecommunications provider backing optical fiber infrastructure and academic networks."
+    desc: "Cameroon's national telecommunications provider backing optical fiber infrastructure and academic networks.",
   },
 ];
 
-// --- VECTOR SVG ICON COMPONENT SUITE ---
-const Icons = {
-  Sun: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-    </svg>
-  ),
-  Moon: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-    </svg>
-  ),
-  Layers: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-    </svg>
-  ),
-  FileText: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-    </svg>
-  ),
-  Volume2: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-    </svg>
-  ),
-  BookOpen: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-    </svg>
-  ),
-  Upload: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-    </svg>
-  ),
-  User: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-    </svg>
-  ),
-  LogOut: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-    </svg>
-  ),
-  Sparkles: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-    </svg>
-  ),
-  ArrowRight: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-  ),
-  ExternalLink: () => (
-    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-    </svg>
-  ),
-  ShieldCheck: () => (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-    </svg>
-  ),
-  CheckCircle: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  AlertCircle: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  Loader2: () => (
-    <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-    </svg>
-  ),
-  MessageSquare: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-  ),
-  Send: () => (
-    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-    </svg>
-  ),
-  Play: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  Pause: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  Briefcase: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  Globe: () => (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-    </svg>
-  )
-};
+const STAFF_MEMBERS = [
+  {
+    name: "Mr. Bill Agha",
+    role: "Founder & Current President",
+    region: "Executive Leadership",
+    bio: "Pioneering technology visionary driving youth empowerment, entrepreneurship, and digital transformation across Cameroon and Africa.",
+    tag: "Leadership",
+  },
+  {
+    name: "Mr. Nobert",
+    role: "Vice President",
+    region: "Executive Leadership",
+    bio: "Co-leading strategic growth, organizational compliance, regional expansions, and high-impact partnership development.",
+    tag: "Executive",
+  },
+  {
+    name: "Azambou Yollande",
+    role: "National Coordinator",
+    region: "National Headquarters",
+    bio: "Cameroonian tech and youth empowerment leader leading nationwide programs like TIC Summit, workshops, and hackathons reaching over 1,000+ students.",
+    tag: "Coordination",
+  },
+  {
+    name: "Afesi Ayafor Bill Adip",
+    role: "South West Regional Coordinator",
+    period: "2025/2026",
+    region: "South West Region",
+    bio: "Engineering student passionate about solving local challenges in electricity/internet connectivity to position Cameroon in technology and space advancement.",
+    tag: "Regional Leader",
+  },
+  {
+    name: "Njingti Shanelle",
+    role: "Centre Regional Coordinator",
+    period: "2025/2026",
+    region: "Centre Region",
+    bio: "Tech enthusiast and aspiring backend developer supporting youth-focused technology, community engagement, and digital skills delivery.",
+    tag: "Regional Leader",
+  },
+  {
+    name: "Ngoh Precious Fon",
+    role: "Littoral Regional Coordinator",
+    period: "2025/2026",
+    region: "Littoral Region",
+    bio: "Cloud computing advocate, Chief Program Officer at Skolarr Olympiads, and community builder focused on youth empowerment and problem solving.",
+    tag: "Regional Leader",
+  },
+  {
+    name: "Soh Talla Erick",
+    role: "North West Regional Coordinator",
+    period: "2025/2026",
+    region: "North West Region",
+    bio: "Computer Engineering student, founder of AntCodeHub, driving youth development through coding, digital skills, mentorship, branding, and marketing.",
+    tag: "Regional Leader",
+  },
+  {
+    name: "Punwo Komolo",
+    role: "North West Regional Deputy",
+    period: "2025/2026",
+    region: "North West Region",
+    bio: "Software Engineering student at College of Technology Bambili, passionate about climate change innovation, software engineering, and open mentorship.",
+    tag: "Deputy Leader",
+  },
+  {
+    name: "Mr. Afuh Flynn",
+    role: "Lead Facilitator (Best Facilitator 2026)",
+    region: "Bootcamp & Mentorship",
+    bio: "Awarded Best Facilitator for the 2026 TiC Bootcamp. Expert instructor mentoring young talents in modern software and practical development.",
+    tag: "Top Facilitator",
+  },
+  {
+    name: "Mr. Bah Emmanuel",
+    role: "Facilitator - Software & Bootcamp",
+    region: "Technical Training",
+    bio: "Core facilitator guiding students through full-stack software development, problem solving, and hands-on coding bootcamps.",
+    tag: "Facilitator",
+  },
+  {
+    name: "Mr. Kombou Daniel",
+    role: "Facilitator - Summit & Workshops",
+    region: "Technical Training",
+    bio: "Technical mentor leading workshops and project building sessions during TIC Summit events across regions.",
+    tag: "Facilitator",
+  },
+  {
+    name: "Joyceline Ngwebeh Manjoh",
+    role: "Communication Volunteer",
+    period: "2023 - 2026",
+    region: "Media & Outreach",
+    bio: "Passionate about leadership and practical education in Africa. Bridging theoretical learning with hands-on creative and digital skills.",
+    tag: "Volunteer",
+  },
+  {
+    name: "Nsawir Hope Fonyuy",
+    role: "Project Management Volunteer",
+    period: "2023 - 2025",
+    region: "Project Management",
+    bio: "Medical student at KNUST Ghana using innovative thinking and project organization to improve community health access and drive youth change.",
+    tag: "Volunteer",
+  },
+];
+
+const PROGRAM_LIST = [
+  {
+    id: "tic-nationals",
+    title: "TIC Nationals",
+    category: "National Competition",
+    desc: "Premier nationwide tech innovation challenge uniting top young minds from across all ten regions of Cameroon to build impactful solutions.",
+    badge: "Flagship",
+  },
+  {
+    id: "girls-for-tech",
+    title: "#GirlsForTech",
+    category: "Inclusion & STEM",
+    desc: "Empowerment program designed to bridge the gender gap in technology by giving young women training in coding, AI, and digital leadership.",
+    badge: "Social Impact",
+  },
+  {
+    id: "sap",
+    title: "Startup Acceleration Program (SAP)",
+    category: "Incubation",
+    desc: "Intensive venture building track providing seed resources, technical support, legal guidance, and mentorship to early-stage youth startups.",
+    badge: "Entrepreneurship",
+  },
+  {
+    id: "earn-digital",
+    title: "Earn with Digital Skills",
+    category: "Vocational & Freelancing",
+    desc: "Practical training enabling youth to monetize skills in web development, graphic design, content creation, and remote freelancing.",
+    badge: "Livelihood",
+  },
+  {
+    id: "pre-seed",
+    title: "TIC Pre-Seed Accelerator",
+    category: "Venture Capital Preparation",
+    desc: "Bridge program preparing high-potential student prototypes for institutional funding, angel investment, and global accelerator acceptance.",
+    badge: "Investment",
+  },
+  {
+    id: "techcrunch",
+    title: "TechCrunch (Hackathon)",
+    category: "Rapid Prototyping",
+    desc: "48-hour continuous coding and design competition where teams collaborate under pressure to solve real business and community challenges.",
+    badge: "Hackathon",
+  },
+  {
+    id: "tic-summit",
+    title: "TIC Summit",
+    category: "Flagship Conference",
+    desc: "The largest annual youth innovation summit in Cameroon featuring keynotes, product exhibitions, investor pitching, and ecosystem networking.",
+    badge: "Annual Flagship",
+  },
+  {
+    id: "tic-bootcamp",
+    title: "TIC Bootcamp",
+    category: "Intensive Tech Training",
+    desc: "Hands-on coding and software engineering bootcamp mentored by industry experts like Best Facilitator 2026 Mr. Afuh Flynn.",
+    badge: "Training",
+  },
+  {
+    id: "tic-internship",
+    title: "TIC Internship Program",
+    category: "Professional Experience",
+    desc: "Two to three-month structured internship placing students into live software development, marketing, and project management roles.",
+    badge: "Career Growth",
+  },
+];
+
+const MEDIA_CHANNELS = [
+  {
+    name: "TIC Summit Official YouTube",
+    url: "https://www.youtube.com/@ticsummit",
+    type: "YouTube Channel",
+    desc: "Watch keynote addresses, summit highlights, and tech project showcases.",
+    icon: Video,
+  },
+  {
+    name: "TIC Summit Secondary Channel",
+    url: "https://www.youtube.com/@TiCSummit-t9u",
+    type: "YouTube Channel",
+    desc: "Extended event streams, workshop archives, and student presentations.",
+    icon: Radio,
+  },
+  {
+    name: "Impact Hungry Media (Partner)",
+    url: "https://www.youtube.com/@impacthungrymedia",
+    type: "Podcast & Media Partner",
+    desc: "In-depth podcast interviews with tech leaders, innovators, and entrepreneurs across Africa.",
+    icon: Globe,
+  },
+  {
+    name: "TIC Foundation Facebook Community",
+    url: "https://www.facebook.com/TiCFoundation237/",
+    type: "Social Community",
+    desc: "Live updates, community announcements, photos, and event coverage.",
+    icon: Share2,
+  },
+];
+
+// ==========================================
+// MAIN COMPONENT: APP
+// ==========================================
 
 export default function App() {
-  // --- APPLICATION STATE MANAGEMENT ---
-  const [theme, setTheme] = useState(() => localStorage.getItem("tic_theme") || "dark");
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("home");
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-  // Supabase Auth State
-  const [session, setSession] = useState(null);
-  const [authMode, setAuthMode] = useState("login");
-  const [authEmail, setAuthEmail] = useState("");
-  const [authPassword, setAuthPassword] = useState("");
-  const [authLoading, setAuthLoading] = useState(false);
-  const [authMessage, setAuthMessage] = useState({ type: "", text: "" });
-
-  // Database States: Surveys
-  const [surveys, setSurveys] = useState([]);
-  const [surveyFilter, setSurveyFilter] = useState("All");
-  const [surveyLoading, setSurveyLoading] = useState(false);
-  const [surveyForm, setSurveyForm] = useState({
-    track: "Full-Stack Web Development",
-    experience: "Beginner",
-    goals: "",
+  // Form State
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    role: "Student",
+    region: "Centre",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Database States: Feedback
-  const [feedbackList, setFeedbackList] = useState([]);
-  const [feedbackLoading, setFeedbackLoading] = useState(false);
-  const [newFeedback, setNewFeedback] = useState("");
+  // Close sidebar on tab change
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setMobileSidebarOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  // Storage State
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-
-  // Audio Broadcast State
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-
-  // Chatbot State
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([
-    { id: 1, sender: "bot", text: "Welcome to Tech Innovation Center! Ask me about our 11 strategic partners, survey forms, or technical tracks." }
-  ]);
-  const [inputMessage, setInputMessage] = useState("");
-  const chatEndRef = useRef(null);
-
-  // --- LIFECYCLE LISTENERS & FETCHES ---
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    fetchSurveys();
-    fetchFeedback();
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("tic_theme", theme);
-  }, [theme]);
-
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chatMessages, isChatOpen]);
-
-  // --- AUTHENTICATION HANDLERS ---
-  const handleAuthSubmit = async (e) => {
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
-    setAuthLoading(true);
-    setAuthMessage({ type: "", text: "" });
+    if (!formData.fullName || !formData.email) return;
 
     try {
-      if (authMode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email: authEmail,
-          password: authPassword,
-        });
-        if (error) throw error;
-        setAuthMessage({ type: "success", text: "Account created! Please check your email to verify." });
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({
-          email: authEmail,
-          password: authPassword,
-        });
-        if (error) throw error;
-        setAuthMessage({ type: "success", text: "Successfully authenticated." });
-        setActiveTab("overview");
+      if (supabase) {
+        await supabase.from("registrations").insert([formData]);
       }
     } catch (err) {
-      setAuthMessage({ type: "error", text: err.message });
-    } finally {
-      setAuthLoading(false);
+      console.log("Supabase submission notice:", err);
     }
-  };
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    setAuthMessage({ type: "success", text: "Signed out successfully." });
-  };
-
-  // --- DATABASE: SURVEYS ---
-  const fetchSurveys = async () => {
-    setSurveyLoading(true);
-    const { data, error } = await supabase
-      .from("surveys")
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (!error && data) setSurveys(data);
-    setSurveyLoading(false);
-  };
-
-  const handleSurveySubmit = async (e) => {
-    e.preventDefault();
-    if (!session) {
-      setActiveTab("auth");
-      setAuthMessage({ type: "error", text: "Please sign in to submit your survey." });
-      return;
-    }
-
-    setSurveyLoading(true);
-    const { error } = await supabase.from("surveys").insert([
-      {
-        user_id: session.user.id,
-        user_email: session.user.email,
-        track: surveyForm.track,
-        experience: surveyForm.experience,
-        goals: surveyForm.goals,
-      },
-    ]);
-
-    if (error) {
-      alert("Database Error: " + error.message);
-    } else {
-      setSurveyForm({ track: "Full-Stack Web Development", experience: "Beginner", goals: "" });
-      fetchSurveys();
-    }
-    setSurveyLoading(false);
-  };
-
-  // --- DATABASE: FEEDBACK ---
-  const fetchFeedback = async () => {
-    setFeedbackLoading(true);
-    const { data, error } = await supabase
-      .from("feedback")
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (!error && data) setFeedbackList(data);
-    setFeedbackLoading(false);
-  };
-
-  const handleFeedbackSubmit = async (e) => {
-    e.preventDefault();
-    if (!newFeedback.trim()) return;
-
-    setFeedbackLoading(true);
-    const { error } = await supabase.from("feedback").insert([
-      {
-        user_id: session ? session.user.id : null,
-        user_email: session ? session.user.email : "Community Member",
-        message: newFeedback,
-      },
-    ]);
-
-    if (error) {
-      alert("Feedback Error: " + error.message);
-    } else {
-      setNewFeedback("");
-      fetchFeedback();
-    }
-    setFeedbackLoading(false);
-  };
-
-  // --- STORAGE BUCKET HANDLER ---
-  const handleFileUpload = async (e) => {
-    e.preventDefault();
-    if (!selectedFile) return alert("Select a file first.");
-    if (!session) {
-      setActiveTab("auth");
-      return setAuthMessage({ type: "error", text: "Sign in required to upload files." });
-    }
-
-    setUploading(true);
-    const fileExt = selectedFile.name.split(".").pop();
-    const fileName = `${session.user.id}/${Date.now()}.${fileExt}`;
-
-    const { data, error } = await supabase.storage
-      .from("user-uploads")
-      .upload(fileName, selectedFile);
-
-    if (error) {
-      alert("Upload Error: " + error.message);
-    } else {
-      setUploadedFiles((prev) => [...prev, { name: selectedFile.name, path: data.path }]);
-      setSelectedFile(null);
-      alert("File uploaded to Supabase storage bucket successfully.");
-    }
-    setUploading(false);
-  };
-
-  // --- SPEECH SYNTHESIS SPEECH ---
-  const toggleSpeech = (text) => {
-    if ("speechSynthesis" in window) {
-      if (isPlayingAudio) {
-        window.speechSynthesis.cancel();
-        setIsPlayingAudio(false);
-      } else {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.95;
-        utterance.onend = () => setIsPlayingAudio(false);
-        setIsPlayingAudio(true);
-        window.speechSynthesis.speak(utterance);
-      }
-    }
-  };
-
-  // --- CHATBOT ASSISTANT ---
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
-
-    const userText = inputMessage;
-    const newMsgList = [...chatMessages, { id: Date.now(), sender: "user", text: userText }];
-    setChatMessages(newMsgList);
-    setInputMessage("");
-
+    setFormSubmitted(true);
     setTimeout(() => {
-      let botResponse = "The Tech Innovation Center partners with key African and international institutions.";
-      const low = userText.toLowerCase();
-
-      if (low.includes("partner") || low.includes("website") || low.includes("link")) {
-        botResponse = "Our active partner network includes TIC Summit (ticsummit.org), Open Dreams (open-dreams.org), Skolarr (skolarr.com), AgricFresh (agricfresh.com), MTN, Orange, Camtel, Nervtek, TogetTech, DelTech Hub, and DV2S Broadcast.";
-      } else if (low.includes("survey") || low.includes("track")) {
-        botResponse = "Navigate to the Skill Survey tab to record your track preferences directly into our Supabase PostgreSQL database.";
-      } else if (low.includes("auth") || low.includes("login")) {
-        botResponse = "Click the Sign In button at the top right to create an account or sign in with your credentials.";
-      }
-
-      setChatMessages((prev) => [...prev, { id: Date.now() + 1, sender: "bot", text: botResponse }]);
-    }, 500);
+      setFormSubmitted(false);
+      setShowSignUpModal(false);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        role: "Student",
+        region: "Centre",
+      });
+    }, 2200);
   };
-
-  const filteredSurveys = surveyFilter === "All"
-    ? surveys
-    : surveys.filter((s) => s.track === surveyFilter);
 
   return (
-    <div className={`min-h-screen font-sans antialiased transition-colors duration-300 ${
-      theme === "dark" ? "bg-slate-950 text-slate-100" : "bg-slate-50 text-slate-900"
-    }`}>
-
-      <div className="h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600 w-full" />
-
-      {/* HEADER & NAVIGATION BAR */}
-      <header className={`sticky top-0 z-40 border-b backdrop-blur-xl ${
-        theme === "dark" ? "bg-slate-950/80 border-slate-800/80" : "bg-white/80 border-slate-200"
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-          
-          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveTab("overview")}>
-            <div className="relative p-0.5 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 group-hover:scale-105 transition-transform">
-              <img src="./A Tic logo.jpg" alt="TIC Logo" className="h-9 w-auto object-contain rounded-lg bg-white" />
+    <div className="min-h-screen bg-white text-slate-800 font-sans flex flex-col selection:bg-blue-100 selection:text-blue-900">
+      {/* HEADER / NAVIGATION */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          {/* Logo Brand */}
+          <div
+            onClick={() => handleTabChange("home")}
+            className="flex items-center space-x-3 cursor-pointer group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-xl shadow-md group-hover:bg-red-600 transition-colors duration-300">
+              TiC
             </div>
-            <div>
-              <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
-                Tech Innovation Center
+            <div className="flex flex-col">
+              <span className="font-extrabold text-lg text-slate-900 tracking-tight leading-tight">
+                TiC <span className="text-blue-700">Foundation</span>
               </span>
-              <span className="block text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
-                Ecosystem Portal
+              <span className="text-[11px] font-semibold text-red-600 tracking-wider uppercase">
+                Cameroon Tech Ecosystem
               </span>
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {[
-              { id: "overview", label: "Overview", icon: Icons.Layers },
-              { id: "partners", label: "Partner Network", icon: Icons.Globe },
-              { id: "survey", label: "Skill Survey", icon: Icons.FileText },
-              { id: "podcast", label: "Audio Lecture", icon: Icons.Volume2 },
-              { id: "blog", label: "Curriculum", icon: Icons.BookOpen },
-              { id: "feedback", label: "Storage & Feedback", icon: Icons.Upload },
-            ].map((tab) => {
-              const IconComponent = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md shadow-blue-500/20"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  <IconComponent />
-                  {tab.label}
-                </button>
-              );
-            })}
+              { id: "home", label: "Home" },
+              { id: "about", label: "About & Team" },
+              { id: "programs", label: "Programs" },
+              { id: "partners", label: "Partners & Investors" },
+              { id: "media", label: "Media & Blog" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                  activeTab === tab.id
+                    ? "bg-blue-50 text-blue-800 border-b-2 border-blue-700"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          {/* Desktop Sign Up Button with Animated Gradient */}
+          <div className="hidden md:flex items-center space-x-4">
             <button
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
+              onClick={() => setShowSignUpModal(true)}
+              className="relative group overflow-hidden rounded-xl p-[2px] focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-md hover:shadow-lg transition-shadow"
             >
-              {theme === "light" ? <Icons.Moon /> : <Icons.Sun />}
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-red-600 to-blue-700 bg-[length:200%_auto] animate-gradient-x rounded-xl" />
+              <span className="relative block px-5 py-2.5 bg-blue-700 hover:bg-opacity-90 rounded-[10px] text-white text-sm font-bold tracking-wide transition-all">
+                Sign Up Now
+              </span>
             </button>
-
-            {session ? (
-              <div className="flex items-center gap-2">
-                <div className="hidden sm:flex flex-col text-right">
-                  <span className="text-xs font-semibold text-slate-200">{session.user.email.split('@')[0]}</span>
-                  <span className="text-[10px] text-emerald-400 flex items-center justify-end gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Active Session
-                  </span>
-                </div>
-                <button
-                  onClick={handleSignOut}
-                  className="flex items-center gap-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 text-xs px-3 py-1.5 rounded-xl font-semibold transition-all"
-                >
-                  <Icons.LogOut />
-                  <span className="hidden sm:inline">Sign Out</span>
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => setActiveTab("auth")}
-                className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs px-4 py-2 rounded-xl font-bold shadow-md shadow-blue-500/20 transition-all"
-              >
-                <Icons.User />
-                Sign In
-              </button>
-            )}
           </div>
+
+          {/* Mobile Hamburger Trigger */}
+          <button
+            onClick={() => setMobileSidebarOpen(true)}
+            className="md:hidden p-2.5 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none"
+            aria-label="Open Menu"
+          >
+            <Menu className="w-7 h-7 text-blue-800" />
+          </button>
         </div>
       </header>
 
-      {/* MAIN CONTAINER */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+      {/* MOBILE SIDEBAR (SWIPE/SLIDE-OVER INSTEAD OF OVER-SATURATED DROP-DOWN) */}
+      {mobileSidebarOpen && (
+        <div className="fixed inset-0 z-50 flex justify-end md:hidden">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileSidebarOpen(false)}
+          />
 
-        {/* OVERVIEW HERO & PARTNER TICKER */}
-        {activeTab === "overview" && (
-          <div className="space-y-12">
-            <section className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 p-8 sm:p-12 text-white shadow-2xl">
-              <div className="relative max-w-3xl space-y-6">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-cyan-400 border border-blue-500/20">
-                  <Icons.Sparkles /> Educational Platform
-                </span>
-                <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-                  Empowering African Innovators & The Next Generation Of Tech Entrepreneurs
-                </h1>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                  Tech Innovation Center coordinates skill acquisition, computer science training, database architecture, and startup acceleration in collaboration with our international partner ecosystem.
-                </p>
-                <div className="pt-2 flex flex-wrap gap-4">
-                  <button
-                    onClick={() => setActiveTab("survey")}
-                    className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs px-6 py-3 rounded-xl font-bold shadow-lg shadow-cyan-500/20 transition-all"
-                  >
-                    Take Skill Assessment <Icons.ArrowRight />
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("partners")}
-                    className="flex items-center gap-2 bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs px-6 py-3 rounded-xl font-bold transition-all"
-                  >
-                    Explore 11 Partner Websites <Icons.Globe />
-                  </button>
+          {/* Sidebar Container */}
+          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl z-10 flex flex-col justify-between p-6 overflow-y-auto">
+            <div>
+              <div className="flex items-center justify-between pb-6 border-b border-slate-100">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-lg bg-blue-700 text-white flex items-center justify-center font-bold">
+                    TiC
+                  </div>
+                  <span className="font-bold text-slate-900">Navigation</span>
                 </div>
-              </div>
-            </section>
-
-            {/* QUICK-ACCESS PARTNER LOGOS & LINKS */}
-            <section className="space-y-6">
-              <div className="text-center space-y-2">
-                <h2 className="text-xs font-extrabold uppercase tracking-widest bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                  Institutional Partners & Digital Ecosystem Allies
-                </h2>
-                <p className="text-sm text-slate-400">Click any partner card to visit their official platform website</p>
+                <button
+                  onClick={() => setMobileSidebarOpen(false)}
+                  className="p-2 text-slate-500 hover:text-slate-800 rounded-lg hover:bg-slate-100"
+                >
+                  <X className="w-6 h-6" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {PARTNERS.map((p, i) => (
-                  <a
-                    key={i}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex flex-col items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 hover:border-blue-500/50 hover:shadow-xl transition-all text-center gap-3"
+              {/* Sidebar Links */}
+              <div className="mt-6 flex flex-col space-y-2">
+                {[
+                  { id: "home", label: "Home" },
+                  { id: "about", label: "About & Team" },
+                  { id: "programs", label: "Programs" },
+                  { id: "partners", label: "Partners & Investors" },
+                  { id: "media", label: "Media & Blog" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleTabChange(tab.id)}
+                    className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-base transition-colors ${
+                      activeTab === tab.id
+                        ? "bg-blue-50 text-blue-800 border-l-4 border-blue-700"
+                        : "text-slate-700 hover:bg-slate-50"
+                    }`}
                   >
-                    <img src={p.logo} alt={p.name} className="h-10 w-auto object-contain rounded-lg p-1 bg-white shadow-sm group-hover:scale-105 transition-transform" />
-                    <div>
-                      <span className="block text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-cyan-400 transition-colors flex items-center justify-center gap-1">
-                        {p.name} <Icons.ExternalLink />
-                      </span>
-                      <span className="text-[10px] text-cyan-500 font-semibold">{p.tag}</span>
-                    </div>
-                  </a>
+                    {tab.label}
+                  </button>
                 ))}
               </div>
-            </section>
-          </div>
-        )}
-
-        {/* DETAILED PARTNER NETWORK DIRECTORY */}
-        {activeTab === "partners" && (
-          <div className="space-y-8">
-            <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/50 space-y-4">
-              <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-2">
-                <Icons.Briefcase /> Ecosystem Collaboration Directory
-              </span>
-              <h2 className="text-2xl font-black">Official Web Platforms & Strategic Organizations</h2>
-              <p className="text-xs text-slate-300 leading-relaxed max-w-3xl">
-                The Tech Innovation Center framework integrates with leading educational institutions, incubators, agricultural innovation platforms, telecommunications infrastructure providers, and broadcast channels.
-              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {PARTNERS.map((p, i) => (
-                <div key={i} className="p-6 rounded-2xl border border-slate-800 bg-slate-900/80 space-y-4 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <img src={p.logo} alt={p.name} className="h-10 w-auto object-contain rounded-lg bg-white p-1" />
-                      <span className="text-[10px] px-2.5 py-1 rounded-full bg-blue-500/10 text-cyan-400 border border-blue-500/20 font-bold">
-                        {p.category}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-sm text-slate-100">{p.name}</h3>
-                      <span className="text-[10px] text-cyan-500 font-semibold">{p.tag}</span>
-                      <p className="text-xs text-slate-400 mt-2 leading-relaxed">{p.desc}</p>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-500 font-mono truncate max-w-[180px]">{p.url}</span>
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-lg transition-colors"
-                    >
-                      Visit Website <Icons.ExternalLink />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* AUTHENTICATION */}
-        {activeTab === "auth" && (
-          <div className="max-w-md mx-auto my-8 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl space-y-6">
-            <div className="text-center space-y-2">
-              <div className="inline-flex p-3 rounded-2xl bg-blue-500/10 text-cyan-400 border border-blue-500/20 mb-2">
-                <Icons.ShieldCheck />
-              </div>
-              <h2 className="text-2xl font-bold">{authMode === "signup" ? "Create Account" : "Sign In"}</h2>
-              <p className="text-xs text-slate-400">Authenticated via Supabase PostgreSQL Auth</p>
-            </div>
-
-            {authMessage.text && (
-              <div className={`p-3.5 rounded-xl text-xs flex items-start gap-2.5 ${
-                authMessage.type === "error"
-                  ? "bg-red-500/10 text-red-400 border border-red-500/20"
-                  : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-              }`}>
-                <div className="mt-0.5">{authMessage.type === "error" ? <Icons.AlertCircle /> : <Icons.CheckCircle />}</div>
-                <span>{authMessage.text}</span>
-              </div>
-            )}
-
-            <form onSubmit={handleAuthSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Email Address</label>
-                <input
-                  type="email"
-                  required
-                  value={authEmail}
-                  onChange={(e) => setAuthEmail(e.target.value)}
-                  placeholder="student@example.com"
-                  className="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Password</label>
-                <input
-                  type="password"
-                  required
-                  value={authPassword}
-                  onChange={(e) => setAuthPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={authLoading}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all"
-              >
-                {authLoading && <Icons.Loader2 />}
-                {authMode === "signup" ? "Register Account" : "Authenticate"}
-              </button>
-            </form>
-
-            <div className="text-center pt-2">
+            {/* Sidebar Bottom CTA */}
+            <div className="pt-6 border-t border-slate-100">
               <button
                 onClick={() => {
-                  setAuthMode(authMode === "signup" ? "login" : "signup");
-                  setAuthMessage({ type: "", text: "" });
+                  setMobileSidebarOpen(false);
+                  setShowSignUpModal(true);
                 }}
-                className="text-xs text-cyan-500 hover:underline font-semibold"
+                className="w-full py-3 bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-xl font-bold shadow-md hover:from-blue-800 hover:to-blue-900 transition-all text-center"
               >
-                {authMode === "signup" ? "Existing account? Sign In" : "Need an account? Register"}
+                Sign Up Now
+              </button>
+              <p className="text-center text-xs text-slate-400 mt-3">
+                Empowering 1,000+ Cameroonian Youth
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MAIN CONTENT AREA */}
+      <main className="flex-1">
+        {activeTab === "home" && (
+          <HomeTab
+            onNavigate={handleTabChange}
+            onOpenSignUp={() => setShowSignUpModal(true)}
+          />
+        )}
+        {activeTab === "about" && <AboutTab />}
+        {activeTab === "programs" && (
+          <ProgramsTab onOpenSignUp={() => setShowSignUpModal(true)} />
+        )}
+        {activeTab === "partners" && <PartnersTab />}
+        {activeTab === "media" && <MediaTab />}
+      </main>
+
+      {/* MOVABLE AI CHATBOT PULSER */}
+      <AiChatbotPulser />
+
+      {/* SIGN UP MODAL */}
+      {showSignUpModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100">
+            <button
+              onClick={() => setShowSignUpModal(false)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700 rounded-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {formSubmitted ? (
+              <div className="py-8 text-center space-y-4">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle className="w-10 h-10" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Welcome aboard!
+                </h3>
+                <p className="text-slate-600 text-sm">
+                  Thank you for joining the TiC Foundation ecosystem. We will
+                  contact you shortly with your onboarding details.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-2.5 py-1 rounded-full">
+                    Empowerment Platform
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mt-2">
+                    Join TiC Foundation
+                  </h3>
+                  <p className="text-slate-600 text-sm mt-1">
+                    Sign up to participate in programs, mentorship, and tech
+                    bootcamps across Cameroon.
+                  </p>
+                </div>
+
+                <form onSubmit={handleSignUpSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g., Fuli Eliot"
+                      value={formData.fullName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, fullName: e.target.value })
+                      }
+                      className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="eliot@example.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
+                      Phone / WhatsApp Number
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="+237 6xx xxx xxx"
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-sm"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
+                        I am a
+                      </label>
+                      <select
+                        value={formData.role}
+                        onChange={(e) =>
+                          setFormData({ ...formData, role: e.target.value })
+                        }
+                        className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm bg-white"
+                      >
+                        <option value="Student">Student</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Entrepreneur">Entrepreneur</option>
+                        <option value="Mentor">Mentor</option>
+                        <option value="Investor">Investor / Partner</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
+                        Region
+                      </label>
+                      <select
+                        value={formData.region}
+                        onChange={(e) =>
+                          setFormData({ ...formData, region: e.target.value })
+                        }
+                        className="w-full px-3 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm bg-white"
+                      >
+                        <option value="Centre">Centre (Yaoundé)</option>
+                        <option value="Littoral">Littoral (Douala)</option>
+                        <option value="North West">North West (Bamenda)</option>
+                        <option value="South West">South West (Buea)</option>
+                        <option value="Other">Other Region</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl shadow-md transition-all mt-2 text-sm"
+                  >
+                    Submit Registration
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* FOOTER */}
+      <footer className="bg-slate-900 text-white border-t border-slate-800 pt-12 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+            {/* Column 1 */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center">
+                  TiC
+                </div>
+                <span className="font-bold text-lg">TiC Foundation</span>
+              </div>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Empowering Cameroonian youth through digital innovation, coding
+                bootcamps, mentorship, and enterprise creation.
+              </p>
+              <div className="text-xs text-red-400 font-semibold">
+                Serving 1,000+ Students Nationwide
+              </div>
+            </div>
+
+            {/* Column 2 */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+                Quick Links
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li>
+                  <button
+                    onClick={() => handleTabChange("home")}
+                    className="hover:text-white transition-colors"
+                  >
+                    Home Page
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleTabChange("about")}
+                    className="hover:text-white transition-colors"
+                  >
+                    About Leadership & Staff
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleTabChange("programs")}
+                    className="hover:text-white transition-colors"
+                  >
+                    All Programs & Hackathons
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleTabChange("partners")}
+                    className="hover:text-white transition-colors"
+                  >
+                    Partners & Investors
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => handleTabChange("media")}
+                    className="hover:text-white transition-colors"
+                  >
+                    Media, Blog & Videos
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3 */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+                Featured Programs
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li>TIC Summit & Bootcamps</li>
+                <li>#GirlsForTech Initiative</li>
+                <li>Startup Acceleration Program (SAP)</li>
+                <li>TechCrunch Hackathon</li>
+                <li>Earn with Digital Skills</li>
+              </ul>
+            </div>
+
+            {/* Column 4 */}
+            <div>
+              <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+                Official Channels
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li>
+                  <a
+                    href="https://www.youtube.com/@ticsummit"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3 text-red-500" /> YouTube
+                    @ticsummit
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/@impacthungrymedia"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3 text-red-500" /> Impact
+                    Hungry Media
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/TiCFoundation237/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3 text-blue-400" /> Facebook
+                    Community
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+            <p>© {new Date().getFullYear()} TiC Foundation Cameroon. All rights reserved.</p>
+            <p className="mt-2 sm:mt-0">
+              Building African Tech Leaders with Simple & Actionable Tools.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ==========================================
+// TAB 1: HOME PAGE (WHITE SUPER CONTAINER)
+// ==========================================
+
+function HomeTab({ onNavigate, onOpenSignUp }) {
+  return (
+    <div className="space-y-12 pb-16">
+      {/* COMPACT & NON-OBSCURING WHITE WELCOME CONTAINER */}
+      <section className="bg-white border-b border-slate-100 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold tracking-wide">
+            <Sparkles className="w-4 h-4 text-red-600" />
+            Empowering 1,000+ Cameroonian Youth
+          </div>
+
+          {/* FONT NOT MASSIVE - DIRECT CORE AIM */}
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+            Driving innovation and empowering the next generation of tech
+            leaders.
+          </h1>
+
+          {/* VERY SIMPLE ENGLISH PURPOSE - NO AMBIGUITY */}
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            TiC Foundation provides young people in Cameroon with practical digital
+            skills, coding bootcamps, startup mentorship, and nationwide pitch
+            events to build real career opportunities.
+          </p>
+
+          {/* ACTION BUTTONS */}
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <button
+              onClick={onOpenSignUp}
+              className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl shadow-md transition-all text-sm flex items-center gap-2"
+            >
+              Get Started Now <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onNavigate("programs")}
+              className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl transition-all text-sm"
+            >
+              Explore Our Programs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* CORE STATS OVERVIEW */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {[
+            {
+              number: "1,000+",
+              label: "Students Reached",
+              icon: Users,
+              color: "text-blue-700",
+            },
+            {
+              number: "10+",
+              label: "Key Tech Programs",
+              icon: BookOpen,
+              color: "text-red-600",
+            },
+            {
+              number: "11+",
+              label: "Ecosystem Partners",
+              icon: Globe,
+              color: "text-blue-700",
+            },
+            {
+              number: "4 Regions",
+              label: "Active Operations",
+              icon: Target,
+              color: "text-red-600",
+            },
+          ].map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center flex flex-col items-center justify-center space-y-2"
+              >
+                <Icon className={`w-8 h-8 ${stat.color}`} />
+                <span className="text-2xl sm:text-3xl font-black text-slate-900">
+                  {stat.number}
+                </span>
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                  {stat.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* KEY HIGHLIGHTED PROGRAMS PREVIEW */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+              Core Initiatives
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+              Popular Programs for Youth
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate("programs")}
+            className="mt-3 md:mt-0 text-sm font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
+          >
+            View All 9 Programs <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {PROGRAM_LIST.slice(0, 3).map((prog) => (
+            <div
+              key={prog.id}
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded-full">
+                  {prog.badge}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900">
+                  {prog.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {prog.desc}
+                </p>
+              </div>
+              <button
+                onClick={onOpenSignUp}
+                className="mt-6 w-full py-2.5 bg-slate-100 hover:bg-blue-700 hover:text-white text-slate-800 text-xs font-bold rounded-xl transition-colors text-center"
+              >
+                Join Initiative
               </button>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* QUICK ABOUT SUMMARY */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-slate-900 rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <span className="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+              Nationwide Impact
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
+              Led by Dedicated Leaders across Cameroon
+            </h2>
+            <p className="text-blue-100 text-sm leading-relaxed">
+              Under Founder Mr. Bill Agha, Vice President Mr. Nobert, and National
+              Coordinator Azambou Yollande, our team organizes workshops,
+              hackathons, and bootcamps to transform youth potential into tech enterprise.
+            </p>
           </div>
-        )}
+          <button
+            onClick={() => onNavigate("about")}
+            className="whitespace-nowrap px-6 py-3 bg-white text-blue-900 hover:bg-blue-50 font-bold rounded-xl shadow-lg transition-all text-sm"
+          >
+            Meet the Full Team
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
 
-        {/* SKILL SURVEYS */}
-        {activeTab === "survey" && (
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl space-y-4">
-              <h2 className="font-bold text-base flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-blue-500/10 text-cyan-400"><Icons.FileText /></span>
-                Skill Assessment Survey
-              </h2>
-              
-              <form onSubmit={handleSurveySubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold mb-1.5">Learning Track</label>
-                  <select
-                    value={surveyForm.track}
-                    onChange={(e) => setSurveyForm({ ...surveyForm, track: e.target.value })}
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                    <option value="Full-Stack Web Development">Full-Stack Web Development</option>
-                    <option value="Systems Engineering & OS">Systems Engineering & OS</option>
-                    <option value="Database Design & SQL">Database Design & SQL</option>
-                  </select>
-                </div>
+// ==========================================
+// TAB 2: ABOUT & STAFF (UPDATED STAFF DATA)
+// ==========================================
 
-                <div>
-                  <label className="block text-xs font-bold mb-1.5">Current Experience Level</label>
-                  <select
-                    value={surveyForm.experience}
-                    onChange={(e) => setSurveyForm({ ...surveyForm, experience: e.target.value })}
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  >
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                  </select>
-                </div>
+function AboutTab() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      {/* Header */}
+      <div className="max-w-3xl">
+        <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+          Our Team & Facilitators
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          The Staff Behind TiC Foundation
+        </h1>
+        <p className="text-slate-600 text-base mt-2 leading-relaxed">
+          Meet our visionary founders, regional coordinators, lead facilitators,
+          and dedicated volunteers driving technology education across Cameroon.
+        </p>
+      </div>
 
-                <div>
-                  <label className="block text-xs font-bold mb-1.5">Technical Objectives</label>
-                  <textarea
-                    required
-                    rows="4"
-                    value={surveyForm.goals}
-                    onChange={(e) => setSurveyForm({ ...surveyForm, goals: e.target.value })}
-                    placeholder="Specify frameworks, tools, or architectural concepts you aim to learn..."
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      {/* Leadership & Staff Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {STAFF_MEMBERS.map((staff, idx) => (
+          <div
+            key={idx}
+            className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="px-3 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded-full">
+                  {staff.tag}
+                </span>
+                {staff.period && (
+                  <span className="text-xs text-slate-400 font-medium">
+                    {staff.period}
+                  </span>
+                )}
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">{staff.name}</h3>
+              <p className="text-xs font-bold text-red-600 uppercase tracking-wide mt-0.5">
+                {staff.role}
+              </p>
+              <p className="text-xs text-slate-500 font-semibold mt-1">
+                {staff.region}
+              </p>
+
+              <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+                {staff.bio}
+              </p>
+            </div>
+
+            <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+              <span>TiC Official Staff</span>
+              <Users className="w-4 h-4 text-blue-600" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// TAB 3: PROGRAMS (SIMPLE & EASY TO USE)
+// ==========================================
+
+function ProgramsTab({ onOpenSignUp }) {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+      <div className="max-w-3xl">
+        <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+          Youth Opportunities
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          TiC Foundation Programs
+        </h1>
+        <p className="text-slate-600 text-base mt-2">
+          Simple, practical, and highly engaging programs designed for students,
+          innovators, and aspiring software engineers.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {PROGRAM_LIST.map((prog) => (
+          <div
+            key={prog.id}
+            className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:border-blue-400 transition-all flex flex-col justify-between space-y-4"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="px-3 py-1 bg-red-50 text-red-600 text-xs font-bold rounded-full">
+                  {prog.badge}
+                </span>
+                <span className="text-xs text-slate-400 font-medium">
+                  {prog.category}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">{prog.title}</h3>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                {prog.desc}
+              </p>
+            </div>
+
+            <button
+              onClick={onOpenSignUp}
+              className="w-full py-2.5 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs rounded-xl transition-all shadow-sm flex items-center justify-center gap-2"
+            >
+              Sign Up For This Program <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// TAB 4: PARTNERS & INVESTORS (WITH LOGO URLS)
+// ==========================================
+
+function PartnersTab() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+      <div className="max-w-3xl">
+        <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+          Ecosystem Supporters
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          Investors & Partners
+        </h1>
+        <p className="text-slate-600 text-base mt-2">
+          We collaborate with leading institutions, telecommunication providers,
+          educational NGOs, and media organizations to support young African innovators.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {PARTNERS.map((partner, idx) => (
+          <div
+            key={idx}
+            className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+          >
+            <div>
+              <div className="flex items-center space-x-4 mb-4">
+                {/* Partner Image Placeholder URL */}
+                <div className="w-14 h-14 rounded-xl border border-slate-200 overflow-hidden bg-slate-50 flex items-center justify-center flex-shrink-0">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback if local image not found
+                      e.target.style.display = "none";
+                      e.target.parentNode.innerText = partner.name.substring(0, 2);
+                      e.target.parentNode.className =
+                        "w-14 h-14 rounded-xl bg-blue-700 text-white font-black flex items-center justify-center text-lg";
+                    }}
                   />
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={surveyLoading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all"
-                >
-                  {surveyLoading && <Icons.Loader2 />}
-                  Submit Survey Record
-                </button>
-              </form>
-            </div>
-
-            <div className="lg:col-span-2 space-y-4">
-              <div className="flex flex-wrap justify-between items-center gap-2">
-                <h2 className="font-bold text-base">Recorded Surveys ({filteredSurveys.length})</h2>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">Filter Track:</span>
-                  <select
-                    value={surveyFilter}
-                    onChange={(e) => setSurveyFilter(e.target.value)}
-                    className="px-2.5 py-1 text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800"
-                  >
-                    <option value="All">All Tracks</option>
-                    <option value="Full-Stack Web Development">Full-Stack</option>
-                    <option value="Systems Engineering & OS">Systems</option>
-                    <option value="Database Design & SQL">Databases</option>
-                  </select>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {partner.name}
+                  </h3>
+                  <span className="inline-block px-2.5 py-0.5 bg-blue-50 text-blue-800 text-[11px] font-semibold rounded-full mt-1">
+                    {partner.tag}
+                  </span>
                 </div>
               </div>
 
-              {surveyLoading && surveys.length === 0 ? (
-                <div className="flex items-center justify-center p-12 text-slate-400">
-                  <Icons.Loader2 />
-                </div>
-              ) : filteredSurveys.length === 0 ? (
-                <div className="p-8 text-center border border-dashed rounded-3xl dark:border-slate-800 text-slate-500 text-xs">
-                  No submissions matching the filter.
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {filteredSurveys.map((item) => (
-                    <div key={item.id} className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/60 text-xs space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-bold text-cyan-400">{item.track}</span>
-                        <span className="text-[10px] text-slate-400">{new Date(item.created_at).toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                          {item.experience}
-                        </span>
-                        <span className="text-[10px] text-slate-400">{item.user_email || "Anonymous"}</span>
-                      </div>
-                      <p className="text-slate-300 pt-1 leading-relaxed">{item.goals}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">
+                {partner.category}
+              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {partner.desc}
+              </p>
             </div>
+
+            <a
+              href={partner.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 w-full py-2 bg-slate-50 hover:bg-blue-50 text-blue-700 text-xs font-bold rounded-xl border border-slate-200 transition-colors"
+            >
+              Visit Partner Website <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
-        )}
+        ))}
+      </div>
+    </div>
+  );
+}
 
-        {/* AUDIO BROADCAST */}
-        {activeTab === "podcast" && (
-          <div className="max-w-2xl mx-auto space-y-6">
-            <div className="p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl space-y-6">
-              <div className="flex items-center justify-between border-b dark:border-slate-800 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
-                  <Icons.Volume2 /> Speech Broadcast
+// ==========================================
+// TAB 5: MEDIA, BLOG & PODCASTS
+// ==========================================
+
+function MediaTab() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      <div className="max-w-3xl">
+        <span className="text-xs font-bold uppercase tracking-wider text-red-600">
+          Multimedia & News
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          Blogs, Videos & Podcasts
+        </h1>
+        <p className="text-slate-600 text-base mt-2">
+          Explore our latest video broadcasts, podcast episodes with Impact Hungry
+          Media, hackathon recaps, and community stories.
+        </p>
+      </div>
+
+      {/* Official Media Channels */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {MEDIA_CHANNELS.map((chan, idx) => {
+          const Icon = chan.icon;
+          return (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:border-red-300 transition-all flex flex-col justify-between space-y-4"
+            >
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                  {chan.type}
                 </span>
-                <span className="text-xs text-slate-500">Browser Speech API</span>
-              </div>
-
-              <div className="space-y-2">
-                <h2 className="text-2xl font-black">Episode 1: Tech Center Ecosystem & Partner Alliances</h2>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Overview of technical tracks, full-stack architecture, relational database setup, and collaboration with TIC Summit, Open Dreams, and Skolarr.
+                <h3 className="text-base font-bold text-slate-900 mt-1">
+                  {chan.name}
+                </h3>
+                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  {chan.desc}
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => toggleSpeech("Welcome to the Tech Innovation Center audio briefing. Our platform connects developers and youth entrepreneurs with institutional partners including TIC Summit, Open Dreams, Skolarr, AgricFresh, Nervtek, and telecommunications leaders.")}
-                    className="p-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:scale-105 transition-transform"
-                  >
-                    {isPlayingAudio ? <Icons.Pause /> : <Icons.Play />}
-                  </button>
-                  <div>
-                    <span className="block text-xs font-bold">{isPlayingAudio ? "Playing Speech Synthesis..." : "Listen to Ecosystem Overview"}</span>
-                    <span className="text-[10px] text-slate-500">{isPlayingAudio ? "Active Speech Synthesis" : "Click to play audio"}</span>
-                  </div>
-                </div>
-              </div>
+              <a
+                href={chan.url}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition-colors"
+              >
+                Watch / Subscribe <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
-          </div>
-        )}
-
-        {/* CURRICULUM BLOG */}
-        {activeTab === "blog" && (
-          <div className="max-w-3xl mx-auto space-y-6">
-            <article className="p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl space-y-4">
-              <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Engineering Curriculum</span>
-              <h2 className="text-2xl font-bold">Practical Full-Stack Engineering & Database Architecture</h2>
-              <p className="text-xs leading-relaxed text-slate-300">
-                Building reliable software applications requires integrated knowledge of client interfaces, relational schemas, database normalization, session management, and cloud object storage. Through practical project development, engineers gain hands-on expertise with modern software development lifecycles.
-              </p>
-            </article>
-          </div>
-        )}
-
-        {/* STORAGE & FEEDBACK */}
-        {activeTab === "feedback" && (
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl space-y-4">
-              <h2 className="font-bold text-base flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-blue-500/10 text-cyan-400"><Icons.Upload /></span>
-                Storage Bucket Upload
-              </h2>
-              <p className="text-xs text-slate-400">Upload documentation or code assignments to the Supabase storage bucket.</p>
-
-              <form onSubmit={handleFileUpload} className="space-y-4">
-                <input
-                  type="file"
-                  onChange={(e) => setSelectedFile(e.target.files[0])}
-                  className="block w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-500/10 file:text-cyan-400 hover:file:bg-blue-500/20"
-                />
-                <button
-                  type="submit"
-                  disabled={uploading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all"
-                >
-                  {uploading && <Icons.Loader2 />}
-                  Upload to Storage Bucket
-                </button>
-              </form>
-
-              {uploadedFiles.length > 0 && (
-                <div className="pt-2 border-t dark:border-slate-800">
-                  <h4 className="text-xs font-bold text-slate-400 mb-2">Session Uploads:</h4>
-                  <ul className="space-y-1">
-                    {uploadedFiles.map((f, i) => (
-                      <li key={i} className="text-xs text-emerald-400 flex items-center gap-2">
-                        <Icons.CheckCircle /> {f.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            <div className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl space-y-4">
-              <h2 className="font-bold text-base flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-blue-500/10 text-cyan-400"><Icons.MessageSquare /></span>
-                Platform Feedback
-              </h2>
-
-              <form onSubmit={handleFeedbackSubmit} className="space-y-3">
-                <textarea
-                  required
-                  rows="3"
-                  value={newFeedback}
-                  onChange={(e) => setNewFeedback(e.target.value)}
-                  placeholder="Share feedback regarding curriculum structure or platform features..."
-                  className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-                <button
-                  type="submit"
-                  disabled={feedbackLoading}
-                  className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs px-5 py-2.5 rounded-xl font-bold flex items-center gap-2"
-                >
-                  {feedbackLoading && <Icons.Loader2 />}
-                  Submit Feedback
-                </button>
-              </form>
-
-              <div className="space-y-3 pt-2 max-h-60 overflow-y-auto">
-                {feedbackList.map((fb) => (
-                  <div key={fb.id} className="p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs space-y-1">
-                    <div className="flex justify-between font-bold">
-                      <span className="text-cyan-400">{fb.user_email || "Community Member"}</span>
-                      <span className="text-[10px] text-slate-500">{new Date(fb.created_at).toLocaleDateString()}</span>
-                    </div>
-                    <p className="text-slate-300">{fb.message}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-      </main>
-
-      {/* CHATBOT ASSISTANT */}
-      <div className="fixed bottom-6 right-6 z-50">
-        {isChatOpen ? (
-          <div className="w-80 h-96 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
-            <div className="p-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold flex justify-between items-center">
-              <span className="flex items-center gap-2"><Icons.Sparkles /> TIC Assistant</span>
-              <button onClick={() => setIsChatOpen(false)} className="hover:opacity-80">✕</button>
-            </div>
-            
-            <div className="flex-1 p-3 overflow-y-auto space-y-2">
-              {chatMessages.map((m) => (
-                <div
-                  key={m.id}
-                  className={`p-3 rounded-2xl max-w-[85%] ${
-                    m.sender === "user"
-                      ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white ml-auto"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
-                  }`}
-                >
-                  {m.text}
-                </div>
-              ))}
-              <div ref={chatEndRef} />
-            </div>
-
-            <form onSubmit={handleSendMessage} className="p-2 border-t dark:border-slate-800 flex gap-2">
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Ask about partners or courses..."
-                className="flex-1 px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 focus:outline-none"
-              />
-              <button type="submit" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-2.5 rounded-xl">
-                <Icons.Send />
-              </button>
-            </form>
-          </div>
-        ) : (
-          <button
-            onClick={() => setIsChatOpen(true)}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-xs px-5 py-3.5 rounded-full shadow-2xl shadow-cyan-500/30 font-bold transition-transform hover:scale-105"
-          >
-            <Icons.MessageSquare /> Assistant
-          </button>
-        )}
+          );
+        })}
       </div>
 
+      {/* Sample Blog / Article Preview Section */}
+      <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 space-y-6">
+        <h2 className="text-xl font-bold text-slate-900">
+          Featured Community Highlights
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3">
+            <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full">
+              Bootcamp Spotlight
+            </span>
+            <h3 className="text-lg font-bold text-slate-900">
+              Highlights from the 2026 TiC Bootcamp
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Award-winning facilitator Mr. Afuh Flynn guided over 100 students
+              through full-stack engineering and cloud deployment skills in Yaoundé and Bamenda.
+            </p>
+            <div className="text-xs text-slate-400">Published: August 2026</div>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3">
+            <span className="text-xs font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-full">
+              Impact Podcast
+            </span>
+            <h3 className="text-lg font-bold text-slate-900">
+              Impact Hungry Media: Youth Tech Leadership
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Listen to National Coordinator Azambou Yollande discuss bridging the
+              gap between theoretical education and real-world tech innovation across Cameroon.
+            </p>
+            <div className="text-xs text-slate-400">Published: July 2026</div>
+          </div>
+        </div>
+      </div>
     </div>
+  );
+}
+
+// ==========================================
+// MOVABLE / DRAGGABLE AI CHATBOT PULSER
+// ==========================================
+
+function AiChatbotPulser() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    {
+      sender: "ai",
+      text: "Hello! I am the TiC Foundation AI Assistant. Ask me anything about our Staff (Mr. Bill Agha, Azambou Yollande, facilitators) or Programs (TIC Summit, Bootcamp, #GirlsForTech)!",
+    },
+  ]);
+  const [inputQuery, setInputQuery] = useState("");
+
+  // Position state for movable icon
+  const [position, setPosition] = useState({ x: 20, y: 20 });
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef(null);
+  const offsetRef = useRef({ x: 0, y: 0 });
+
+  // Handle Drag Start
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    offsetRef.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    };
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    const newX = e.clientX - offsetRef.current.x;
+    const newY = e.clientY - offsetRef.current.y;
+    setPosition({ x: newX, y: newY });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+    } else {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
+
+  // Handle AI Chat Answer Query Logic
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!inputQuery.trim()) return;
+
+    const userText = inputQuery;
+    const updatedMessages = [...messages, { sender: "user", text: userText }];
+    setMessages(updatedMessages);
+    setInputQuery("");
+
+    // Knowledge Search Logic
+    setTimeout(() => {
+      let aiReply =
+        "Thank you for asking! TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
+
+      const q = userText.toLowerCase();
+
+      if (q.includes("president") || q.includes("founder") || q.includes("bill agha")) {
+        aiReply =
+          "Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon.";
+      } else if (q.includes("vice president") || q.includes("nobert")) {
+        aiReply =
+          "Mr. Nobert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships.";
+      } else if (q.includes("yollande") || q.includes("coordinator")) {
+        aiReply =
+          "Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon.";
+      } else if (q.includes("flynn") || q.includes("best facilitator")) {
+        aiReply =
+          "Mr. Afuh Flynn was awarded the Best Facilitator for the 2026 TiC Bootcamp for his outstanding instruction in software engineering!";
+      } else if (q.includes("facilitator") || q.includes("bah") || q.includes("kombou")) {
+        aiReply =
+          "Our key facilitators include Mr. Bah Emmanuel (Software & Bootcamp), Mr. Kombou Daniel (Summit & Workshops), and Mr. Afuh Flynn (Best Facilitator 2026).";
+      } else if (q.includes("girlsfortech") || q.includes("girls")) {
+        aiReply =
+          "#GirlsForTech is our specialized STEM program designed to bridge the gender gap in technology by training young women in coding and AI.";
+      } else if (q.includes("bootcamp") || q.includes("summit")) {
+        aiReply =
+          "TIC Summit and TIC Bootcamp are our flagship events. The Summit brings together founders and investors, while the Bootcamp offers hands-on coding training.";
+      } else if (q.includes("south west") || q.includes("adip")) {
+        aiReply =
+          "Afesi Ayafor Bill Adip is the South West Regional Coordinator (2025/2026), working on technology solutions for local power and internet challenges.";
+      } else if (q.includes("centre") || q.includes("shanelle")) {
+        aiReply =
+          "Njingti Shanelle is the Centre Regional Coordinator (2025/2026), focusing on youth digital skills and backend software community engagement.";
+      } else if (q.includes("littoral") || q.includes("precious")) {
+        aiReply =
+          "Ngoh Precious Fon is the Littoral Regional Coordinator (2025/2026) and Cloud advocate, who also serves as Chief Program Officer at Skolarr Olympiads.";
+      } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
+        aiReply =
+          "Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy.";
+      }
+
+      setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
+    }, 600);
+  };
+
+  return (
+    <>
+      {/* MOVABLE PULSER ICON */}
+      <div
+        ref={dragRef}
+        style={{
+          position: "fixed",
+          bottom: `${position.y}px`,
+          right: `${position.x}px`,
+          zIndex: 50,
+        }}
+        className="cursor-move group"
+        onMouseDown={handleMouseDown}
+      >
+        <div className="relative flex items-center justify-center">
+          {/* Pulsing Aura Rings */}
+          <span className="absolute inline-flex h-14 w-14 rounded-full bg-red-500 opacity-75 animate-ping" />
+          <span className="absolute inline-flex h-12 w-12 rounded-full bg-blue-600 opacity-50 animate-pulse" />
+
+          {/* Trigger Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative w-14 h-14 bg-gradient-to-r from-blue-700 to-red-600 rounded-full text-white flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
+            title="Drag to move, Click to chat"
+          >
+            <Bot className="w-7 h-7" />
+          </button>
+        </div>
+      </div>
+
+      {/* CHAT MODAL WINDOW */}
+      {isOpen && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: `${position.y + 65}px`,
+            right: `${position.x}px`,
+            zIndex: 50,
+          }}
+          className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[420px]"
+        >
+          {/* Header */}
+          <div className="bg-gradient-to-r from-blue-800 to-slate-900 p-3.5 text-white flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold leading-none">TiC AI Assistant</h4>
+                <span className="text-[10px] text-blue-200 font-medium">
+                  Staff & Program Info
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-1 text-slate-300 hover:text-white rounded"
+            >
+              <Minimize2 className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Messages Body */}
+          <div className="flex-1 p-3 overflow-y-auto space-y-3 bg-slate-50">
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
+              >
+                <div
+                  className={`max-w-[85%] px-3 py-2 rounded-2xl text-xs leading-relaxed ${
+                    msg.sender === "user"
+                      ? "bg-blue-700 text-white rounded-tr-none"
+                      : "bg-white text-slate-800 border border-slate-200 rounded-tl-none shadow-sm"
+                  }`}
+                >
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Input Form */}
+          <form
+            onSubmit={handleSendMessage}
+            className="p-2 bg-white border-t border-slate-200 flex items-center gap-1.5"
+          >
+            <input
+              type="text"
+              placeholder="Ask about staff or programs..."
+              value={inputQuery}
+              onChange={(e) => setInputQuery(e.target.value)}
+              className="flex-1 px-3 py-2 bg-slate-100 rounded-xl text-xs outline-none focus:ring-1 focus:ring-blue-600"
+            />
+            <button
+              type="submit"
+              className="p-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl transition-colors"
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </form>
+        </div>
+      )}
+    </>
   );
 }
