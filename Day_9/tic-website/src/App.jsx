@@ -391,15 +391,14 @@ export default function App() {
             className="flex items-center space-x-3 cursor-pointer group"
           >
             <div className="w-10 h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-black text-xl shadow-md group-hover:bg-red-600 transition-colors duration-300">
-              TiC
+              TiC (Tech Innovation Center)
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg text-slate-900 tracking-tight leading-tight">
-                TiC <span className="text-blue-700">Foundation</span>
-              </span>
-              <span className="text-[11px] font-semibold text-red-600 tracking-wider uppercase">
-                Cameroon Tech Ecosystem
-              </span>
+              <img 
+  src="/path-to-your-logo/logo.png" 
+  alt="TiC Foundation Logo" 
+  className="h-9 w-auto object-contain" 
+/>
             </div>
           </div>
 
@@ -513,7 +512,7 @@ export default function App() {
                 Sign Up Now
               </button>
               <p className="text-center text-xs text-slate-400 mt-3">
-                Empowering 1,000+ Cameroonian Youth
+                Empowering 50,000+ Cameroonian Youth
               </p>
             </div>
           </div>
@@ -556,7 +555,7 @@ export default function App() {
                   <CheckCircle className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900">
-                  Welcome aboard!
+                  Welcome!
                 </h3>
                 <p className="text-slate-600 text-sm">
                   Thank you for joining the TiC Foundation ecosystem. We will
@@ -567,7 +566,7 @@ export default function App() {
               <div>
                 <div className="mb-6">
                   <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-2.5 py-1 rounded-full">
-                    Empowerment Platform
+                    Enrichment Platform
                   </span>
                   <h3 className="text-2xl font-bold text-slate-900 mt-2">
                     Join TiC Foundation
@@ -586,7 +585,7 @@ export default function App() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g., Fuli Eliot"
+                      placeholder="e.g., John Doe"
                       value={formData.fullName}
                       onChange={(e) =>
                         setFormData({ ...formData, fullName: e.target.value })
@@ -696,7 +695,7 @@ export default function App() {
                 bootcamps, mentorship, and enterprise creation.
               </p>
               <div className="text-xs text-red-400 font-semibold">
-                Serving 1,000+ Students Nationwide
+                Serving 20,000+ Students Nationwide
               </div>
             </div>
 
@@ -1113,7 +1112,7 @@ function PartnersTab() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       <div className="max-w-3xl">
         <span className="text-xs font-bold uppercase tracking-wider text-red-600">
-          Ecosystem Supporters
+          Supporters
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
           Investors & Partners
