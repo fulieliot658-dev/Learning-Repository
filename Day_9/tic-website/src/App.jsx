@@ -561,7 +561,7 @@ export default function App() {
                     <input
                       type="email"
                       required
-                      placeholder="eliot@example.com"
+                      placeholder="johndoe@example.com"
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
