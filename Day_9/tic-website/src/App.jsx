@@ -1291,61 +1291,64 @@ function AiChatbotPulser() {
   }, [isDragging]);
 
   // Handle AI Chat Answer Query Logic
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputQuery.trim()) return;
+const handleSendMessage = (e) => {
+  e.preventDefault();
+  if (!inputQuery.trim()) return;
 
-    const userText = inputQuery;
-    const updatedMessages = [...messages, { sender: "user", text: userText }];
-    setMessages(updatedMessages);
-    setInputQuery("");
+  const userText = inputQuery;
+  const updatedMessages = [...messages, { sender: "user", text: userText }];
+  setMessages(updatedMessages);
+  setInputQuery("");
 
-    // Knowledge Search Logic
-    setTimeout(() => {
-      let aiReply =
-        `Hi! TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button! ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-
-      const q = userText.toLowerCase();
-
-      if (q.includes("president") || q.includes("founder") || q.includes("bill agha") || q.includes("leadership") || q.includes("chiarman")) {
-        aiReply =
-          `Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("vice president") || q.includes("nobert") || q.includes("VP") || q.includes("co-lead") || q.includes("VP")) {
-        aiReply =
-          `Mr. Nobert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("yollande") || q.includes("coordinator") || q.includes("National coordinator")) {
-        aiReply =
-          `Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("flynn") || q.includes("best facilitator")) {
-        aiReply =
-          `Mr. Afuh Flynn was awarded the Best Facilitator for the 2026 TiC Bootcamp for his outstanding instruction in software engineering! ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("facilitator") || q.includes("bah") || q.includes("kombou")) {
-        aiReply =
-          `Our key facilitators include Mr. Bah Emmanuel (Logistics), Mr. Kombou Daniel (Software), and Mr. Afuh Flynn (Best TiC Bootcamp Facilitator 2026). ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("girlsfortech") || q.includes("girls")) {
-        aiReply =
-          `#GirlsForTech is our specialized STEM program designed to bridge the gender gap in technology by training young women in coding and AI. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("bootcamp") || q.includes("summit")) {
-        aiReply =
-          `TIC Summit and TIC Bootcamp are our flagship events. The Summit brings together founders and investors, while the Bootcamp offers hands-on coding training. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("south west") || q.includes("adip")) {
-        aiReply =
-          `Afesi Ayafor Bill Adip is the South West Regional Coordinator (2025/2026), working on technology solutions for local power and internet challenges. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("centre") || q.includes("shanelle")) {
-        aiReply =
-          `Njingti Shanelle is the Centre Regional Coordinator (2025/2026), focusing on youth digital skills and backend software community engagement. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("littoral") || q.includes("precious")) {
-        aiReply =
-          `Ngoh Precious Fon is the Littoral Regional Coordinator (2025/2026) and Cloud advocate, who also serves as Chief Program Officer at Skolarr Olympiads. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
-        aiReply =
-          `Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy. ${Date.now(Date.toLocaleTimeString(new Date()))}`;
-      }else if (q.includes("hello!") || q.includes("hi!") || q.includes("hey!") || q.includes("greetings!")) {
-aiReply = `Hi! welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today? ${Date.now(Date.toLocaleTimeString(new Date()))}`;}
-else if(q.includes("please what time is it?")||q.includes("time")){aiReply=`${Date.now(Date.toLocaleTimeString(new Date()))}`;}
-      setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
-    }, 600);
+  // Helper function to generate clean timestamp
+  const getFormattedTimestamp = () => {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const dateStr = now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+    return `[${timeStr} - ${dateStr}]`;
   };
+
+  // Knowledge Search Logic
+  setTimeout(() => {
+    const timestamp = getFormattedTimestamp();
+    const q = userText.toLowerCase().trim();
+
+    let aiReply = `Hi! TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button! ${timestamp}`;
+
+    if (q.includes("time") || q.includes("date") || q.includes("clock")) {
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const formattedDate = now.toLocaleDateString([], { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      aiReply = `The current time is ${formattedTime} on ${formattedDate}.`;
+    } else if (q.includes("president") || q.includes("founder") || q.includes("bill agha") || q.includes("leadership") || q.includes("chairman") || q.includes("chiarman")) {
+      aiReply = `Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon. ${timestamp}`;
+    } else if (q.includes("vice president") || q.includes("nobert") || q.includes("vp") || q.includes("co-lead")) {
+      aiReply = `Mr. Anseh Norbert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships. ${timestamp}`;
+    } else if (q.includes("yollande") || q.includes("coordinator") || q.includes("national coordinator")) {
+      aiReply = `Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon. ${timestamp}`;
+    } else if (q.includes("flynn") || q.includes("best facilitator")) {
+      aiReply = `Mr. Afuh Flynn was awarded the Best Facilitator for the 2026 TiC Bootcamp for his outstanding instruction in software engineering! ${timestamp}`;
+    } else if (q.includes("facilitator") || q.includes("bah") || q.includes("kombou")) {
+      aiReply = `Our key facilitators include Mr. Bah Emmanuel (Logistics), Mr. Kombou Daniel (Software), and Mr. Afuh Flynn (Best TiC Bootcamp Facilitator 2026). ${timestamp}`;
+    } else if (q.includes("girlsfortech") || q.includes("girls")) {
+      aiReply = `#GirlsForTech is our specialized STEM program designed to bridge the gender gap in technology by training young women in coding and AI. ${timestamp}`;
+    } else if (q.includes("bootcamp") || q.includes("summit")) {
+      aiReply = `TIC Summit and TIC Bootcamp are our flagship events. The Summit brings together founders and investors, while the Bootcamp offers hands-on coding training. ${timestamp}`;
+    } else if (q.includes("south west") || q.includes("adip")) {
+      aiReply = `Afesi Ayafor Bill Adip is the South West Regional Coordinator (2025/2026), working on technology solutions for local power and internet challenges. ${timestamp}`;
+    } else if (q.includes("centre") || q.includes("shanelle")) {
+      aiReply = `Njingti Shanelle is the Centre Regional Coordinator (2025/2026), focusing on youth digital skills and backend software community engagement. ${timestamp}`;
+    } else if (q.includes("littoral") || q.includes("precious")) {
+      aiReply = `Ngoh Precious Fon is the Littoral Regional Coordinator (2025/2026) and Cloud advocate, who also serves as Chief Program Officer at Skolarr Olympiads. ${timestamp}`;
+    } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
+      aiReply = `Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy. ${timestamp}`;
+    } else if (q.includes("hello") || q.includes("hi") || q.includes("hey") || q.includes("greetings")) {
+      aiReply = `Hi! Welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today? ${timestamp}`;
+    }
+
+    setMessages((prev) => [...prev, { sender: "ai", text: aiReply }]);
+  }, 500);
+};
 
   return (
     <>
