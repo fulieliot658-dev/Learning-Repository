@@ -1302,46 +1302,46 @@ function AiChatbotPulser() {
 
     // Knowledge Search Logic
     setTimeout(() => {
-      // let aiReply =
-      //   "TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button!";
+      let aiReply =
+        `Hi! TiC Foundation is dedicated to empowering Cameroonian youth through digital skills, tech bootcamps, and startup support. You can reach out directly via our Sign Up button! ${Date.now(new Date().toLocaleTimeString)}`;
 
       const q = userText.toLowerCase();
 
       if (q.includes("president") || q.includes("founder") || q.includes("bill agha") || q.includes("leadership") || q.includes("chiarman")) {
         aiReply =
-          "Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon.";
+          `Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("vice president") || q.includes("nobert") || q.includes("VP") || q.includes("co-lead") || q.includes("VP")) {
         aiReply =
-          "Mr. Nobert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships.";
+          `Mr. Nobert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("yollande") || q.includes("coordinator") || q.includes("National coordinator")) {
         aiReply =
-          "Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon.";
+          `Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("flynn") || q.includes("best facilitator")) {
         aiReply =
-          "Mr. Afuh Flynn was awarded the Best Facilitator for the 2026 TiC Bootcamp for his outstanding instruction in software engineering!";
+          `Mr. Afuh Flynn was awarded the Best Facilitator for the 2026 TiC Bootcamp for his outstanding instruction in software engineering! ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("facilitator") || q.includes("bah") || q.includes("kombou")) {
         aiReply =
-          "Our key facilitators include Mr. Bah Emmanuel (Software & Bootcamp), Mr. Kombou Daniel (Summit & Workshops), and Mr. Afuh Flynn (Best Facilitator 2026).";
+          `Our key facilitators include Mr. Bah Emmanuel (Software & Bootcamp), Mr. Kombou Daniel (Summit & Workshops), and Mr. Afuh Flynn (Best Facilitator 2026). ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("girlsfortech") || q.includes("girls")) {
         aiReply =
-          "#GirlsForTech is our specialized STEM program designed to bridge the gender gap in technology by training young women in coding and AI.";
+          `#GirlsForTech is our specialized STEM program designed to bridge the gender gap in technology by training young women in coding and AI. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("bootcamp") || q.includes("summit")) {
         aiReply =
-          "TIC Summit and TIC Bootcamp are our flagship events. The Summit brings together founders and investors, while the Bootcamp offers hands-on coding training.";
+          `TIC Summit and TIC Bootcamp are our flagship events. The Summit brings together founders and investors, while the Bootcamp offers hands-on coding training. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("south west") || q.includes("adip")) {
         aiReply =
-          "Afesi Ayafor Bill Adip is the South West Regional Coordinator (2025/2026), working on technology solutions for local power and internet challenges.";
+          `Afesi Ayafor Bill Adip is the South West Regional Coordinator (2025/2026), working on technology solutions for local power and internet challenges. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("centre") || q.includes("shanelle")) {
         aiReply =
-          "Njingti Shanelle is the Centre Regional Coordinator (2025/2026), focusing on youth digital skills and backend software community engagement.";
+          `Njingti Shanelle is the Centre Regional Coordinator (2025/2026), focusing on youth digital skills and backend software community engagement. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("littoral") || q.includes("precious")) {
         aiReply =
-          "Ngoh Precious Fon is the Littoral Regional Coordinator (2025/2026) and Cloud advocate, who also serves as Chief Program Officer at Skolarr Olympiads.";
+          `Ngoh Precious Fon is the Littoral Regional Coordinator (2025/2026) and Cloud advocate, who also serves as Chief Program Officer at Skolarr Olympiads. ${Date.now(new Date().toLocaleTimeString)}`;
       } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
         aiReply =
-          "Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy.";
+          `Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy. ${Date.now(new Date().toLocaleTimeString)}`;
       }else if (q.includes("Hello!") || q.includes("Hi!") || q.includes("Hey!") || q.includes("Greetings!")) {
-aiReply = "Hi! welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today?";}
+aiReply = `Hi! welcome to the TiC website where you can ask me about our staff and programs. How can I assist you today? ${Date.now(new Date().toLocaleTimeString)}`;}
 else if(q.includes("Please what time is it?")||q.includes("Time")){aiReply=`${Date.now(new Date().toLocaleTimeString)}`}
       setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
     }, 600);
