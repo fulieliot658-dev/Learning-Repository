@@ -1348,13 +1348,13 @@ function AiChatbotPulser() {
 
       const q = userText.toLowerCase();
 
-      if (q.includes("president") || q.includes("founder") || q.includes("bill agha")) {
+      if (q.includes("president") || q.includes("founder") || q.includes("bill agha") || q.includes("leadership") || q.includes("chiarman")) {
         aiReply =
           "Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon.";
-      } else if (q.includes("vice president") || q.includes("nobert")) {
+      } else if (q.includes("vice president") || q.includes("nobert") || q.includes("VP") || q.includes("co-lead") || q.includes("VP")) {
         aiReply =
           "Mr. Nobert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships.";
-      } else if (q.includes("yollande") || q.includes("coordinator")) {
+      } else if (q.includes("yollande") || q.includes("coordinator") || q.includes("National coordinator")) {
         aiReply =
           "Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon.";
       } else if (q.includes("flynn") || q.includes("best facilitator")) {
@@ -1381,8 +1381,9 @@ function AiChatbotPulser() {
       } else if (q.includes("north west") || q.includes("talla") || q.includes("punwo")) {
         aiReply =
           "Soh Talla Erick is the North West Regional Coordinator (2025/2026, Founder of AntCodeHub) and Punwo Komolo serves as the North West Regional Deputy.";
+      }else if (q.includes()) {
+aiReply = "Sorry, please reach out via our Sign Up button (Get started) for more specific inquiries about staff or programs!";
       }
-
       setMessages([...updatedMessages, { sender: "ai", text: aiReply }]);
     }, 600);
   };
