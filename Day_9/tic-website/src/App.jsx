@@ -777,9 +777,16 @@ function HomeTab({ onNavigate, onOpenSignUp }) {
           </div>
 
           {/* FONT NOT MASSIVE - DIRECT CORE AIM */}
-          <h1 className="text-2xl sm:text-4xl font-extrabold text-blue-600 tracking-tight leading-snug">
-  Driving innovation and empowering the next generation of tech leaders.
-</h1>
+         <div className="relative bg-white p-6 sm:p-8 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+  {/* Light semi-transparent overlay to ensure sharp text rendering */}
+  <div className="absolute inset-0 bg-slate-50/50 z-0"></div>
+
+  <div className="relative z-10">
+    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 tracking-tight leading-snug antialiased">
+      Driving innovation and empowering the next generation of tech leaders.
+    </h1>
+  </div>
+</div>
 
           {/* VERY SIMPLE ENGLISH PURPOSE - NO AMBIGUITY */}
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
