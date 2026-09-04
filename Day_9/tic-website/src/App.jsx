@@ -375,10 +375,10 @@ export default function App() {
             className="flex items-center space-x-3 cursor-pointer group"
           >
             <div className="flex flex-col">
-              <img 
-  src="/path-to-your-logo/logo.png" 
-  alt="TiC Foundation Logo" 
-  className="h-9 w-auto object-contain" 
+             <img 
+  src="/tech-innovation-center.jpg" 
+  alt="Tech Innovation Center" 
+  className="w-full h-auto rounded-xl object-cover" 
 />
             </div>
           </div>
@@ -777,12 +777,9 @@ function HomeTab({ onNavigate, onOpenSignUp }) {
           </div>
 
           {/* FONT NOT MASSIVE - DIRECT CORE AIM */}
-         <div className="relative bg-white p-6 sm:p-8 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-  {/* Light semi-transparent overlay to ensure sharp text rendering */}
-  <div className="absolute inset-0 bg-slate-50/50 z-0"></div>
-
+         <div className="relative bg-black p-6 rounded-xl overflow-hidden">
   <div className="relative z-10">
-    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 tracking-tight leading-snug antialiased">
+    <h1 className="text-xl sm:text-2xl font-extrabold text-blue-500 tracking-tight leading-snug">
       Driving innovation and empowering the next generation of tech leaders.
     </h1>
   </div>
