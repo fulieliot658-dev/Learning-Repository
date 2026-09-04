@@ -167,10 +167,10 @@
         }
 
         if (text.includes("story")) {
-          return "Once upon a time ([User]: Say ...), the number 0 felt lonely until it met 1. Together, they created the entire digital universe through binary logic throught a guy (Charles babbadge and Ada lovelance) with a fantastic idea of replacing the terrible decimal with true(1) and false(0)!";
+          return "Once upon a time ([User]: Say ...), the number 0 felt lonely until it met 1. Together, they created the entire digital universe through binary logic throught a guy (Charles babbadge and Ada lovelance) with a fantastic idea of replacing the terrible decimal with true(1) and false(0), thereby creating the mordern standard we all follow!";
         }
 
-        return "I can calculate math, convert binary (e.g., binary 8), give formulas, or tell a story (which is very interesting by the way)!";
+        return "I can carry out simple arithmetics, convert binary (e.g., binary 8), give formulas, or tell a story (which is very interesting by the way)!";
       }
 
       function response() {
@@ -185,7 +185,7 @@
         setTimeout(() => {
           appendMessage(botReply, "bot");
           saveToStorage(botReply, "bot");
-        }, 300);
+        }, 500);
 
         message.value = "";
       }
