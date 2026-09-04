@@ -28,7 +28,7 @@ const PARTNERS = [
   {
     name: "TIC Summit",
     url: "https://www.ticsummit.org/",
-    logo: "./1631355902238.jpg",
+    logo: "./Tic summit.jpg",
     category: "Flagship Innovation Summit",
     tag: "Youth Innovation",
     desc: "Annual flagship technology summit hosting youth entrepreneurs, developers, and tech ecosystem builders.",
@@ -36,7 +36,7 @@ const PARTNERS = [
   {
     name: "Skolarr",
     url: "https://www.skolarr.com/",
-    logo: "./A Tic logo.jpg",
+    logo: "./1669081537332.jpg",
     category: "Educational Technology",
     tag: "EdTech Infrastructure",
     desc: "Digital learning platform accelerating student academic success and tech skill acquisition.",
@@ -44,7 +44,7 @@ const PARTNERS = [
   {
     name: "AgricFresh",
     url: "https://www.agricfresh.com/",
-    logo: "./1723577561905.jpg",
+    logo: "./.jpg",
     category: "Agritech Partner",
     tag: "Supply Chain & Tech",
     desc: "Leveraging technological solutions to transform agricultural supply chains and food security.",
@@ -52,7 +52,7 @@ const PARTNERS = [
   {
     name: "Open Dreams",
     url: "http://www.open-dreams.org/",
-    logo: "./1631355902238.jpg",
+    logo: "./open_dreams_logo.jpg",
     category: "Educational NGO",
     tag: "Scholarship & Mentorship",
     desc: "Empowering high-achieving scholars with educational access, mentorship, and international opportunities.",
@@ -60,7 +60,7 @@ const PARTNERS = [
   {
     name: "DV2S Broadcast Channel",
     url: "https://www.youtube.com/@DV2S2025",
-    logo: "./1723577561905.jpg",
+    logo: "./the_vision_to_success_dv2s_logo.jpg",
     category: "Media & Broadcasting",
     tag: "Video & Streaming",
     desc: "Official broadcast channel streaming technology webinars, event keynotes, and student presentations.",
@@ -74,9 +74,9 @@ const PARTNERS = [
     desc: "Engineering innovation hub delivering software development, IoT systems, and technical consulting.",
   },
   {
-    name: "TogetTech",
+    name: "Tech Innovative Clubs",
     url: "https://www.togettech.ca/",
-    logo: "./jamie_pajoel_international_logo.jpg",
+    logo: "./Tech_Innovation_Center.jpg",
     category: "International Incubator",
     tag: "Global Expansion",
     desc: "Connecting African tech innovators with North American technology networks and investment bridges.",
@@ -84,7 +84,7 @@ const PARTNERS = [
   {
     name: "DelTech Hub",
     url: "https://deltechhub.space/",
-    logo: "./nervtek_logo.jpg",
+    logo: "./deltechhub_logo.jpg",
     category: "Startup Incubator",
     tag: "Coworking & Innovation",
     desc: "Tech ecosystem space supporting early-stage technical startups with hardware, mentorship, and cloud tools.",
@@ -92,7 +92,7 @@ const PARTNERS = [
   {
     name: "MTN Cameroon",
     url: "http://www.mtn.cm/",
-    logo: "./ecobankcameroun_logo.jpg",
+    logo: "./MTN_Cameroon.jpg",
     category: "Telecom Partner",
     tag: "Connectivity & Cloud",
     desc: "Telecommunications enterprise delivering mobile connectivity, digital payment, and infrastructure support.",
@@ -100,7 +100,7 @@ const PARTNERS = [
   {
     name: "Orange Cameroon",
     url: "http://www.orange.cm/",
-    logo: "./ecobankcameroun_logo.jpg",
+    logo: "./orange_Cameroon.png",
     category: "Telecom & Digital Services",
     tag: "Digital Ecosystem",
     desc: "Global telecommunications leader providing enterprise connectivity and backing digital skills development.",
@@ -108,7 +108,7 @@ const PARTNERS = [
   {
     name: "Camtel",
     url: "http://www.camtel.cm/",
-    logo: "./ecobankcameroun_logo.jpg",
+    logo: "./camtel.png",
     category: "National Telecom Partner",
     tag: "Fiber & Infrastructure",
     desc: "Cameroon's national telecommunications provider backing optical fiber infrastructure and academic networks.",
@@ -375,10 +375,10 @@ export default function App() {
             className="flex items-center space-x-3 cursor-pointer group"
           >
             <div className="flex flex-col">
-             <img 
-  src="/tech-innovation-center.jpg" 
-  alt="Tech Innovation Center" 
-  className="w-full h-auto rounded-xl object-cover" 
+            <img 
+  src="./1682012927194.jpg" 
+  alt="Tech Innovation Center Logo" 
+  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shrink-0 border border-slate-200" 
 />
             </div>
           </div>
