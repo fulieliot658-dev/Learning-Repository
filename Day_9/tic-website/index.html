@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TiC Foundation</title>
+    <title>MathChat</title>
+    <style></style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+   <div class="chat-container">
+    <span class="welcome"></span>
+    <div id="chat-area"></div>
+    <div class="input-area">
+        <input type="text" name="" id="input" placeholder="Type your message here..." />
+        <button type="submit" onclick="response()">Ask</button>
+    </div>
+   </div>
+   <script>
+    const chatArea = document.getElementById("chat-area");
+    const message = document.querySelector("#input");
+    const welcome = document.querySelector(".welcome");
+function response(){
+    
+}
+   </script>
+  <body>
 </html>
