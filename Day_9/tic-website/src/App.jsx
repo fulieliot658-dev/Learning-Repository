@@ -1322,7 +1322,7 @@ const handleSendMessage = (e) => {
       aiReply = `The current time is ${formattedTime} on ${formattedDate}.`;
     } else if (q.includes("president") || q.includes("founder") || q.includes("bill agha") || q.includes("leadership") || q.includes("chairman") || q.includes("chiarman")) {
       aiReply = `Mr. Bill Agha is the Founder and current President of TiC Foundation, driving technology vision and youth empowerment across Cameroon. ${timestamp}`;
-    } else if (q.includes("vice president") || q.includes("nobert") || q.includes("vp") || q.includes("co-lead")) {
+    } else if (q.includes("vice president") || q.includes("anseh norbert") || q.includes("vp") || q.includes("co-lead")) {
       aiReply = `Mr. Anseh Norbert serves as the Vice President of TiC Foundation, co-leading strategic growth and organizational partnerships. ${timestamp}`;
     } else if (q.includes("yollande") || q.includes("coordinator") || q.includes("national coordinator")) {
       aiReply = `Azambou Yollande is the National Coordinator of TiC Foundation. She leads nationwide programs like TIC Summit, reaching over 1,000+ students across Cameroon. ${timestamp}`;
