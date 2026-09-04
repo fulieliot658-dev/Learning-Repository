@@ -777,10 +777,9 @@ function HomeTab({ onNavigate, onOpenSignUp }) {
           </div>
 
           {/* FONT NOT MASSIVE - DIRECT CORE AIM */}
-          <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-            Driving innovation and empowering the next generation of tech
-            leaders.
-          </h1>
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-blue-600 tracking-tight leading-snug">
+  Driving innovation and empowering the next generation of tech leaders.
+</h1>
 
           {/* VERY SIMPLE ENGLISH PURPOSE - NO AMBIGUITY */}
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
