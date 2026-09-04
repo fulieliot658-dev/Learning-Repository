@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1904640988,
-    "totalActiveTime": 33242910
+    "totalFocusTime": 1931973607,
+    "totalActiveTime": 34638247
   },
   "files": {
     "javascript.html": {
@@ -134,20 +134,16 @@
       "focus": 142130
     },
     "Day_9/tic-website/src/App.jsx": {
-      "pending": 166789,
-      "focus": 1196893
+      "pending": 1044111,
+      "focus": 8676799
     },
     "Day_9/tic-website/src/index.css": {
-      "pending": 10259,
-      "focus": 124747
+      "pending": 35033,
+      "focus": 320421
     },
     "Day_9/tic-website/src/main.jsx": {
-      "pending": 8416,
-      "focus": 136494
-    },
-    "Day_9/tic-website/src/App.css": {
-      "pending": 4467,
-      "focus": 35756
+      "pending": 19777,
+      "focus": 172215
     },
     "Day_10/Finanacial_calculator.html": {
       "pending": 465498,
@@ -155,11 +151,31 @@
     },
     "Day_11/index.html": {
       "pending": 1622460,
-      "focus": 16221389
+      "focus": 16335005
+    },
+    "Day_9/tailwind.config.js": {
+      "pending": 25897,
+      "focus": 113882
+    },
+    "Day_9/tic-website/postcss.config.js": {
+      "pending": 20583,
+      "focus": 71599
+    },
+    "Day_9/tic-website/index.html": {
+      "pending": 175610,
+      "focus": 1283886
+    },
+    "Day_12/index2.html": {
+      "pending": 251674,
+      "focus": 885913
+    },
+    "Day_12/index.html": {
+      "pending": 8116,
+      "focus": 8116
     }
   },
   "deleted": {
-    "active": 9741,
-    "focus": 453065
+    "active": 14208,
+    "focus": 534147
   }
 }
