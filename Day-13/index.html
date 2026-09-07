@@ -48,7 +48,8 @@
         </script>
 </head>
 <body>
-    <button type="submit" class="alert">Alert</button>
+    <button type="submit" class="alert" onclick="message(this)">Alert</button>
+    <button type="submit" class="alert" onclick="message(this)">Alert!</button>
     <span onclick="reveal(this)">Reveal</span>
     <div class="click" onclick="Switch()">Switch</div>
     <button class="num-btn">0</button><button class="num-btn">1</button><button class="num-btn">2</button>
@@ -72,9 +73,13 @@ for (var i = 0; i < buttons.length; i++) {
         console.log("Button index:", i);
     };
 }
-document.querySelector(".alert").addEventListener("click", function() {
-    console.log("Alert button clicked!");
-}); 
+// document.querySelector(".alert").addEventListener("click", function() {
+//     console.log("Alert button clicked!");
+// }); 
+function message(element){
+console.log("Alert button clicked!", element);
+console.dir(element);
+}
     </script>
 </body>
 </html>
