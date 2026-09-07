@@ -4,25 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html{
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(to right, rgba(255, 60, 60, 0.932), rgba(176, 243, 255, 0.925));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .click{
+            background-color: rgba(255, 255, 255, 0.062);
+            backdrop-filter: blur(7px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 50%;
+            height: auto;
+        }
+    </style>
     <script type="text/javascript">
         // Your JavaScript code here
-        
+        function reveal(element) {
+        console.log(element);
+        }
     </script>
 </head>
 <body>
+    <span onclick="reveal(this)">Reveal</span>
     <div class="click" onclick="Switch()">Switch</div>
+    <button class="num-btn">0</button><button class="num-btn">1</button><button class="num-btn">2</button>
     <script>
         let button = document.querySelector(".click");
         function Switch() {
-            if(document.body.style.backgroundColor==="white"){
+            if(document.body.style.backgroundColor===""){
                 button.textContent="Switch Again";
                 document.body.style.backgroundColor="blue";
             } else {
-                document.body.style.backgroundColor="white";
+                document.body.style.backgroundColor="";
                 button.style.color="black";
                 button.textContent="Switch";
             }
         }
+        
+const buttons = document.querySelectorAll(".num-btn");
+
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = function() {
+        console.log("Button index:", i);
+    };
+}
     </script>
 </body>
 </html>
