@@ -8,8 +8,8 @@
         @function --double(--value){
             result: calc(var(--value) * 2);
         }
-        @function --color(--value){
-            result: var(--value);
+        @function --glass(--value){
+            result: var(blur((--value)-1));
         }
         html{
             padding: 0;
@@ -27,7 +27,7 @@
         }
         .click{
             background-color: rgba(255, 255, 255, 0.062);
-            backdrop-filter: blur(7px);
+            backdrop-filter: ---glass(8px);
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 50%;
             height: auto;
@@ -53,6 +53,7 @@
     <span onclick="reveal(this)">Reveal</span>
     <div class="click" onclick="Switch()">Switch</div>
     <button class="num-btn">0</button><button class="num-btn">1</button><button class="num-btn">2</button>
+    <input type="button" onclick="toggleTorch()" class="torch-btn" value="Torch"/>
     <script>
         let button = document.querySelector(".click");
         function Switch() {
@@ -64,6 +65,10 @@
                 button.style.color="black";
                 button.textContent="Switch";
             }
+        }
+        const button
+       function toggleTorch(){
+            
         }
         
 const buttons = document.querySelectorAll(".num-btn");
@@ -78,7 +83,7 @@ for (var i = 0; i < buttons.length; i++) {
 // }); 
 function message(element){
 console.log("Alert button clicked!", element);
-console.dir(element);
+console.dir(element.childNodes);
 }
     </script>
 </body>
