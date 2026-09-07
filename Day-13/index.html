@@ -66,9 +66,10 @@
                 button.textContent="Switch";
             }
         }
-        const button
+        const torch= document.querySelector(".torch-btn");
        function toggleTorch(){
-            
+         const isOn = torch.classList.toggle("torch-on");
+         console.log(`[STATE]: ${isON}`);
         }
         
 const buttons = document.querySelectorAll(".num-btn");
