@@ -865,6 +865,7 @@ function HomeTab({ onNavigate, onOpenSignUp }) {
             <span className="text-xs font-bold uppercase tracking-wider text-red-600">
               Core Initiatives
             </span>
+            
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
               Popular Programs for Youth
             </h2>

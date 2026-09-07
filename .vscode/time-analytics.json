@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 1934069079,
-    "totalActiveTime": 34721645
+    "totalFocusTime": 1954835262,
+    "totalActiveTime": 35144854
   },
   "files": {
     "javascript.html": {
@@ -134,8 +134,8 @@
       "focus": 142130
     },
     "Day_9/tic-website/src/App.jsx": {
-      "pending": 1044111,
-      "focus": 8676799
+      "pending": 1415333,
+      "focus": 10378495
     },
     "Day_9/tic-website/src/index.css": {
       "pending": 35033,
@@ -172,6 +172,10 @@
     "Day_12/index.html": {
       "pending": 8116,
       "focus": 8116
+    },
+    "Day-13/index.html": {
+      "pending": 51987,
+      "focus": 154279
     }
   },
   "deleted": {
