@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // Your JavaScript code here
+        
+    </script>
+</head>
+<body>
+    <div class="click" onclick="Switch()">Switch</div>
+    <script>
+        let button = document.querySelector(".click");
+        function Switch() {
+            if(document.body.style.backgroundColor==="white"){
+                button.textContent="Switch Again";
+                document.body.style.backgroundColor="blue";
+            } else {
+                document.body.style.backgroundColor="white";
+                button.style.color="black";
+                button.textContent="Switch";
+            }
+        }
+    </script>
+</body>
+</html>
