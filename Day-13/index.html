@@ -32,9 +32,15 @@
         function reveal(element) {
         console.log(element.parentNode);
         }
+        function Alert(){
+            document.querySelector("button").onclick = function (){
+                alert("Yoohoo!!!");
+            }
+        }
     </script>
 </head>
 <body>
+    <button type="submit" class="alert">Alert</button>
     <span onclick="reveal(this)">Reveal</span>
     <div class="click" onclick="Switch()">Switch</div>
     <button class="num-btn">0</button><button class="num-btn">1</button><button class="num-btn">2</button>
