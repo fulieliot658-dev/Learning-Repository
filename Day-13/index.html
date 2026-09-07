@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @function --double(--value){
+            result: calc(var(--value) * 2);
+        }
         html{
             padding: 0;
             margin: 0;
@@ -25,6 +28,7 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 50%;
             height: auto;
+            padding: --double(1em);
         }
     </style>
     <script type="text/javascript">
