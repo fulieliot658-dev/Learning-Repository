@@ -68,8 +68,11 @@
         }
         const torch= document.querySelector(".torch-btn");
        function toggleTorch(){
-         const isOn = torch.classList.toggle("torch-on");
-         console.log(`[STATE]: ${isON}`);
+         const isOn = torch.classList.toggle("On");
+         const torchLight = document.createElement("div");
+         torchLight.classList.add("torch-light");
+
+         torchLight.innerHTML = `[STATE]: ${isOn ? true:false}`;
         }
         
 const buttons = document.querySelectorAll(".num-btn");
