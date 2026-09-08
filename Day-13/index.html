@@ -134,9 +134,9 @@ console.dir(element.childNodes);
  function rainBow(){
     const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
    for (let i = 0; i < colors.length; i++) {
-        setInterval(() => {
-            document.body.style.backgroundColor += colors[i];
-        }, 10000 * i);
+        // setInterval(() => {
+            document.querySelector(".rainbow").style.backgroundColor += colors[i];
+        // }, 10000 * i);
         i++;
     }}
     </script>
