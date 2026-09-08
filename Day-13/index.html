@@ -135,7 +135,8 @@ function rainBow(){
     const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
     let i=0;
     while(i<colors.length){
-        document.body.style.backgroundColor=colors[i];
+        set timeout(function(){
+        document.body.style.backgroundColor=colors[i];}, 1000*i);
         i++;
     }}
     </script>
