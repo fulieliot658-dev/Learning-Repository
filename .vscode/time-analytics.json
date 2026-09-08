@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2036716817,
-    "totalActiveTime": 36159189
+    "totalFocusTime": 2051753545,
+    "totalActiveTime": 37048447
   },
   "files": {
     "javascript.html": {
@@ -174,12 +174,44 @@
       "focus": 8116
     },
     "Day-13/index.html": {
-      "pending": 1066322,
-      "focus": 4656060
+      "pending": 1291744,
+      "focus": 6491653
+    },
+    "Day-14/my-first-app/package.json": {
+      "pending": 0,
+      "focus": 61889
+    },
+    "Day-14/my-first-app/index.html": {
+      "pending": 0,
+      "focus": 29334
+    },
+    "Day-14/my-first-app/src/App.jsx": {
+      "pending": 403631,
+      "focus": 2568859
+    },
+    "Day-14/my-first-app/src/Greeting.jsx": {
+      "pending": 54610,
+      "focus": 228376
+    },
+    "Day-14/my-first-app/src/footer.jsx": {
+      "pending": 179249,
+      "focus": 635832
+    },
+    "Day-14/my-first-app/node_modules/vite/dist/node/chunks/node.js": {
+      "pending": 0,
+      "focus": 105107
+    },
+    "Day-14/my-first-app/vite.config.js": {
+      "pending": 0,
+      "focus": 14332
+    },
+    "Day-14/utils/utils.js": {
+      "pending": 26346,
+      "focus": 221680
     }
   },
   "deleted": {
     "active": 14208,
-    "focus": 534147
+    "focus": 566775
   }
 }
