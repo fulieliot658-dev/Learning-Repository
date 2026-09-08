@@ -88,7 +88,9 @@
     <div class="click" onclick="Switch()">Switch</div>
     <button class="num-btn">0</button><button class="num-btn">1</button><button class="num-btn">2</button>
     <input type="button" onclick="toggleTorch()" class="torch-btn" value="Torch"/>
+    <input type="button" onclick="rainBow()" class="rainbow" value="Rainbow"/>
     <script>
+        //
         let button = document.querySelector(".click");
         function Switch() {
             if(document.body.style.backgroundColor===""){
@@ -100,6 +102,7 @@
                 button.textContent="Switch";
             }
         }
+        //
         const torch= document.querySelector(".torch-btn");
        function toggleTorch(){
          const isOn = torch.classList.toggle("On");
@@ -110,7 +113,7 @@
             document.body.style.backgroundColor="aliceblue";
          }
         }
-        
+        //
 const buttons = document.querySelectorAll(".num-btn");
 
 for (var i = 0; i < buttons.length; i++) {
@@ -118,13 +121,23 @@ for (var i = 0; i < buttons.length; i++) {
         console.log("Button index:", i);
     };
 }
+//
 // document.querySelector(".alert").addEventListener("click", function() {
 //     console.log("Alert button clicked!");
 // }); 
+//
 function message(element){
 console.log("Alert button clicked!", element);
 console.dir(element.childNodes);
 }
+//
+function rainBow(){
+    const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+    let i=0;
+    while(i<colors.length){
+        document.body.style.backgroundColor=colors[i];
+        i++;
+    }}
     </script>
 </body>
 </html>
