@@ -131,14 +131,13 @@ console.log("Alert button clicked!", element);
 console.dir(element.childNodes);
 }
 //
-function rainBow(){
+ setTimeout(function rainBow(){
     const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
     let i=0;
     while(i<colors.length){
-        set timeout(function(){
-        document.body.style.backgroundColor=colors[i];}, 1000*i);
+        document.body.style.backgroundColor=colors[i];
         i++;
-    }}
+    }}, 1000*i);
     </script>
 </body>
 </html>
