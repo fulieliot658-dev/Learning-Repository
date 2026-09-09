@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2056102847,
-    "totalActiveTime": 37162545
+    "totalFocusTime": 2074835445,
+    "totalActiveTime": 37647535
   },
   "files": {
     "javascript.html": {
@@ -135,7 +135,7 @@
     },
     "Day_9/tic-website/src/App.jsx": {
       "pending": 1415333,
-      "focus": 10378495
+      "focus": 11693695
     },
     "Day_9/tic-website/src/index.css": {
       "pending": 35033,
@@ -174,8 +174,8 @@
       "focus": 8116
     },
     "Day-13/index.html": {
-      "pending": 1405842,
-      "focus": 8721430
+      "pending": 1406363,
+      "focus": 9972976
     },
     "Day-14/my-first-app/package.json": {
       "pending": 0,
@@ -186,12 +186,12 @@
       "focus": 29334
     },
     "Day-14/my-first-app/src/App.jsx": {
-      "pending": 403631,
-      "focus": 4585254
+      "pending": 664694,
+      "focus": 7102770
     },
     "Day-14/my-first-app/src/Greeting.jsx": {
-      "pending": 54610,
-      "focus": 230011
+      "pending": 65730,
+      "focus": 398900
     },
     "Day-14/my-first-app/src/footer.jsx": {
       "pending": 179249,
@@ -208,6 +208,30 @@
     "Day-14/utils/utils.js": {
       "pending": 26346,
       "focus": 221680
+    },
+    "Day-14/my-first-app/src/Card.jsx": {
+      "pending": 46602,
+      "focus": 133106
+    },
+    "Day-14/my-first-app/src/Button.jsx": {
+      "pending": 109431,
+      "focus": 254920
+    },
+    "Day-14/my-first-app/node_modules/@types/react/index.d.ts": {
+      "pending": 0,
+      "focus": 1645754
+    },
+    "Day-14/my-first-app/src/ProfileCard.jsx": {
+      "pending": 56253,
+      "focus": 167490
+    },
+    "Day-14/my-first-app/src/index.css": {
+      "pending": 0,
+      "focus": 24419
+    },
+    "Day-14/my-first-app/src/App.css": {
+      "pending": 0,
+      "focus": 46204
     }
   },
   "deleted": {
