@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2074835445,
-    "totalActiveTime": 37647535
+    "totalFocusTime": 2075216323,
+    "totalActiveTime": 37729899
   },
   "files": {
     "javascript.html": {
@@ -175,7 +175,7 @@
     },
     "Day-13/index.html": {
       "pending": 1406363,
-      "focus": 9972976
+      "focus": 10083858
     },
     "Day-14/my-first-app/package.json": {
       "pending": 0,
@@ -232,6 +232,10 @@
     "Day-14/my-first-app/src/App.css": {
       "pending": 0,
       "focus": 46204
+    },
+    "Day-15/index.html": {
+      "pending": 82364,
+      "focus": 198975
     }
   },
   "deleted": {
