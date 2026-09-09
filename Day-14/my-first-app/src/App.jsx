@@ -7,6 +7,7 @@ import Greeting from './Greeting.jsx'
 import Footer from './footer.jsx'
 import Card from './Card.jsx'
 import Button from './Button.jsx'
+import ProfileCard from './ProfileCard.jsx'
 function App(){
   const currentDate = new Date().toDateString();
   const city = 'Yaounde';
@@ -27,8 +28,11 @@ function App(){
     <p>City: {city}</p>
     <p>Country: {country}</p>
     <p>Population: {population.toLocaleString()}</p>
-    <p>Location: {location ? `${location.latitude}, ${location.longitude}` : 'Location not available'}</p>
+    <p>Location: {`at latitude: ${location.latitude}, longitude: ${location.longitude}`}</p>
     <Greeting name="Michael" />
+    <ProfileCard name="Michael" job="Data Analyst" city="California"/>
+    <ProfileCard name="John Doe" job="Petroleum Engineer" city="Mumbai"/>
+    <ProfileCard name="Bob" job="Builder" city="Douala"/>
     <Card>
       <img src="" alt="Card Image" />
       <h3>Card Title</h3>
