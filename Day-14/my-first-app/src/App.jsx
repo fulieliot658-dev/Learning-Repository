@@ -5,6 +5,8 @@
 import './App.css'
 import Greeting from './Greeting.jsx'
 import Footer from './footer.jsx'
+import Card from './Card.jsx'
+import Button from './Button.jsx'
 function App(){
   const currentDate = new Date().toDateString();
   const city = 'Yaounde';
@@ -27,6 +29,12 @@ function App(){
     <p>Population: {population.toLocaleString()}</p>
     <p>Location: {location ? `${location.latitude}, ${location.longitude}` : 'Location not available'}</p>
     <Greeting name="Michael" />
+    <Card>
+      <img src="" alt="Card Image" />
+      <h3>Card Title</h3>
+      <p>This is the content of the card.</p>
+    </Card>
+    <Button/><br/>
     <img src="https://images.unsplash.com/photo-1682685794700-1f3c5e7b8d6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="A beautiful landscape" />
     <Footer />
     </div>
