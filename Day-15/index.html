@@ -107,7 +107,9 @@ loadData();
                 padding: 0;
                 margin: 0;
                 box-sizing: border-box;
-                font-family: monospace;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: 700;
+                font-size: large;
             }
             body{
                 min-height: 100vh;
@@ -116,28 +118,61 @@ loadData();
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background: url('./neon.jpg');
-                background-attachment: fixed;
-                background-repeat: no-repeat;
-                background-size: 100%;
-                flex: 0; 
+                background-color: rgba(235, 231, 231, 0.466);
+                gap: 1em
             }
             .container{
-                width: 50%;
-                height: 200px;
-                background-color: rgba(173, 216, 230, 0.021);
-                backdrop-filter: --blur(8px); 
-                border-radius: 15px;
-                border: 1px solid rgba(173, 216, 230, 0.363);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
+                background-color: rgb(236, 242, 247);
+                border: 0.8px solid rgba(201, 197, 197, 0.986);
+                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgba(255, 255, 255, 0.521);
+                width: auto;
+                height:auto;
+                padding: 1em;
+                border-radius: 8px;
+                 font-family: 'Segeo UI', sans-serif;
+                font-weight: 800;
+                
+            }
+            .container:hover{
+                box-shadow: -2px -2px 8px rgba(167, 166, 166, 0.986), 2px 2px 8px rgba(255, 255, 255, 0.986);
+                transform: scale(1.02);
+            }
+            input{
+             background-color: aliceblue;
+                border: 0.5px solid rgba(201, 197, 197, 0.986);
+                box-shadow: -2px -2px 8px rgba(167, 166, 166, 0.986), 2px 2px 8px rgba(255, 255, 255, 0.986);
+                width: auto;
+                height:auto;
+                padding: 1em; 
+                border-radius: 8px;  
+            }
+            input:hover{
+                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgba(255, 255, 255, 0.521);
+                border: none;
             }
         </style>
     </head>
     <body>
-<div class="container">Hello world!</div>
+<div class="container">
+    Click "Start" to check the time
+</div>
+<input type="button" value="Start" onclick="clock()"/>
+<input type="button" value="Stop" onclick="stop()"/>
+<script>
+    let time = document.querySelector(".container");
+    function clock(){
+        setInterval(()=>{
+let now = new Date().toLocaleTimeString(undefined,{
+    hour: '2-digit',
+    minute:'2-digit',
+    second:'2-digit'});
+    time.textContent=`${now}`;
+    time.style.transform="rotateX(360deg)";
+}, 1000);
+    }
+   function stop(){
+
+   }
+</script>
     </body>
 </html>
