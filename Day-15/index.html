@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width initial-cale=1.0"/>
+        <title>Document</title>
+        <script type="text/javascript">
+            function calculate(a, b, callback){
+                let callBack = callback;
+                setTimeout(()=>{
+                let result = a+b;
+            callBack(result);
+            }, 2000);}
+            
+            function response(props){
+                console.log(`The answer is ${props}.`);
+            }
+calculate(1, 2, response);
+//
+            function fetchData(callback) {
+  setTimeout(() => {
+    const data = { userId: 1, name: "Alex" };
+    callback(data);
+  }, 1000);
+}
+
+function processUser(userData) {
+  console.log("User retrieved:", userData.name);
+}
+
+fetchData(processUser);
+
+//
+function judge(grade) {
+ switch (true) {
+ case grade == "A":
+ console.log("You got an", grade, ": amazing!");
+ break;
+ case grade == "B":
+ console.log("You got a", grade, ": well done!");
+ break;
+ case grade == "C":
+ console.log("You got a", grade, ": alright.");
+ break;
+ case grade == "D":
+ console.log("You got a", grade, ": hmmm...");
+ break;
+ default:
+ console.log("An", grade, "! What?!");
+ }
+}
+function getGrade(score, callback) {
+ let grade;
+ switch (true) {
+ case score >= 90:
+ grade = "A";
+ break;
+ case score >= 80:
+ console.log(score);
+ grade = "B";
+ break;
+ case score >= 70:
+    grade = "C";
+ break;
+ case score >= 60:
+ grade = "D";
+ break;
+ default:
+ grade = "F";
+ }
+ callback(grade);
+}
+getGrade(85, judge);
+//
+async function checkInventory(ms, item) {
+    let response;
+let check = setTimeout(()=>{
+    if(item==="laptop"){
+        response= `[SUCCESS]: You just acquired a new ${item}`;
+    }
+    else{
+        response = `[ERROR]: Invalid item purchased`;
+    }
+}, ms);  
+return response;  
+}
+async function loadData() {
+  
+    try{
+        await checkInventory(3000, "laptop");
+        console.log("Purchase terminated!");
+    }catch(error){
+        console.error("[ERROR]: Purchase failed!");
+    }
+    finally{
+        console.log("[LOG]: Process exited!");
+    }
+}
+loadData();
+
+        </script>
+        <style>
+            @function --blur(--value){
+                result: --blur(var(--value));
+            }
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: monospace;
+            }
+            body{
+                min-height: 100vh;
+                max-width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: url('./neon.jpg');
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                flex: 0; 
+            }
+            .container{
+                width: 50%;
+                height: 200px;
+                background-color: rgba(173, 216, 230, 0.021);
+                backdrop-filter: --blur(8px); 
+                border-radius: 15px;
+                border: 1px solid rgba(173, 216, 230, 0.363);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+            }
+        </style>
+    </head>
+    <body>
+<div class="container">Hello world!</div>
+    </body>
+</html>
