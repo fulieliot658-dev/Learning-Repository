@@ -1,5 +1,5 @@
 import './App.css'
 function Button(){
-    return <button onClick="return(this)" className="Button">Click Me Please!</button>
+    return <button onClick={()=>alert('Hello everyone')} className="Button">Click Me Please!</button>
 }
 export default Button;

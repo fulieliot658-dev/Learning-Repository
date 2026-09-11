@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2138208362,
-    "totalActiveTime": 40349901
+    "totalFocusTime": 2138465281,
+    "totalActiveTime": 40934012
   },
   "files": {
     "javascript.html": {
@@ -166,8 +166,8 @@
       "focus": 1283886
     },
     "Day_12/index2.html": {
-      "pending": 385771,
-      "focus": 4254597
+      "pending": 387205,
+      "focus": 4393466
     },
     "Day_12/index.html": {
       "pending": 8116,
@@ -187,15 +187,15 @@
     },
     "Day-14/my-first-app/src/App.jsx": {
       "pending": 664694,
-      "focus": 7607101
+      "focus": 7618140
     },
     "Day-14/my-first-app/src/Greeting.jsx": {
-      "pending": 65730,
-      "focus": 398900
+      "pending": 202121,
+      "focus": 535291
     },
     "Day-14/my-first-app/src/footer.jsx": {
-      "pending": 179249,
-      "focus": 635832
+      "pending": 179848,
+      "focus": 770636
     },
     "Day-14/my-first-app/node_modules/vite/dist/node/chunks/node.js": {
       "pending": 0,
@@ -206,16 +206,16 @@
       "focus": 14332
     },
     "Day-14/utils/utils.js": {
-      "pending": 26346,
-      "focus": 221680
+      "pending": 161833,
+      "focus": 357167
     },
     "Day-14/my-first-app/src/Card.jsx": {
-      "pending": 46602,
-      "focus": 133106
+      "pending": 183308,
+      "focus": 278338
     },
     "Day-14/my-first-app/src/Button.jsx": {
-      "pending": 109431,
-      "focus": 254920
+      "pending": 145340,
+      "focus": 477801
     },
     "Day-14/my-first-app/node_modules/@types/react/index.d.ts": {
       "pending": 0,
@@ -234,12 +234,12 @@
       "focus": 46204
     },
     "Day-15/index.html": {
-      "pending": 2650489,
-      "focus": 19217567
+      "pending": 2651002,
+      "focus": 19445953
     },
     "Day-16/index.html": {
-      "pending": 1178,
-      "focus": 153864
+      "pending": 138250,
+      "focus": 290936
     }
   },
   "deleted": {

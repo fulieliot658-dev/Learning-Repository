@@ -1,5 +1,5 @@
 import './App.css'
-function Greeting(props){
-return <h2>Bonjour {props.name}</h2>;
+function Greeting({ name }) {
+return <h2>Bonjour {name}</h2>;
 }
 export default Greeting;
