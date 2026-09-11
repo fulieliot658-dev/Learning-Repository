@@ -122,9 +122,9 @@ loadData();
                 gap: 1em
             }
             .container{
-                background-color: rgb(236, 242, 247);
+                background-color: rgba(235, 231, 231, 0.466);
                 border: 0.8px solid rgba(201, 197, 197, 0.986);
-                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgba(255, 255, 255, 0.521);
+                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgb(255, 255, 255);
                 width: auto;
                 height:auto;
                 padding: 1em;
@@ -137,42 +137,97 @@ loadData();
                 box-shadow: -2px -2px 8px rgba(167, 166, 166, 0.986), 2px 2px 8px rgba(255, 255, 255, 0.986);
                 transform: scale(1.02);
             }
-            input{
-             background-color: aliceblue;
+            button{
+             background-color:rgba(235, 231, 231, 0.466);
                 border: 0.5px solid rgba(201, 197, 197, 0.986);
-                box-shadow: -2px -2px 8px rgba(167, 166, 166, 0.986), 2px 2px 8px rgba(255, 255, 255, 0.986);
+                box-shadow: -2px -2px 8px rgba(167, 166, 166, 0.986), 2px 2px 8px rgb(255, 255, 255);
                 width: auto;
                 height:auto;
                 padding: 1em; 
                 border-radius: 8px;  
             }
-            input:hover{
-                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgba(255, 255, 255, 0.521);
+            button:hover{
+                box-shadow: inset -2px -2px 8px rgba(167, 166, 166, 0.986), inset 2px 2px 8px rgb(255, 255, 255);
                 border: none;
+            }
+            ul{
+                border-radius: 8px; 
+                background-color: rgba(201, 227, 250, 0.788);
+                width: 50%;
+                height: auto;
+                padding: 0.5em;
+                list-style-type: none;
+            }
+            li{
+              border-radius: 8px; 
+                background-color: rgba(201, 227, 250, 0.788);  
+                width: 100%;
+                height: auto;
+                padding: 0.4em;
             }
         </style>
     </head>
     <body>
 <div class="container">
-    Click "Start" to check the time
 </div>
-<input type="button" value="Start" onclick="clock()"/>
-<input type="button" value="Stop" onclick="stop()"/>
+<button type="submit"  class="Switch">Start</button>
+<ul class="history"></ul>
 <script>
-    let time = document.querySelector(".container");
-    function clock(){
-        setInterval(()=>{
-let now = new Date().toLocaleTimeString(undefined,{
-    hour: '2-digit',
-    minute:'2-digit',
-    second:'2-digit'});
-    time.textContent=`${now}`;
-    time.style.transform="rotateX(360deg)";
-}, 1000);
-    }
-   function stop(){
+      let time = document.querySelector(".container");
+      let Switch = document.querySelector(".Switch");
+      let hty = document.querySelector(".history");
 
-   }
-</script>
-    </body>
+      let timer = null;
+      let lastStoppedTime = "";
+
+      let record = JSON.parse(localStorage.getItem("recent")) || "";
+
+      function renderHistory() {
+        hty.innerHTML = "";
+        record.forEach((item) => {
+          let li = document.createElement("li");
+          li.textContent = item;
+          hty.appendChild(li);
+        });
+      }
+
+      renderHistory();
+
+      Switch.addEventListener("click", function clock() {
+        let touch = time.classList.toggle("switch");
+
+        if (touch) {
+          Switch.textContent = "Stop";
+
+          timer = setInterval(() => {
+            let now = new Date().toLocaleTimeString(undefined, {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+            });
+            time.textContent = `${now}`;
+            lastStoppedTime = now;
+          }, 1000);
+
+          console.log("yes");
+        } else {
+          clearInterval(timer);
+
+          time.textContent = "Clock closed🚨";
+          Switch.textContent = "Start";
+
+          if (lastStoppedTime) {
+            record.push(lastStoppedTime);
+            localStorage.setItem("recent", JSON.stringify(record));
+
+            let hist = document.createElement("li");
+            hist.textContent = lastStoppedTime;
+            hty.appendChild(hist);
+          }
+
+          console.log("No");
+        }
+      });
+    </script>
+  </body>
 </html>
