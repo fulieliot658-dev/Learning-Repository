@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2122030184,
-    "totalActiveTime": 40344106
+    "totalFocusTime": 2138208362,
+    "totalActiveTime": 40349901
   },
   "files": {
     "javascript.html": {
@@ -167,7 +167,7 @@
     },
     "Day_12/index2.html": {
       "pending": 385771,
-      "focus": 4088884
+      "focus": 4254597
     },
     "Day_12/index.html": {
       "pending": 8116,
@@ -187,7 +187,7 @@
     },
     "Day-14/my-first-app/src/App.jsx": {
       "pending": 664694,
-      "focus": 7469882
+      "focus": 7607101
     },
     "Day-14/my-first-app/src/Greeting.jsx": {
       "pending": 65730,
@@ -234,8 +234,12 @@
       "focus": 46204
     },
     "Day-15/index.html": {
-      "pending": 2645872,
-      "focus": 19025069
+      "pending": 2650489,
+      "focus": 19217567
+    },
+    "Day-16/index.html": {
+      "pending": 1178,
+      "focus": 153864
     }
   },
   "deleted": {
