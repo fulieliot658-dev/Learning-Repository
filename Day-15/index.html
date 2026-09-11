@@ -98,6 +98,17 @@ async function loadData() {
 }
 loadData();
 
+
+function greet(fullName){
+    let full_name=[];
+    full_name.push(fullName);
+    full_name.forEach((item)=>{console.log(`My name is ${item}`)});
+        }
+        function userName(name, callback){
+            name.split("");
+            callback(name);
+        }
+        userName("John Doe", greet);
         </script>
         <style>
             @function --blur(--value){
@@ -165,6 +176,7 @@ loadData();
                 height: auto;
                 padding: 0.4em;
             }
+            
         </style>
     </head>
     <body>
