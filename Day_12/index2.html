@@ -8,18 +8,19 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
+        background-color: #0d1117;
+        color: #00f3ff;
         display: flex;
         justify-content: center;
-        padding-top: 30px;
+        padding-top: 20px;
       }
 
       .chat-container {
-        width: 400px;
-        background: #ffffff;
+        width: 420px;
+        background: #0d1117;
         padding: 15px;
-        border: 2px solid #90caf9;
-        box-shadow: inset 3px 3px 6px #bbdefb, inset -3px -3px 6px #e3f2fd, 4px 4px 0px #90caf9, 8px 8px 0px #e3f2fd;
+        border: 2px solid #00f3ff;
+        box-shadow: 4px 4px 0px #005f73, 8px 8px 0px #002b36, 0 0 10px #00f3ff;
         border-radius: 8px;
       }
 
@@ -27,17 +28,18 @@
         display: block;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #1976d2;
+        color: #00f3ff;
+        text-shadow: 0 0 5px #00f3ff;
       }
 
       #chat-area {
-        height: 300px;
-        border: 1px solid #90caf9;
-        box-shadow: inset 2px 2px 4px #e3f2fd, inset -2px -2px 4px #ffffff;
+        height: 280px;
+        border: 1px solid #00f3ff;
+        box-shadow: inset 3px 3px 6px #000000, inset -3px -3px 6px #002b36;
         overflow-y: auto;
         padding: 10px;
         margin-bottom: 10px;
-        background-color: #fafafa;
+        background-color: #05080c;
       }
 
       .msg {
@@ -48,19 +50,19 @@
       }
 
       .user-msg {
-        color: #1e88e5;
-        border: 1px solid #90caf9;
-        background-color: #e3f2fd;
+        color: #00f3ff;
+        border: 1px solid #00f3ff;
+        background-color: #051a24;
         text-align: right;
-        box-shadow: inset 1px 1px 3px #bbdefb, inset -1px -1px 3px #ffffff;
+        box-shadow: inset 2px 2px 4px #000000;
       }
 
       .bot-msg {
-        color: #333;
-        border: 1px solid #90caf9;
-        background-color: #ffffff;
+        color: #ffffff;
+        border: 1px solid #005f73;
+        background-color: #0d1117;
         text-align: left;
-        box-shadow: inset 1px 1px 3px #e0e0e0, inset -1px -1px 3px #ffffff;
+        box-shadow: inset 2px 2px 4px #000000;
       }
 
       .input-area {
@@ -71,23 +73,25 @@
       #input {
         flex: 1;
         padding: 8px;
-        border: 1px solid #90caf9;
+        background-color: #05080c;
+        color: #00f3ff;
+        border: 1px solid #00f3ff;
         border-radius: 4px;
-        box-shadow: inset 2px 2px 4px #e3f2fd;
+        box-shadow: inset 3px 3px 5px #000000;
       }
 
       button {
         padding: 8px 15px;
-        background-color: #e3f2fd;
-        color: #1565c0;
-        border: 1px solid #90caf9;
-        box-shadow: inset 1px 1px 2px #ffffff, inset -1px -1px 2px #bbdefb, 2px 2px 0px #90caf9, 4px 4px 0px #e3f2fd;
+        background-color: #0d1117;
+        color: #00f3ff;
+        border: 1px solid #00f3ff;
+        box-shadow: 3px 3px 0px #005f73, 6px 6px 0px #002b36;
         cursor: pointer;
         font-weight: bold;
       }
 
       button:active {
-        box-shadow: inset 2px 2px 4px #bbdefb;
+        box-shadow: inset 2px 2px 4px #000000;
       }
     </style>
   </head>
@@ -110,6 +114,7 @@
       welcome.textContent = "MathChat Session - " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
       let chatHistory = JSON.parse(localStorage.getItem("mathChatHistory")) || [];
+      let tasks = JSON.parse(localStorage.getItem("mathTasks")) || [];
 
       function loadHistory() {
         chatArea.innerHTML = "";
@@ -132,45 +137,171 @@
         localStorage.setItem("mathChatHistory", JSON.stringify(chatHistory));
       }
 
+      function wordToMath(text) {
+        let str = text.toLowerCase();
+        
+        const numberWords = {
+          "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4",
+          "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"
+        };
+
+        for (let word in numberWords) {
+          str = str.replace(new RegExp("\\b" + word + "\\b", "g"), numberWords[word]);
+        }
+
+        str = str.replace(/\bmultiplied by\b/g, "*");
+        str = str.replace(/\btimes\b/g, "*");
+        str = str.replace(/\bdivided by\b/g, "/");
+        str = str.replace(/\bplus\b/g, "+");
+        str = str.replace(/\badded to\b/g, "+");
+        str = str.replace(/\bminus\b/g, "-");
+        str = str.replace(/\bsubtract\b/g, "-");
+        str = str.replace(/(\d+)\s+of\s+(\d+)/g, "$1*$2");
+        str = str.replace(/\bcalculate\b/g, "");
+        str = str.replace(/\bsolve\b/g, "");
+        str = str.replace(/\bwhat is\b/g, "");
+        str = str.replace(/\bcompute\b/g, "");
+
+        return str;
+      }
+
+      function solveQuadratic(text) {
+        let clean = text.replace(/\s+/g, "").replace("=0", "");
+        let a = 1, b = 0, c = 0;
+
+        if (clean.includes("x^2")) {
+          let parts = clean.split("x^2");
+          if (parts[0] !== "") {
+            if (parts[0] === "-") a = -1;
+            else a = parseFloat(parts[0]);
+          }
+          let rest = parts[1];
+          if (rest) {
+            if (rest.includes("x")) {
+              let xParts = rest.split("x");
+              if (xParts[0] === "+") b = 1;
+              else if (xParts[0] === "-") b = -1;
+              else b = parseFloat(xParts[0]);
+              if (xParts[1]) c = parseFloat(xParts[1]);
+            } else {
+              c = parseFloat(rest);
+            }
+          }
+        }
+
+        let disc = b * b - 4 * a * c;
+        if (disc < 0) {
+          let real = (-b / (2 * a)).toFixed(2);
+          let imag = (Math.sqrt(-disc) / (2 * a)).toFixed(2);
+          return "Roots are complex: " + real + " + " + imag + "i and " + real + " - " + imag + "i";
+        } else {
+          let root1 = ((-b + Math.sqrt(disc)) / (2 * a)).toFixed(2);
+          let root2 = ((-b - Math.sqrt(disc)) / (2 * a)).toFixed(2);
+          return "Roots are: x1 = " + root1 + ", x2 = " + root2;
+        }
+      }
+
+      function solveBinaryArith(text) {
+        let clean = text.replace("binary ", "").replace("bin ", "").replace(/\s+/g, "");
+        let match = clean.match(/^([01]+)([\+\-\*\/])([01]+)$/);
+        
+        if (match) {
+          let num1 = parseInt(match[1], 2);
+          let op = match[2];
+          let num2 = parseInt(match[3], 2);
+          let res = 0;
+
+          if (op === "+") res = num1 + num2;
+          if (op === "-") res = num1 - num2;
+          if (op === "*") res = num1 * num2;
+          if (op === "/") res = Math.floor(num1 / num2);
+
+          return "Binary Result: " + res.toString(2) + " (Decimal: " + res + ")";
+        }
+        return null;
+      }
+
+      function solveBodmas(text) {
+        try {
+          let clean = wordToMath(text);
+          clean = clean.replace(/×/g, "*").replace(/÷/g, "/").replace(/\[/g, "(").replace(/\]/g, ")");
+          
+          clean = clean.replace(/(\d)(\()/g, '$1*$2');
+          clean = clean.replace(/(\))(\d)/g, '$1*$2');
+          clean = clean.replace(/(\))(\()/g, '$1*$2');
+
+          let result = Function('"use strict";return (' + clean + ')')();
+          if (result !== undefined && !isNaN(result)) {
+            return "BODMAS Result: " + result + " (Rounded: " + Math.round(result) + ")";
+          }
+        } catch (e) {
+          return null;
+        }
+        return null;
+      }
+
       function generateBotAnswer(userText) {
         const text = userText.toLowerCase().trim();
 
-        if (text.startsWith("binary ") || text.startsWith("bin ")) {
-          const num = parseInt(text.split(" ")[1]);
-          if (!isNaN(num)) {
-            return "Binary of " + num + " is: " + num.toString(2);
-          }
-          return "Please enter a valid number for binary conversion (e.g., binary 12).";
+        let binResult = solveBinaryArith(text);
+        if (binResult !== null) {
+          return binResult;
         }
 
-        if (/^[0-9+\-*/.\s()]+$/.test(text) && text.length > 0) {
-          try {
-            const mathResult = Function('"use strict";return (' + text + ')')();
-            return "Result: " + mathResult;
-          } catch (e) {
-            return "Could not compute that math expression.";
-          }
+        if (text.includes("x^2") || text.includes("x^")) {
+          return solveQuadratic(text);
         }
 
-        if (text.includes("area of circle")) {
-          return "Formula: Area = π × r²";
+        if (text.startsWith("round ")) {
+          let val = parseFloat(text.replace("round ", ""));
+          if (!isNaN(val)) return "Math.round: " + Math.round(val);
         }
-        if (text.includes("pythagorean") || text.includes("pythagoras")) {
-          return "Formula: a² + b² = c²";
+
+        if (text.startsWith("task add ")) {
+          let t = userText.substring(9);
+          tasks.push(t);
+          localStorage.setItem("mathTasks", JSON.stringify(tasks));
+          return "Task added: " + t;
         }
-        if (text.includes("quadratic")) {
-          return "Formula: x = (-b ± √(b² - 4ac)) / (2a)";
+
+        if (text === "tasks" || text === "show tasks") {
+          if (tasks.length === 0) return "No scheduled tasks found.";
+          return "Your Tasks:\n" + tasks.map((tk, i) => (i + 1) + ". " + tk).join("\n");
+        }
+
+        if (text === "clear tasks") {
+          tasks = [];
+          localStorage.removeItem("mathTasks");
+          return "All tasks cleared.";
+        }
+
+        if (text.includes("story") || text.includes("stories")) {
+          let storiesList = [
+            "Story 1: Carl Friedrich Gauss was 10 years old when his teacher asked the class to add numbers 1 to 100. Gauss spotted a pattern instantly and solved it in seconds using n(n+1)/2!",
+            "Story 2: In ancient Greece, Pythagoras believed numbers were the secret key to the universe. Legend says he threw a student overboard for discovering irrational numbers!",
+            "Story 3: Ada Lovelace wrote the world's first computer algorithm in the 1840s for Charles Babbage's mechanical computer, seeing a future where machines process logic beyond math."
+          ];
+          return storiesList[Math.floor(Math.random() * storiesList.length)];
+        }
+
+        if (text.includes("formula") || text.includes("formulas")) {
+          return "Formulas Bank:\n1. Area Circle: πr²\n2. Pythagoras: a² + b² = c²\n3. Quadratic: (-b ± √(b² - 4ac)) / 2a\n4. Slope: (y2 - y1) / (x2 - x1)\n5. Compound Interest: A = P(1 + r/n)^(nt)";
         }
 
         if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
-          return "Hello! I am MathChat. Ask me for math calculations, binary conversions, or formulas!";
+          return "Hello I am MathChat V1.1";
         }
 
-        if (text.includes("story")) {
-          return "Once upon a time ([User]: Say ...), the number 0 felt lonely until it met 1. Together, they created the entire digital universe through binary logic throught a guy (Charles babbadge and Ada lovelance) with a fantastic idea of replacing the terrible decimal with true(1) and false(0), thereby creating the mordern standard we all follow!";
+        if (text.includes("how are you") || text.includes("what is up") || text.includes("who are you")) {
+          return "I am doing great! Ready to compute equations, binary logic, or just chat with you!";
         }
 
-        return "I can carry out simple arithmetics, convert binary (e.g., binary 8), give formulas, or tell a story (which is very interesting by the way)!";
+        let bodmasResult = solveBodmas(userText);
+        if (bodmasResult !== null) {
+          return bodmasResult;
+        }
+
+        return "I can solve quadratic equations, BODMAS, binary math (e.g. 10001+00001), schedule tasks (task add...), give formulas, or tell math stories!";
       }
 
       function response() {
@@ -185,7 +316,7 @@
         setTimeout(() => {
           appendMessage(botReply, "bot");
           saveToStorage(botReply, "bot");
-        }, 500);
+        }, 300);
 
         message.value = "";
       }
