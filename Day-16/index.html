@@ -34,13 +34,40 @@
  }).finally(()=>{
     console.log("Process Exited");
  })
+ //
+ function counter(value){
+    console.log(value);
+ }
   let promise2 = new Promise((resolve, reject)=>{
-    function counter(value){
-                console.log(value);
-            } 
-            resolve("Start Counting");
-        }).then((value)=>{counter("One")}).then((value)=>{counter("Two")}).then((value)=>{counter("Three")}).catch((error)=>{console.error("[ERROR]: Cannot execute count flow")}).finally(()=>{console.log("Count terminated")});
-
+     resolve("Start Counting");
+        }).then(value => {
+ counter(value);
+ return "One";
+ })
+ .then(value => {
+ counter(value);
+ return "Two";
+ })
+ .then(value => {
+ counter(value);
+ return "Three";
+ }).then(value => {
+ counter(value);}).catch(error=>{console.error("[ERROR]: Cannot execute count flow")}).finally(()=>{console.log("Count terminated")});
+//
+function saySomething(x) {
+ return new Promise(resolve => {
+ setTimeout(() => {
+ resolve("something" + x);
+ }, 2000);
+ });
+}
+async function talk(x) {
+ const words = await saySomething(x);
+ console.log(words);
+}
+talk(2);
+talk(4);
+talk(8);
     </script>
 </head>
 <body>
