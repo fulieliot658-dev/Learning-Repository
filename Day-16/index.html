@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript">
-        let promise = new Promise((resolve, reject)=>{
-            resolve("Start Counting");
-            function counter(value){
-                console.log(value);
-            } counter()
-        });
+        // let promise = new Promise((resolve, reject)=>{
+        //     resolve("Start Counting");
+        //     function counter(value){
+        //         console.log(value);
+        //     } counter()
+        // });
 
+        const promise = new Promise((resolve, reject) => {
+ reject("oops... ");
+})
+//  .then(value => {
+//  console.log(value);
+//  return "we";
+//  })
+//  .then(value => {
+//  console.log(value);
+//  return "can";
+//  })
+//  .then(value => {
+//  console.log(value);
+//  return "chain";
+//  })
+//  .then(value => {
+//  console.log(value);
+//  return "promises";
+//  })
+//  .then(value => {
+//  console.log(value);
+//  })
+ .catch(value => {
+ console.log(value);
+ return "Failed";
+ }).finally(()=>{
+    console.log("Process Exited");
+ })
     </script>
 </head>
 <body>
