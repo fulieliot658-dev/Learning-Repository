@@ -68,24 +68,40 @@ async function talk(x) {
 talk(2);
 talk(4);
 talk(8);
+// //
+// function countDown(count1, count2){
+// return new Promise((resolve)=>{
+//     resolve(setTimeout(()=>{for(let i=1;i<count1+1 ; i++){
+//          count2=0;
+//     console.log(`ready ${i} counter:${count2}`);
+//         }}, 2000),
+// setTimeout(()=>{
+//     for(let j=1; j<count1+1; j++){console.log(`x value ${j} counter:${j}`)}},2000));
+// });
+// }
+// async function relay(a, b) {
+//     let relays= await countDown(a, b); 
+//     console.log(relays);
+// }
+// relay(3, 0);
 //
-function countDown(count1, count2){
-return new Promise((resolve)=>{
-    for(let i=1; ; i++){
-        if(i<count1){
-            count2=0;
-    setTimeout(()=>{resolve(`ready ${i} counter:${count2}`)}, 2000);
-        }
-setTimeout(()=>{resolve(`x value ${i} counter:${i}`)},2000);
-break;
-        }
-});
+// Clean async delay utility
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function countDown(count1, count2) {
+  await delay(2000); // Properly pauses execution for 2 seconds
+  
+  for (let i = 1; i <= count1; i++) {
+    console.log(`ready ${i} counter:${count2}`);
+  }
+
+  for (let j = 1; j <= count1; j++) {
+    console.log(`x value ${j} counter:${j}`);
+  }
 }
-async function relay(a, b) {
-    let relays= await countDown(a, b); 
-    console.log(relays);
-}
-relay(3, 0);
+countDown(3, 0);
+const	re	=	/(?<year>\d{4})-(?<month>\d{2})/g;
+    console.log(re);
     </script>
 </head>
 <body>
