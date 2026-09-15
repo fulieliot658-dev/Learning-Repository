@@ -5,41 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript">
-        // let promise = new Promise((resolve, reject)=>{
-        //     resolve("Start Counting");
-        //     function counter(value){
-        //         console.log(value);
-        //     } counter()
-        // });
-
+       
         const promise = new Promise((resolve, reject) => {
  reject("oops... ");
 })
-//  .then(value => {
-//  console.log(value);
-//  return "we";
-//  })
-//  .then(value => {
-//  console.log(value);
-//  return "can";
-//  })
-//  .then(value => {
-//  console.log(value);
-//  return "chain";
-//  })
-//  .then(value => {
-//  console.log(value);
-//  return "promises";
-//  })
-//  .then(value => {
-//  console.log(value);
-//  })
+ .then(value => {
+ console.log(value);
+ return "we";
+ })
+ .then(value => {
+ console.log(value);
+ return "can";
+ })
+ .then(value => {
+ console.log(value);
+ return "chain";
+ })
+ .then(value => {
+ console.log(value);
+ return "promises";
+ })
+ .then(value => {
+ console.log(value);
+ })
  .catch(value => {
  console.log(value);
  return "Failed";
  }).finally(()=>{
     console.log("Process Exited");
  })
+  let promise2 = new Promise((resolve, reject)=>{
+    function counter(value){
+                console.log(value);
+            } 
+            resolve("Start Counting");
+        }).then((value)=>{counter("One")}).then((value)=>{counter("Two")}).then((value)=>{counter("Three")}).catch((error)=>{console.error("[ERROR]: Cannot execute count flow")}).finally(()=>{console.log("Count terminated")});
+
     </script>
 </head>
 <body>
