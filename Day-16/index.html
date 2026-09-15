@@ -68,6 +68,24 @@ async function talk(x) {
 talk(2);
 talk(4);
 talk(8);
+//
+function countDown(count1, count2){
+return new Promise((resolve)=>{
+    for(let i=1; ; i++){
+        if(i<count1){
+            count2=0;
+    setTimeout(()=>{resolve(`ready ${i} counter:${count2}`)}, 2000);
+        }
+setTimeout(()=>{resolve(`x value ${i} counter:${i}`)},2000);
+break;
+        }
+});
+}
+async function relay(a, b) {
+    let relays= await countDown(a, b); 
+    console.log(relays);
+}
+relay(3, 0);
     </script>
 </head>
 <body>
