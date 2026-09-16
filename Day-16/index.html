@@ -243,12 +243,19 @@ ctx.fillStyle= "lightgreen";
 ctx.textAlign= "center";
 ctx.fillText("Bonjour", 150, 80, 100);
 // 
-const img = new image();
+const img = new Image();
 img.src = "./cat.jpg";
 img.onload= ()=>{
   ctx.drawImage(img, 200, 200, 200, 150);
 };
 //
+ctx.save();
+ctx.translate(150, 100);
+ctx.rotate(Math.PI/4);
+ctx.scale(2, 2);
+ctx.fillStyle = "coral";
+ctx.fillRect(-40, -40, 80, 80);
+ctx.restore();
     </script>
 </body>
 </html> 

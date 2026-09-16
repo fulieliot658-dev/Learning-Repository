@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2445548854,
-    "totalActiveTime": 42886449
+    "totalFocusTime": 2446861184,
+    "totalActiveTime": 43008699
   },
   "files": {
     "javascript.html": {
@@ -238,8 +238,8 @@
       "focus": 19456736
     },
     "Day-16/index.html": {
-      "pending": 2038578,
-      "focus": 20471748
+      "pending": 2160828,
+      "focus": 21377686
     },
     "my-sass-project/styles.scss": {
       "pending": 1317,
