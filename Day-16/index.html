@@ -256,6 +256,13 @@ ctx.scale(2, 2);
 ctx.fillStyle = "coral";
 ctx.fillRect(-40, -40, 80, 80);
 ctx.restore();
+// 
+const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+for (let i = 0; i < frame.data.length; i += 4) {
+const gray = (frame.data[i] + frame.data[i+1] + frame.data[i+2]) / 3;
+frame.data[i] = frame.data[i+1] = frame.data[i+2] = gray;
+}
+ctx.putImageData(frame, 0, 0);
     </script>
 </body>
 </html> 
