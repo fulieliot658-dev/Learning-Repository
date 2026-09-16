@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Gradient Vector Explorer</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .controls {
+      flex: 1;
+      max-width: 400px;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .preview {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    canvas {
+      background: #000;
+      border: 2px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .type-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .type-btn {
+      flex: 1;
+      padding: 10px;
+      background: #2a2a2a;
+      border: 1px solid #444;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .type-btn.active {
+      background: #007acc;
+      border-color: #0098ff;
+    }
+
+    .param-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    pre {
+      width: 100%;
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      overflow-x: auto;
+      color: #9cdcfe;
+      font-family: monospace;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <h3>Gradient Type</h3>
+    <div class="type-selector">
+      <button class="type-btn active" onclick="setType('linear')">Linear</button>
+      <button class="type-btn" onclick="setType('radial')">Radial</button>
+      <button class="type-btn" onclick="setType('conic')">Conic</button>
+    </div>
+
+    <div id="controls-container" class="param-group">
+      <!-- Dynamic Sliders Injected Here -->
+    </div>
+  </div>
+
+  <div class="preview">
+    <canvas id="canvas" width="500" height="300"></canvas>
+    <pre id="code-output"></pre>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('controls-container');
+    const codeOutput = document.getElementById('code-output');
+
+    let currentType = 'linear';
+
+    const params = {
+      // Linear
+      x0: 0, y0: 0, x1: 500, y1: 0,
+      // Radial
+      rx0: 250, ry0: 150, r0: 10, rx1: 250, ry1: 150, r1: 200,
+      // Conic
+      angle: 0, cx: 250, cy: 150
+    };
+
+    const config = {
+      linear: [
+        { id: 'x0', min: 0, max: 500, label: 'Start X (x0)' },
+        { id: 'y0', min: 0, max: 300, label: 'Start Y (y0)' },
+        { id: 'x1', min: 0, max: 500, label: 'End X (x1)' },
+        { id: 'y1', min: 0, max: 300, label: 'End Y (y1)' }
+      ],
+      radial: [
+        { id: 'rx0', min: 0, max: 500, label: 'Inner Center X (x0)' },
+        { id: 'ry0', min: 0, max: 300, label: 'Inner Center Y (y0)' },
+        { id: 'r0', min: 0, max: 200, label: 'Inner Radius (r0)' },
+        { id: 'rx1', min: 0, max: 500, label: 'Outer Center X (x1)' },
+        { id: 'ry1', min: 0, max: 300, label: 'Outer Center Y (y1)' },
+        { id: 'r1', min: 0, max: 300, label: 'Outer Radius (r1)' }
+      ],
+      conic: [
+        { id: 'angle', min: 0, max: 360, label: 'Start Angle (deg)' },
+        { id: 'cx', min: 0, max: 500, label: 'Center X' },
+        { id: 'cy', min: 0, max: 300, label: 'Center Y' }
+      ]
+    };
+
+    function setType(type) {
+      currentType = type;
+      document.querySelectorAll('.type-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase() === type);
+      });
+      renderControls();
+      draw();
+    }
+
+    function renderControls() {
+      container.innerHTML = '';
+      config[currentType].forEach(p => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+          <label>${p.label}: <span id="${p.id}-val">${params[p.id]}</span></label>
+          <input type="range" min="${p.min}" max="${p.max}" value="${params[p.id]}" 
+                 oninput="updateParam('${p.id}', this.value)">
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function updateParam(id, val) {
+      params[id] = parseFloat(val);
+      document.getElementById(`${id}-val`).innerText = val;
+      draw();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let grad;
+      let codeSnippet = '';
+
+      if (currentType === 'linear') {
+        grad = ctx.createLinearGradient(params.x0, params.y0, params.x1, params.y1);
+        codeSnippet = `const grad = ctx.createLinearGradient(${params.x0}, ${params.y0}, ${params.x1}, ${params.y1});`;
+      } else if (currentType === 'radial') {
+        grad = ctx.createRadialGradient(params.rx0, params.ry0, params.r0, params.rx1, params.ry1, params.r1);
+        codeSnippet = `const grad = ctx.createRadialGradient(${params.rx0}, ${params.ry0}, ${params.r0}, ${params.rx1}, ${params.ry1}, ${params.r1});`;
+      } else if (currentType === 'conic') {
+        const rad = (params.angle * Math.PI) / 180;
+        grad = ctx.createConicGradient(rad, params.cx, params.cy);
+        codeSnippet = `// Angle converted to radians: ${rad.toFixed(2)} rad\nconst grad = ctx.createConicGradient(${rad.toFixed(2)}, ${params.cx}, ${params.cy});`;
+      }
+
+      grad.addColorStop(0, "orange");
+      grad.addColorStop(0.5, "grey");
+      grad.addColorStop(1, "brown");
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      codeOutput.innerText = `${codeSnippet}\n\ngrad.addColorStop(0, "orange");\ngrad.addColorStop(0.5, "grey");\ngrad.addColorStop(1, "brown");\n\nctx.fillStyle = grad;\nctx.fillRect(0, 0, ${canvas.width}, ${canvas.height});`;
+    }
+
+    // Initialize
+    renderControls();
+    draw();
+  </script>
+</body>
+</html>
