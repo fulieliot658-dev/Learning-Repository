@@ -243,7 +243,11 @@ ctx.fillStyle= "lightgreen";
 ctx.textAlign= "center";
 ctx.fillText("Bonjour", 150, 80, 100);
 // 
-
+const img = new image();
+img.src = "./cat.jpg";
+img.onload= ()=>{
+  ctx.drawImage(img,0,0, 200, 150);
+};
     </script>
 </body>
 </html> 
