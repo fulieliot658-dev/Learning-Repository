@@ -103,8 +103,92 @@ countDown(3, 0);
 const	re	=	/(?<year>\d{4})-(?<month>\d{2})/g;
     console.log(re);
     </script>
+    <style>
+      /* canvas{
+         width: 800px;
+         background-color: lightblue;
+         border-radius: 50%;
+      } */
+    </style>
 </head>
 <body>
+   <canvas id="myCanvas" height="400" width="400" ></canvas>
+   <a href="/dashboard" id="nav-link">
+  <span id="label">Go to Dashboard</span>
+</a>
+    <script>
+      document.getElementById('nav-link').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // If you click the text "Go to Dashboard":
+  console.log(event.target.id);        // "label" (the inner span)
+  console.log(event.currentTarget.id); // "nav-link" (the actual anchor tag)
+
+  // Reads "/dashboard" regardless of where inside the link you clicked
+  const destination = event.currentTarget.getAttribute('href'); 
+  console.log(`Navigating client-side to: ${destination}`);
+
+  const anchor = event.target.closest('a');
+  const router = {
+  navigate(path) {
+    window.history.pushState({}, '', path);
+    console.log(`Navigated to ${path}`);
+    // Update DOM view here
+  }
+};
+  if (anchor) {
+    // 1. Prevent native hard page reload
+    event.preventDefault(); 
     
+    // 2. Stop event from bubbling to outer window handlers
+    event.stopPropagation(); 
+    
+    // 3. Extract path for JS pushState router
+    const path = anchor.getAttribute('href'); 
+    
+    // 4. Pass path to client-side router
+    router.navigate(path); 
+  }
+});
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");  
+      console.log(canvas.width);
+      console.log(canvas.height);
+      ctx['fillStyle']= 'lightblue';
+      ctx.fillRect(50, 50, 150, 100);
+      ctx.strokeStyle = 'green';
+      ctx.lineWidth= 4;
+      ctx.strokeRect(220, 50, 150, 100);
+      ctx.clearRect(50, 50,  40, 30);
+      ctx.beginPath();
+      ctx.moveTo(50, 200);
+      ctx.lineTo(150, 250);
+      ctx.lineTo(250, 200);
+      ctx.closePath();
+      ctx.Style= 'pink';
+      ctx.fill();
+      // 
+      ctx.fillStyle= "rgba(0, 0, 0, 0.5)";
+      ctx.fillRect(50, 50, 150, 100);
+      //
+      ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(200, 50);
+      ctx.lineTo(125, 180);
+      ctx.closePath();
+      ctx.fillStyle = "royalblue";
+      ctx.fill();
+      //
+      ctx.beginPath();
+      ctx.moveTo(20, 20);
+      ctx.lineTo(100, 20);
+       ctx.lineTo(150, 40);
+        ctx.lineTo(200, 60);
+         ctx.lineTo(100, 20);
+      ctx.closePath();
+      ctx.lineWidth= 20;
+      ctx["strokeStyle"]="red";
+      ctx.stroke();
+    </script>
 </body>
 </html> 
