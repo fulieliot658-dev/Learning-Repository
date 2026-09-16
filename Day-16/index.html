@@ -180,15 +180,40 @@ const	re	=	/(?<year>\d{4})-(?<month>\d{2})/g;
       ctx.fill();
       //
       ctx.beginPath();
-      ctx.moveTo(20, 20);
-      ctx.lineTo(100, 20);
-       ctx.lineTo(150, 40);
-        ctx.lineTo(200, 60);
-         ctx.lineTo(100, 20);
-      ctx.closePath();
-      ctx.lineWidth= 20;
-      ctx["strokeStyle"]="red";
+ctx.moveTo(20, 20);
+ctx.lineTo(100, 20);
+ctx.lineTo(150, 40);
+ctx.lineTo(200, 60);
+ctx.lineTo(100, 20);
+// ctx.closePath();
+
+// 1. Configure all context state properties first
+ctx.lineWidth = 20;
+ctx["strokeStyle"] = "red";
+ctx.lineCap = "round";  // Cap style for unclosed line endpoints
+ctx.lineJoin = "round"; // Corner style where segments connect
+
+// 2. Execute the rasterization step
+ctx.stroke();
+      //
+      ctx.beginPath();
+      ctx.arc(150, 100, 60, 0, Math.PI*2, true);
+      ctx.fillStyle = "gold";
+      ctx.fill();
+      ctx.lineWidth = 4;
+      ctx.strokeStyle= 'yellow';
       ctx.stroke();
+      // 
+      // const grad = ctx.createLinearGradient(0, 0, 300, 0);
+      // const grad = ctx.createRadialGradient(150, 50, 50, 150, 50, 150);
+      const grad = ctx.createConicGradient(0, 150, 50);
+      grad.addColorStop(0, "orange");
+       grad.addColorStop(0.5, "grey");
+       grad.addColorStop(1, "brown");
+       ctx.fillStyle=grad;
+       ctx.fillRect(0, 0, 300, 100);
+       //
+
     </script>
 </body>
 </html> 
