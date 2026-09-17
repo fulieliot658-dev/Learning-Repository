@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        
+        let canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        //
+        // 1. The Sun
+        ctx.beginPath();
+        ctx.arc(400, 400, 100, 0, Math.PI*2, true);
+        ctx.strokeStyle="orange";
+        ctx.fillStyle="yellow";
+        ctx.lineWidth=4;
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+        ctx.save();
+        ctx.font="bold 28px Arial";
+        ctx.fillStyle="red";
+        ctx.textBaseline = "middle";
+        ctx.textAlign= "center";
+        ctx.fillText("SUN", 400, 400);
+        ctx.restore();
+        //
+        // The Earth
+        let x=100, y=100;
+        function loop(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+      ctx.arc(x, y, 40, 0, Math.PI*2, true);
+       ctx.lineWidth=4;
+      ctx.strokeStyle="lightblue";
+       ctx.fillStyle="blue";
+        ctx.fill();
+        ctx.stroke();
+        newX = (x * Math.cos(Math.PI / 6)) - (y * Math.sin(Math.PI / 6));
+        newY = (x * Math.sin(Math.PI / 6)) + (y * Math.cos(Math.PI / 6));
+        ctx.closePath();
+        ctx.save();
+        ctx.font="bold 15px Arial";
+        ctx.fillStyle="green";
+        ctx.textBaseline = "middle";
+        ctx.textAlign= "center";
+        ctx.fillText("Earth", x, y);
+        ctx.restore();
+        requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+    </script>
+</body>
+</html>

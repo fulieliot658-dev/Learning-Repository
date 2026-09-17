@@ -109,6 +109,20 @@ const	re	=	/(?<year>\d{4})-(?<month>\d{2})/g;
        console.log(Math.sin(Math.PI/2));
         console.log(Math.cos(Math.PI));
          console.log(Math.sin(Math.PI));
+// 
+function pointOnCircle(angle, radius){
+let {x, y} = { x: Math.cos(angle)*radius, y: Math.sin(angle)*radius}
+console.log(`(x: ${x}, y: ${y})`);
+}
+pointOnCircle(Math.PI/4, 30);
+function rotate(points, radius){
+for(let i=0; i<points; i++){
+  let angle = (i/points)*(Math.PI*2);
+  let { x, y } = { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+    console.log(`(x: ${x}, y: ${y})`);
+}
+}
+rotate(8, 0.8);
     </script>
     <style>
       /* canvas{
@@ -281,6 +295,7 @@ function loop(){
 }
  requestAnimationFrame(loop);
 //
+
     </script>
 </body>
 </html> 
