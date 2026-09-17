@@ -263,6 +263,17 @@ const gray = (frame.data[i] + frame.data[i+1] + frame.data[i+2]) / 3;
 frame.data[i] = frame.data[i+1] = frame.data[i+2] = gray;
 }
 ctx.putImageData(frame, 0, 0);
+//
+let x=0;
+function loop(){
+  ctx.clearRect(0,0, canvas.width, canvas.height);
+  ctx.fillRect(x, 100, 40, 40)
+  ctx.fillstyle= "dodgerblue";
+  x=(x+2)%canvas.width;
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+//
     </script>
 </body>
 </html> 
