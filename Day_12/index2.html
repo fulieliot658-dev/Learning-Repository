@@ -157,10 +157,24 @@
         str = str.replace(/\bminus\b/g, "-");
         str = str.replace(/\bsubtract\b/g, "-");
         str = str.replace(/(\d+)\s+of\s+(\d+)/g, "$1*$2");
+        
+        str = str.replace(/\bpower of\b/g, "^");
+        str = str.replace(/\braised to\b/g, "^");
+        str = str.replace(/\bto the power of\b/g, "^");
+        str = str.replace(/\bsquare root of\b/g, "sqrt");
+        str = str.replace(/\blog base\s+(\d+)\s+of\s+(\d+)/g, "logBase($1,$2)");
+        str = str.replace(/\blogarithm base\s+(\d+)\s+of\s+(\d+)/g, "logBase($1,$2)");
+        str = str.replace(/\blog of\b/g, "log");
+        str = str.replace(/\bnatural log of\b/g, "ln");
+        str = str.replace(/\bsine of\b/g, "sin");
+        str = str.replace(/\bcosine of\b/g, "cos");
+        str = str.replace(/\btangent of\b/g, "tan");
+
         str = str.replace(/\bcalculate\b/g, "");
         str = str.replace(/\bsolve\b/g, "");
         str = str.replace(/\bwhat is\b/g, "");
         str = str.replace(/\bcompute\b/g, "");
+        str = str.replace(/\bfind\b/g, "");
 
         return str;
       }
@@ -221,7 +235,7 @@
         return null;
       }
 
-      function solveBodmas(text) {
+      function solveAdvancedMath(text) {
         try {
           let clean = wordToMath(text);
           clean = clean.replace(/×/g, "*").replace(/÷/g, "/").replace(/\[/g, "(").replace(/\]/g, ")");
@@ -230,9 +244,26 @@
           clean = clean.replace(/(\))(\d)/g, '$1*$2');
           clean = clean.replace(/(\))(\()/g, '$1*$2');
 
+          clean = clean.replace(/\^/g, "**");
+
+          clean = clean.replace(/logBase\(([^,]+),([^)]+)\)/g, '(Math.log($2)/Math.log($1))');
+          clean = clean.replace(/sin\(([^)]+)\)/g, 'Math.sin(($1)*Math.PI/180)');
+          clean = clean.replace(/cos\(([^)]+)\)/g, 'Math.cos(($1)*Math.PI/180)');
+          clean = clean.replace(/tan\(([^)]+)\)/g, 'Math.tan(($1)*Math.PI/180)');
+          clean = clean.replace(/sin\s+([0-9.]+)/g, 'Math.sin(($1)*Math.PI/180)');
+          clean = clean.replace(/cos\s+([0-9.]+)/g, 'Math.cos(($1)*Math.PI/180)');
+          clean = clean.replace(/tan\s+([0-9.]+)/g, 'Math.tan(($1)*Math.PI/180)');
+          clean = clean.replace(/log\(([^)]+)\)/g, 'Math.log10($1)');
+          clean = clean.replace(/log\s+([0-9.]+)/g, 'Math.log10($1)');
+          clean = clean.replace(/ln\(([^)]+)\)/g, 'Math.log($1)');
+          clean = clean.replace(/ln\s+([0-9.]+)/g, 'Math.log($1)');
+          clean = clean.replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)');
+          clean = clean.replace(/sqrt\s+([0-9.]+)/g, 'Math.sqrt($1)');
+
           let result = Function('"use strict";return (' + clean + ')')();
           if (result !== undefined && !isNaN(result)) {
-            return "BODMAS Result: " + result + " (Rounded: " + Math.round(result) + ")";
+            let rounded = Number(result.toFixed(4));
+            return "Result: " + rounded + " (Exact: " + result + ")";
           }
         } catch (e) {
           return null;
@@ -277,7 +308,7 @@
 
         if (text.includes("story") || text.includes("stories")) {
           let storiesList = [
-            "Story 1: Carl Friedrich Gauss was 10 years old when his teacher asked the class to add numbers 1 to 100. Gauss found a pattern instantly and solved it in seconds using n(n+1)/2!",
+            "Story 1: Carl Friedrich Gauss was 10 years old when his teacher asked the class to add numbers 1 to 100. Gauss spotted a pattern instantly and solved it in seconds using n(n+1)/2!",
             "Story 2: In ancient Greece, Pythagoras believed numbers were the secret key to the universe. Legend says he threw a student overboard for discovering irrational numbers!",
             "Story 3: Ada Lovelace wrote the world's first computer algorithm in the 1840s for Charles Babbage's mechanical computer, seeing a future where machines process logic beyond math."
           ];
@@ -285,7 +316,7 @@
         }
 
         if (text.includes("formula") || text.includes("formulas")) {
-          return "Formulas Bank:\n1. Area Circle: πr²\n2. Pythagoras: a² + b² = c²\n3. Quadratic: (-b ± √(b² - 4ac)) / 2a\n4. Slope: (y2 - y1) / (x2 - x1)\n5. Compound Interest: A = P(1 + r/n)^(nt)";
+          return "Formulas Bank:\n1. Area Circle: πr²\n2. Pythagoras: a² + b² = c²\n3. Quadratic: (-b ± √(b² - 4ac)) / 2a\n4. Indices: a^m * a^n = a^(m+n), (a^m)^n = a^(m*n)\n5. Logarithms: log_b(x*y) = log_b(x) + log_b(y), log_b(x^n) = n*log_b(x)\n6. Trigonometric Ratios:\n   • sin(θ) = Opposite / Hypotenuse\n   • cos(θ) = Adjacent / Hypotenuse\n   • tan(θ) = Opposite / Adjacent\n7. Compound Interest: A = P(1 + r/n)^(nt)";
         }
 
         if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
@@ -296,12 +327,12 @@
           return "I am doing great! Ready to compute equations, binary logic, or just chat with you!";
         }
 
-        let bodmasResult = solveBodmas(userText);
-        if (bodmasResult !== null) {
-          return bodmasResult;
+        let mathResult = solveAdvancedMath(userText);
+        if (mathResult !== null) {
+          return mathResult;
         }
 
-        return "I can solve quadratic equations, BODMAS, binary math (e.g. 10001+00001), schedule tasks (task add...), give formulas, or tell math stories!";
+        return "I can solve quadratics, BODMAS, indices, logs, sin/cos/tan, binary math, schedule tasks, give formulas, or tell math stories!";
       }
 
       function response() {
