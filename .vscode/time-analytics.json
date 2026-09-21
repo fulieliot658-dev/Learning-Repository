@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2605449379,
+    "totalFocusTime": 2605653170,
     "totalActiveTime": 45820337
   },
   "files": {
@@ -83,11 +83,11 @@
     },
     "Day-3/Challenge_1.html": {
       "pending": 1476,
-      "focus": 122428
+      "focus": 132395
     },
     "Day-5/Challenge_3.html": {
       "pending": 58361,
-      "focus": 245714
+      "focus": 280548
     },
     "Day-1/index.html": {
       "pending": 2912713,
@@ -95,7 +95,7 @@
     },
     "Day-6/Challenge-4.html": {
       "pending": 279305,
-      "focus": 5821561
+      "focus": 5845326
     },
     "Day_7/style-guide.md": {
       "pending": 4998,
@@ -280,6 +280,10 @@
     "Day-2/CSS8.html": {
       "pending": 0,
       "focus": 47480
+    },
+    "Day-4/Challenge_2.html": {
+      "pending": 0,
+      "focus": 3356
     }
   },
   "deleted": {
