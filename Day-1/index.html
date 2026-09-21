@@ -1,248 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Document</title>
-    <script type="text/javascript">
-    //
-    let sentence = "I love JavaScript";
-    sentence=sentence.toLowerCase();
-    let vowels = ["a", "e", "i", "o", "u"];
-   vowels.forEach((l)=>sentence=sentence.replaceAll(l, vowels.indexOf(l)));
-    console.log(sentence);
-    //
-    console.log(Math.PI);
-    console.log(Math.E);
-    console.log(Math.ceil(5.7));
-    console.log(Math.floor(5.7));
-    console.log(Math.round(5.7));
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    //
-    let date_time= Date.now();
-    console.log(date_time);
-    //
-    let now =new Date(2026, 7, 5, 16, 39, 10, 100);
-    console.log(now);
-    console.log("Year", now.getFullYear());
-    console.log("Month", now.getMonth()); 
-    console.log("Date", now.getDate());
-    console.log("Min", now.getMinutes());
-    console.log("Second", now.getSeconds());
-    console.log("Millisecond", now.getMilliseconds());
-    console.log("Timestamp", now.getTime());   
-    //
+  <title>Number Guessing Game</title>
 
-    now.setFullYear(2026);
-    console.log(now);
-    //
-    let str_date= now.toDateString();
-    str_date= Date.parse(str_date);
-    console.log(str_date);
-    //
-   function checkEventStatus(eventDateString){
-    let event_date = Date.parse("2026-12-25");
-    let current_date = new Date();
-    let time_diff = (current_date)-(event-date);
-    };
-    //
-    console.log(now.setMonth(8));
-    //
-    let end_date = new Date(2026, 7, 9, 12, 0, 0, 100).toDateString();
-    let currentDate = new Date().toDateString();
-    console.log(end_date);
-   function countDown(endDate, current){
-    endDate= Date.parse(endDate);
-    console.log(endDate);
-     current= Date.parse(current);
-    console.log(current);
-    let timeDiff= endDate - current;
-    console.log(timeDiff);
-    let days= Math.floor((timeDiff/(1000*60*60*24)));
-    console.log(days);
-    let hours = ((days*24));
-    console.log(hours);
-    let minutes = (hours*60);
-    console.log(minutes);
-    let seconds =(minutes*60);
-    console.log(seconds);
-    let milliSecond=(seconds*1000);
-    console.log(milliSecond);
-     let countdown = {days, hours, minutes, seconds, milliSecond};
-  return countdown;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-   console.log(countDown(end_date, currentDate));
-    //
-    let x  = 5;
-    console.log(Math.pow(x, 2));
-    //
-    function checkEventStatus(eventDateString){
-    let eventDateString2= new Date(Date.parse(eventDateString));
-    let eventDateStringYear= eventDateString2.getTime();
-       console.log(eventDateStringYear);
-      let current_date = new Date();
-      let current_year= current_date.getTime();
-      console.log(current_year);
-      let x = current_year-eventDateStringYear;
-      let days = Math.floor(x/1000/60/60/24);
-      if(x<0){
-        console.log(`Event is in ${Math.abs(days)} days `);
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e9eef5;
+      padding: 20px;
+    }
+
+    .game {
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      background: white;
+      border: 2px solid #222;
+      border-radius: 12px;
+      box-shadow: 5px 5px 0 #222;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .intro {
+      margin-bottom: 25px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .range {
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #f2f2f2;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 2px solid #555;
+      border-radius: 6px;
+      outline: none;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    input:focus {
+      border-color: #4444cc;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px;
+      border: 2px solid #222;
+      border-radius: 6px;
+      background: #4444cc;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3333aa;
+    }
+
+    .reset {
+      background: #777;
+    }
+
+    .reset:hover {
+      background: #555;
+    }
+
+    .message {
+      min-height: 28px;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .attempts {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .history {
+      margin-top: 20px;
+      padding: 12px;
+      background: #fafafa;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      text-align: left;
+    }
+
+    .history h3 {
+      margin-bottom: 8px;
+    }
+
+    #guesses {
+      word-break: break-word;
+      color: #444;
+    }
+
+    .win {
+      color: green;
+    }
+
+    .high {
+      color: #d35400;
+    }
+
+    .low {
+      color: #8e44ad;
+    }
+
+    @media (max-width: 480px) {
+      .game {
+        padding: 22px;
       }
-     else if(x===0){
-        console.log("Event is today");
-      }
-      else{
-        console.log(`Event was ${Math.abs(days)} days ago`);
-      }
-    }checkEventStatus("2026-12-25");
-    //
-    class User{
-      #password;
-      constructor(username, email, password){
-        this.#password = password;
-        this.username = username;
-        this.email = email;
-      }
-      get password(){
-        return this.#password;
-      }
-      set password(newPassword){
-       if(newPassword.length >= 6) {this.#password = newPassword;}
-      else{
-        console.log('[LOG]: Invalid password length. Try again')
-      }
-      }
-      authenticate(attempt){
-        if (attempt === this.#password){
-          console.log('[LOG]: Authentication successful');
-        }
-        else {
-          console.log('[ERROR]: Authentication failed. Invalid Password, try again');
-        }
-      }}
-      class Admin extends User{
-        constructor(username, email, password, permission){
-          super(username, email, password);
-          this.permission= permission;
-        }
-      
-      hasPermission(permissionName){
-        return this.permission.includes(permissionName);
+
+      h1 {
+        font-size: 26px;
       }
     }
-    User.prototype.getDomain = function (){
-      return this.email.split('@')[1];
-    };
-    // Test script setup to verify your classes
-const admin = new Admin("eliot_dev", "eliot@minetopiasoftware.cm", "secr3tPass", ["delete_user"]);
+  </style>
+</head>
 
-console.log(admin.username);                     // "eliot_dev"
-console.log(admin.authenticate("secretPass"));   // true
-console.log(admin.hasPermission("delete_user")); // true
-console.log(admin.getDomain());                  // "minetopiasoftware.cm"
-    //
-let unfiltered_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-function filterArray(arr){
-  let prime = [];
-  let count =0;
-for(let i = 0; i < arr.length; i++){
-for(let j = i+1; j < arr.length; j++){
-arr[i] % arr[j]===0? count++: count;
-}
-}}
-    //
-let printf = console.log;
-printf("Hello");
-    //
+<body>
 
-    //
+  <div class="game">
 
-    //
+    <h1>Number Guessing Game</h1>
 
-    //
+    <p class="intro">
+      I have picked a number. Try to guess it!
+    </p>
 
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-
-    //
-    
-    //
-
-    //
-
-    //
-
-    //
-    </script>
-    </head>
-    <body>
-      <!-- <div class="output"></div> -->
-      <div class="output">
-    <h1>Hello</h1>
-    <div>Test</div>
-    <ul>
-        <li 
-id="one">One</li>
-        <li 
-class="red">Two</li>
-    </ul>
-    <div>Test</div>
-    <!---->
-     <h1>Let's find the treasure</h1>
-    <div id="forest">
-      <div id="tree1">
-        <div id="squirrel"></div>
-        <div id="flower"></div>
-      </div>
-      <div id="tree2">
-        <div id="shrubbery">
-          <div 
-id="treasure"></div>
-        </div>
-        <div id="mushroom">
-          <div></div> 
-        </div>
-      </div>
+    <div class="range">
+      Guess a number between 1 and 100
     </div>
-</div>
-    <script>
-      // const object = document.querySelector(".output");
-      // object.textContent = "Hello boss";
-      // object.classList.add = "red";
-      // object.classList.remove ="red";
-      // object.classList.add = "red";
-      // document.body.style.backgroundColor = "red";
-      // object.textContent = `[LOG]: your page URL is: ${document.URL}`;
-      const output = document.querySelector(".output");
-      const mainList= document.querySelector("ul");
-      mainList.classList.add = "mainList";
-      
-    </script>
-    </body>
-    <html>
+
+    <label for="guess">Your Guess</label>
+
+    <input
+      type="number"
+      id="guess"
+      min="1"
+      max="100"
+      placeholder="Enter a number"
+    >
+
+    <button id="guessButton">
+      Check Guess
+    </button>
+
+    <button class="reset" id="resetButton">
+      New Game
+    </button>
+
+    <div class="message" id="message">
+      Good luck!
+    </div>
+
+    <div class="attempts">
+      Attempts: <span id="attempts">0</span>
+    </div>
+
+    <div class="history">
+      <h3>Your guesses</h3>
+      <div id="guesses">None yet</div>
+    </div>
+
+  </div>
+
+  <script>
+    let secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    let guesses = [];
+
+    const guessInput = document.getElementById("guess");
+    const guessButton = document.getElementById("guessButton");
+    const resetButton = document.getElementById("resetButton");
+    const message = document.getElementById("message");
+    const attemptsDisplay = document.getElementById("attempts");
+    const guessesDisplay = document.getElementById("guesses");
+
+    function checkGuess() {
+      const guess = Number(guessInput.value);
+
+      if (guess === 0 || guess < 1 || guess > 100) {
+        message.textContent = "Please enter a number from 1 to 100.";
+        message.className = "message";
+        return;
+      }
+
+      attempts++;
+      guesses.push(guess);
+
+      attemptsDisplay.textContent = attempts;
+      guessesDisplay.textContent = guesses.join(", ");
+
+      if (guess === secretNumber) {
+        message.textContent =
+          `Correct! The number was ${secretNumber}.`;
+        message.className = "message win";
+        guessButton.disabled = true;
+        guessInput.disabled = true;
+      }
+
+      else if (guess > secretNumber) {
+        message.textContent = "Too high! Try a smaller number.";
+        message.className = "message high";
+      }
+
+      else {
+        message.textContent = "Too low! Try a bigger number.";
+        message.className = "message low";
+      }
+
+      guessInput.value = "";
+      guessInput.focus();
+    }
+
+    function resetGame() {
+      secretNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      guesses = [];
+
+      attemptsDisplay.textContent = "0";
+      guessesDisplay.textContent = "None yet";
+
+      message.textContent = "Good luck!";
+      message.className = "message";
+
+      guessInput.disabled = false;
+      guessButton.disabled = false;
+      guessInput.value = "";
+      guessInput.focus();
+    }
+
+    guessButton.addEventListener("click", checkGuess);
+
+    resetButton.addEventListener("click", resetGame);
+
+    guessInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkGuess();
+      }
+    });
+  </script>
+
+</body>
+</html>

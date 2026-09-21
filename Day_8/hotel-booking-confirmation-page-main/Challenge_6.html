@@ -2,659 +2,1165 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Hotel booking confirmation page</title>
+  <title>Maison Soleil | Booking Confirmation</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    /* Google Fonts Import for Maison Soleil Design System */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
 
-    :root{
-      /* ## Colors */
+    :root {
+      --neutral-900: hsl(33, 15%, 15%);
+      --neutral-800: hsl(33, 22%, 20%);
+      --neutral-700: hsl(32, 20%, 29%);
+      --neutral-600: hsl(33, 17%, 41%);
+      --neutral-400: hsl(36, 22%, 86%);
+      --neutral-200: hsl(30, 24%, 93%);
+      --neutral-100: hsl(35, 60%, 96%);
+      --neutral-50: hsl(40, 60%, 98%);
+      --white: hsl(0, 0%, 100%);
 
-/* ### Neutral */
+      --sun-500: hsl(42, 83%, 58%);
+      --sun-300: hsl(44, 84%, 75%);
+      --sun-200: hsl(45, 100%, 74%);
 
---Neutral-900: hsl(33, 15%, 15%);
---Neutral-800: hsl(33, 22%, 20%);
---Neutral-700: hsl(32, 20%, 29%);
---Neutral-600: hsl(33, 17%, 41%);
---Neutral-400: hsl(36, 22%, 86%);
---Neutral-200: hsl(30, 24%, 93%);
---Neutral-100: hsl(35, 60%, 96%);
---Neutral-50: hsl(40, 60%, 98%);
---Neutral-0: hsl(0, 0%, 100%);
+      --terracotta-700: hsl(15, 69%, 37%);
+      --terracotta-600: hsl(15, 74%, 41%);
+      --terracotta-500: hsl(18, 62%, 47%);
+      --terracotta-400: hsl(22, 72%, 56%);
 
-/* ### Sun */
+      --blue-500: hsl(230, 49%, 56%);
+      --rose-500: hsl(340, 48%, 52%);
 
---Sun-500: hsl(42, 83%, 58%);
---Sun-300: hsl(44, 84%, 75%);
---Sun-200: hsl(45, 100%, 74%);
---Sun-50: hsl(41, 100%, 93%);
-
-/* ### Terracotta */
-
---Terracotta-700: hsl(15, 69%, 37%);
---Terracotta-600: hsl(15, 74%, 41%);
---Terracotta-500: hsl(18, 62%, 47%);
---Terracotta-400: hsl(22, 72%, 56%);
-
-/* ### Blue */
-
---Blue-500: hsl(230, 49%, 56%);
-
-/* ### Rose */
-
---Rose-500: hsl(340, 48%, 52%);
-
+      --radius: 14px;
+      --shadow: 0 12px 30px rgba(0, 0, 0, .08);
+      --transition: .25s ease;
     }
-    *{
-      padding: 0;
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
+      padding: 0;
     }
-    body{
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       min-height: 100vh;
-      flex: 1;
-      padding: 0;
-      margin: 0;
-      max-width: 100%;
-      background-color: var(--Sun-50);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
     }
-    .main-container{
-      padding: 0;
-      margin: 0;
-      display: grid;
-      height: 100%;
-      max-width: 100vw;
-      width: 100%;
-      grid-template-columns: 200px auto;
+
+    button,
+    a {
+      font: inherit;
     }
-    .sidebar{
-      grid-column: 1/2;
-      grid-row: 1;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-      border-right: 1px solid var(--Neutral-400);
-      padding-left: 0.5em;
-      padding-right: 0.5em;
+
+    button {
+      cursor: pointer;
     }
-    .head{
-      border-bottom: 1px solid var(--Neutral-400);
-      padding-bottom: 0.5em;
-    }
-    .head:hover{
-      transform: scale(1.05);
-    }
-    .nav{
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .link{
-      display:flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .one{
-      opacity: 0;
-      font-family: 'Space Mono', monospace;
-      font-weight: 700;
-      font-size: 0.75rem;
-    }
-    .link:hover{
-      background-color: var(--Neutral-0);
-      .one{
-      border-radius: 50%;
-      width: 20px;
-      background-color: var(--Terracotta-700);
-      color: var(--Sun-50);
-      opacity: 1;
-      display: flex;
-      justify-content: center;
-    }
-    padding: 5px;
-    border-radius: 10px;
-    }
-    /* .link1{
-      display: flex;
-    } */
-    a{
+
+    a {
+      color: inherit;
       text-decoration: none;
-      color: var(--Neutral-900);
-      display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9375rem;
-      font-weight: 500;
     }
-    a:hover{
-      background-color: var(--Neutral-0);
-      padding: 5px;
-      border-radius: 10px;
+
+    img {
+      max-width: 100%;
     }
-    .weather{
-      display: flex;
-      flex-direction: column;
-      /* background-color: var(--Sun-500); */
-      border-radius: 10px;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      background: url(assets/images/icon-weather.svg) var(--Sun-300);
-      background-repeat: no-repeat;
-      background-position: top -10px right -10px;
-      background-size: 4em;
-      border-bottom: 1px solid var(--Neutral-400);
+
+    /* =========================
+       LAYOUT
+    ========================= */
+
+    .main-container {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
     }
-    .weather:hover{
-      background: url(assets/images/icon-weather.svg) var(--Sun-500);
-      background-repeat: no-repeat;
-      background-position: top -10px left -10px;
-      background-size: 50px;
-      transform: scale(1.05);
-      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    .state{
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .temp{
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.25rem;
-      font-weight: 600;
-    }
-    .status{
-      font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    .address{
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--Neutral-600);
-      line-height: 1.4;
-    }
-    .bottom{
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      bottom: 0;
-      z-index: 0;
-    }
-    .main{
-      grid-column: 2/3;
-      grid-row: 1;
-      padding-left: 1.5em;
-      height: auto;
-      width: auto;
-    }
-    .header{
-      display:flex;
-      flex-direction: row;
       justify-content: space-between;
+      padding: 18px 12px;
+      border-right: 1px solid var(--neutral-400);
+      background: var(--neutral-50);
     }
-    .left{
+
+    .sidebar-nav {
       display: flex;
       flex-direction: column;
-      gap: 0.5em;
+      gap: 8px;
     }
-   .profile1{
-    font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--Neutral-700);
-    }
-    .welcome{
-      font-family: 'Times New Roman', Times, serif;
-      font-size: x-large;
-      font-weight: 600;
-      color: var(--Neutral-900);
-    }
-    .name{
-      font-family: 'Times New Roman', Times, serif;
-      font-style: italic;
-      font-size: x-large;
-      font-weight: 600;
-      color: var(--Terracotta-700);
-    }
-    .right{
+
+    .head {
       display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-      padding: 0.5em;
-    }
-    .white{
-      background-color: var(--Neutral-0);
-      color: var(--Neutral-900);
-      border: 1px solid var(--Neutral-400);
-      padding-left: 1em;
-     padding-right: 1em;
-      border-radius: 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .white:hover{
-      background-color: var(--Neutral-900);
-      color: var(--Neutral-0);
-    }
-    .black{
-      background-color: var(--Neutral-900);
-      color: var(--Neutral-0);
-      border: 1px solid var(--Neutral-400);
-      padding-left: 1em;
-      padding-right: 1em;
-      border-radius: 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .black:hover{
-      background-color: var(--Neutral-0);
-      color: var(--Neutral-900);
-    }
-    .cards{
-      width: 80%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
       align-items: center;
-      padding: 1em 1em 3em 2em;
+      justify-content: center;
+      padding: 8px 0 18px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--neutral-400);
+      transition: var(--transition);
     }
-    .reciept-card{
-      width: 50%;
+
+    .head:hover {
+      transform: scale(1.04);
+    }
+
+    .head img {
+      width: 120px;
       height: auto;
-      padding: 1em;
-      gap: 0.5em;
+    }
+
+    .sidebar-link {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 10px;
-      background-color: var(--Neutral-0);
-      box-shadow: 0px 8px 6px rgba(0, 0, 0, 0.1);
-    }
-    .reciept-card:hover{
-      transform: rotate(-5deg);
-      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    .head-cart{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .index{
-      display: flex;
-      flex-direction: column;
-    }
-    .date{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 1em;
-      padding-left: 2em; 
-      padding-right: 2em;
-       padding-bottom: 1em;
-      border-bottom: 1px solid var(--Neutral-400);
-    }
-    .left-date, .right-date{
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
-    }
-    .foot{
-      color: var(--Neutral-600);
-      font-family: monospace;
-      text-transform: uppercase;
-    }
-    .times1{
-      font-family: 'Playfair Display', Georgia, serif; 
-      color: var(--Neutral-900);
-      font-size: larger;
-      font-weight: 700;
-      padding-bottom: 1em;
-      border-bottom: 1px solid var(--Neutral-400);
-    }
-    /*  */
-    #times{
-      padding-bottom: 1em;
-    }
-    .times{
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: x-large;
-      font-weight: 600;
-    }
-    .price{
-      padding-top: 1em;
-      padding-bottom: 1em;
-      border-bottom: 1px solid var(--Neutral-700);
-    }
-    .list{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .last{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .end{
-      gap: 1em;
-    }
-    .garrige{
-      color: var(--Neutral-0);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 50%;
-      height: auto;
-      padding: 1em;
-      border-radius: 10px;
-      gap: 1.3em;
-      background: var(--Terracotta-700) url(assets/images/icon-sun.svg);
-      background-repeat: no-repeat;
-      background-position: top 20px right 20px;
-      background-size: 4em;
-      box-shadow: 0px 9px 6px var(--Sun-300);
-    }
-    .garrige:hover{
-      transform: rotate(5deg);
-      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    #foot1{
-      color: var(--Neutral-0);
-      border-top: 1px dashed rgba(190, 190, 190, 0.1);
-      padding-top: 1em;
-      text-transform: uppercase;
-      color: var(--Neutral-400);
-      font-size: 0.875rem;
-    }
-    #foot2{
-color: var(--Neutral-0);
-text-transform: uppercase;
-color: var(--Neutral-400);
-font-size: 0.875rem;
-    }
-    .middle{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 2em;
-      margin-top: 3em;
-      margin-bottom: 4em;
-    }
-    .italics{
-      font-style: italic;
-      font-family:'Times New Roman', Times, serif;
-      font-weight: 500;
-      font-size: large;
-      color: var(--Sun-300);
-    }
-    #time{
-      font-size: 2em;
-    }
-    .description{
-      color: var(--Neutral-400);
-    }
-    .Times{
-      font-family: 'Playfair Display', Georgia, serif; 
-      font-size: larger;
-      font-weight: 500;
-    }
-    .grids{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 10px;
       width: 100%;
-      gap: 1.5em;
-    }
-    .grid1{
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      grid-column: 1/2;
-      background-color: var(--Neutral-0);
-      justify-content: space-between;
-      padding: 1em;
-      border: 1px solid var(--Neutral-400);
+      padding: 10px;
       border-radius: 10px;
+      color: var(--neutral-900);
+      font-weight: 500;
+      transition: var(--transition);
     }
-    .grid2{
-     display: flex;
-      flex-direction: column;
-      grid-column: 2/3;
-      background-color: var(--Neutral-0);
-      justify-content: space-between;
-      padding: 1em;
-      border: 1px solid var(--Neutral-400);
-      border-radius: 10px;
+
+    .sidebar-link img {
+      width: 18px;
+      height: 18px;
     }
-      .grid3{
-       display: flex;
-      flex-direction: column;
-      grid-column: 3/4;
-      background-color: var(--Neutral-0);
-      justify-content: space-between;
-      padding: 1em;
-      border: 1px solid var(--Neutral-400);
-      border-radius: 10px;
-      }
-    .one{
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      background: var(--white);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .04);
+    }
+
+    .sidebar-link.active {
+      color: var(--terracotta-700);
+      font-weight: 700;
+    }
+
+    .weather {
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      background:
+        url("assets/images/icon-weather.svg") var(--sun-300)
+        no-repeat top -8px right -8px / 55px;
+      border: 1px solid var(--neutral-400);
+      transition: var(--transition);
+    }
+
+    .weather:hover {
+      background-color: var(--sun-500);
+      transform: translateY(-2px);
+    }
+
+    .state {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .temp {
+      display: block;
+      margin: 5px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .status {
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    .address {
+      color: var(--neutral-600);
+      font-size: .72rem;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .main {
+      min-width: 0;
+      padding: 28px clamp(20px, 4vw, 55px);
+      overflow: hidden;
+    }
+
+    .header {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: aqua;
-    }
-    .two{
-       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .three{
-       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .arrival{
-      background-color: var(--Terracotta-400);
-      border-radius: 5px;
-    }
-    .wifi{
-      background-color: var(--Blue-500);
-      border-radius: 5px;
-    }
-    .breakfast{
-      background-color: var(--Rose-500);
-      border-radius: 5px;
-    }
-    #number1{
-      color: var(--Terracotta-400);
-    }
-    #number2{
-      color: var(--Blue-500);
-    }
-    #number3{
-      color: var(--Rose-500);
-    }
-    #arrival{
-      display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-       color: var(--Terracotta-400);
-       align-items: center;
-    }
-    #wifi{
-       display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-      color: var(--Blue-500);
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 35px;
     }
-    #breakfast{
-       display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-      color: var(--Rose-500);
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .profile1 {
+      color: var(--neutral-700);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .welcome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+    }
+
+    .name {
+      color: var(--terracotta-700);
+      font-style: italic;
+    }
+
+    .right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .white,
+    .black {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--neutral-400);
+      font-size: .75rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .white {
+      background: var(--white);
+      color: var(--neutral-900);
+    }
+
+    .black {
+      background: var(--neutral-900);
+      color: var(--white);
+    }
+
+    .white:hover {
+      background: var(--neutral-200);
+    }
+
+    .black:hover {
+      background: var(--terracotta-700);
+      border-color: var(--terracotta-700);
+    }
+
+    /* =========================
+       BOOKING CARDS
+    ========================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+      gap: 18px;
+      margin-bottom: 45px;
+    }
+
+    .receipt-card,
+    .garrige {
+      min-width: 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .receipt-card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--neutral-400);
+      transition: var(--transition);
+    }
+
+    .receipt-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .head-cart,
+    .last,
+    .list {
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 15px;
     }
-    #one{
+
+    .index {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .foot {
+      color: var(--neutral-600);
+      font-family: 'Space Mono', monospace;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .times1 {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--neutral-400);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .date {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--neutral-400);
+    }
+
+    .left-date,
+    .right-date {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .times {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--neutral-400);
+    }
+
+    .last {
+      align-items: flex-end;
+    }
+
+    #times {
+      padding: 0;
+      color: var(--terracotta-700);
       font-size: 1.5rem;
     }
-    #date01{
-      text-transform: capitalize;
-      color: var(--Neutral-600);
-    }
-    .attribution{
+
+    .end {
       display: flex;
-      flex-direction: row;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .end img {
+      width: 100px;
+      height: 35px;
+      object-fit: contain;
+    }
+
+    /* =========================
+       HOST CARD
+    ========================= */
+
+    .garrige {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px;
+      color: var(--white);
+      background:
+        url("assets/images/icon-sun.svg") var(--terracotta-700)
+        no-repeat top 20px right 20px / 55px;
+      transition: var(--transition);
+    }
+
+    .garrige:hover {
+      transform: translateY(-3px);
+      background-color: var(--terracotta-600);
+    }
+
+    #foot1,
+    #foot2 {
+      color: var(--neutral-400);
+    }
+
+    .middle {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: auto 0;
+    }
+
+    .italics {
+      color: var(--sun-300);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    #time {
+      color: var(--white);
+      font-size: 2rem;
+    }
+
+    .description {
+      color: var(--neutral-400);
+      line-height: 1.6;
+    }
+
+    .Times {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    /* =========================
+       INFORMATION CARDS
+    ========================= */
+
+    .grids {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--neutral-400);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .grid-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .service {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Space Mono', monospace;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .service img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .arrival-text {
+      color: var(--terracotta-400);
+    }
+
+    .wifi-text {
+      color: var(--blue-500);
+    }
+
+    .breakfast-text {
+      color: var(--rose-500);
+    }
+
+    .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    #number1 {
+      color: var(--terracotta-400);
+    }
+
+    #number2 {
+      color: var(--blue-500);
+    }
+
+    #number3 {
+      color: var(--rose-500);
+    }
+
+    .details {
+      color: var(--neutral-600);
+      line-height: 1.6;
+    }
+
+    #date01 {
+      color: var(--neutral-600);
+      text-transform: capitalize;
+    }
+
+    .copy-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px 0;
+    }
+
+    .copy-value {
+      color: var(--neutral-900);
+      font-weight: 700;
+    }
+
+    #copy {
+      align-self: flex-start;
+      margin-top: 4px;
+      padding: 8px 14px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--blue-500);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    #copy:hover {
+      opacity: .85;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .attribution {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 25px 0 5px;
+      color: var(--neutral-600);
+      font-size: .7rem;
+    }
+
+    .attribution a {
+      color: var(--terracotta-700);
+      font-weight: 700;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1050px) {
+      .main-container {
+        grid-template-columns: 180px minmax(0, 1fr);
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .grids {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .main-container {
+        display: block;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 12px 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--neutral-400);
+      }
+
+      .head {
+        margin-bottom: 10px;
+      }
+
+      .head img {
+        width: 100px;
+      }
+
+      .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+      }
+
+      .sidebar-link {
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 4px;
+        font-size: .65rem;
+        text-align: center;
+      }
+
+      .weather,
+      .address {
+        display: none;
+      }
+
+      .main {
+        padding: 24px 16px;
+      }
+
+      .header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .right {
+        width: 100%;
+      }
+
+      .white,
+      .black {
+        flex: 1;
+      }
+
+      .date {
+        gap: 15px;
+      }
+
+      .grids {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: .84rem;
+      }
+
+      .sidebar-nav {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .sidebar-link img {
+        width: 16px;
+      }
+
+      .cards {
+        gap: 14px;
+      }
+
+      .receipt-card,
+      .garrige,
+      .grid-card {
+        padding: 18px;
+      }
+
+      .date {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .list {
+        align-items: flex-start;
+        font-size: .78rem;
+      }
+
+      .times {
+        font-size: 1.15rem;
+      }
+
+      #time {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* =========================
+       PRINT
+    ========================= */
+
+    @media print {
+      .sidebar,
+      .right,
+      .attribution {
+        display: none;
+      }
+
+      .main-container {
+        display: block;
+      }
+
+      .main {
+        padding: 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .receipt-card,
+      .garrige,
+      .grid-card {
+        box-shadow: none;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="main-container">
-  <!-- Sidebar starts -->
-<div class="sidebar">
-  <div class="nav">
-  <div class="head"><img src="assets/images/logo.svg" alt="" srcset=""></div>
 
-  <!-- Guest navigation -->
+  <div class="main-container">
 
-  <div class="link"><a href="http://" class="link1"><img src="assets/images/icon-bed.svg" alt="" srcset="">Your stay </a><span class="one">1</span></div>
-  <a href="http://"><img src="assets/images/icon-house.svg" alt="" srcset="">The house</a>
-  <a href="http://"><img src="assets/images/icon-pin.svg" alt="" srcset="">Around town</a>
-  <a href="http://"><img src="assets/images/icon-breakfast-outline.svg" alt="" srcset="">Breakfast</a>
-  <a href="http://"><img src="assets/images/icon-mail.svg" alt="" srcset="">Messages</a>
-</div>
-  <!-- Local weather -->
-   <div class="bottom">
-   <div class="weather">
-  <span class="state">Today in Cassis</span>
-  <span class="temp">27°</span>
-  <span class="status">Sunny · light breeze</span>
-</div>
-<div class="address">
-  Est. 1987<br>
-  Maison Soleil · 12 Rue des Oliviers · Cassis<br>
-  © 2026 Maison Soleil
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-nav">
+
+        <div class="head">
+          <img src="assets/images/logo.svg" alt="Maison Soleil logo">
+        </div>
+
+        <a href="#stay" class="sidebar-link active">
+          <img src="assets/images/icon-bed.svg" alt="">
+          <span>Your stay</span>
+        </a>
+
+        <a href="#house" class="sidebar-link">
+          <img src="assets/images/icon-house.svg" alt="">
+          <span>The house</span>
+        </a>
+
+        <a href="#town" class="sidebar-link">
+          <img src="assets/images/icon-pin.svg" alt="">
+          <span>Around town</span>
+        </a>
+
+        <a href="#breakfast" class="sidebar-link">
+          <img src="assets/images/icon-breakfast-outline.svg" alt="">
+          <span>Breakfast</span>
+        </a>
+
+        <a href="#messages" class="sidebar-link">
+          <img src="assets/images/icon-mail.svg" alt="">
+          <span>Messages</span>
+        </a>
+
+      </div>
+
+      <div>
+        <div class="weather">
+          <span class="state">Today in Cassis</span>
+          <span class="temp">27°</span>
+          <span class="status">Sunny · light breeze</span>
+        </div>
+
+        <div class="address">
+          Est. 1987<br>
+          Maison Soleil · 12 Rue des Oliviers · Cassis<br>
+          © 2026 Maison Soleil
+        </div>
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- HEADER -->
+      <header class="header">
+
+        <div class="left">
+          <span class="profile1">Booking · Confirmed</span>
+          <span class="welcome">
+            Bienvenue, <span class="name">Lucia.</span>
+          </span>
+        </div>
+
+        <div class="right">
+          <button class="white" id="printReceipt">
+            Print receipt
+          </button>
+
+          <button class="black" id="calendarButton">
+            Add to calendar
+          </button>
+        </div>
+
+      </header>
+
+
+      <!-- BOOKING CARDS -->
+      <section class="cards" id="stay">
+
+        <!-- RECEIPT -->
+        <article class="receipt-card">
+
+          <div class="head-cart">
+            <span class="foot">Receipt</span>
+
+            <div class="index">
+              <span class="foot">№ MS-2026</span>
+              <span class="foot">0421-AH</span>
+            </div>
+          </div>
+
+          <div class="times1">
+            Your stay
+          </div>
+
+          <div class="date">
+
+            <div class="left-date">
+              <span class="foot">Check in</span>
+              <span class="times">25 Apr</span>
+              <span>Saturday · 15:00</span>
+            </div>
+
+            <div class="right-date">
+              <span class="foot">Check out</span>
+              <span class="times">29 Apr</span>
+              <span>Wednesday · 11:00</span>
+            </div>
+
+          </div>
+
+          <div class="price">
+
+            <div class="list">
+              <span>Room · La Garrigue · 4 nights</span>
+              <span>€ 620.00</span>
+            </div>
+
+            <div class="list">
+              <span>Breakfast · 2 guests</span>
+              <span>€ 96.00</span>
+            </div>
+
+            <div class="list">
+              <span>Tourist tax</span>
+              <span>€ 14.40</span>
+            </div>
+
+          </div>
+
+          <div class="end">
+
+            <div class="last">
+              <span class="foot">Total paid</span>
+              <span class="times" id="times">€ 730.40</span>
+            </div>
+
+            <div class="last">
+              <span class="foot">Paid · Wise · GBP</span>
+              <img
+                src="assets/images/icon-barcode.svg"
+                alt="Payment barcode"
+              >
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- HOST CARD -->
+        <article class="garrige">
+
+          <span class="foot" id="foot1">
+            Welcome card
+          </span>
+
+          <div class="middle">
+
+            <span class="italics">
+              A note from your host,
+            </span>
+
+            <span class="times" id="time">
+              Margaux.
+            </span>
+
+            <span class="description">
+              We're so glad you're coming. The shutters will be open,
+              the lemonade cold, and the cat - Poivre - pretending not
+              to notice you.
+            </span>
+
+          </div>
+
+          <div>
+            <span class="foot" id="foot2">Room</span>
+            <br>
+            <span class="Times">La Garrigue</span>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- INFORMATION CARDS -->
+      <section class="grids">
+
+        <!-- ARRIVAL -->
+        <article class="grid-card" id="house">
+
+          <div class="card-heading">
+
+            <span class="service arrival-text">
+              <img src="assets/images/icon-key.svg" alt="">
+              Arrival
+            </span>
+
+            <span class="number" id="number1">01</span>
+
+          </div>
+
+          <span class="times">
+            Check-in from 15:00
+          </span>
+
+          <span id="date01">
+            Sat, 25 April
+          </span>
+
+          <p class="details">
+            Ring the brass bell by the blue door. If we're at the
+            market, the key is in the terracotta pot by the olive tree.
+          </p>
+
+        </article>
+
+
+        <!-- WIFI -->
+        <article class="grid-card" id="town">
+
+          <div class="card-heading">
+
+            <span class="service wifi-text">
+              <img src="assets/images/icon-wifi.svg" alt="">
+              Wifi
+            </span>
+
+            <span class="number" id="number2">02</span>
+
+          </div>
+
+          <span class="times">
+            Le Soleil · Guest
+          </span>
+
+          <span id="date01">
+            Password below
+          </span>
+
+          <div class="copy-row">
+            <span class="description">Network</span>
+            <span class="copy-value">Le Soleil · Guest</span>
+
+            <span class="description">Password</span>
+            <span class="copy-value" id="wifiPassword">
+              soleil-2026
+            </span>
+          </div>
+
+          <button id="copy">
+            Copy password
+          </button>
+
+        </article>
+
+
+        <!-- BREAKFAST -->
+        <article class="grid-card" id="breakfast">
+
+          <div class="card-heading">
+
+            <span class="service breakfast-text">
+              <img src="assets/images/icon-breakfast.svg" alt="">
+              Breakfast
+            </span>
+
+            <span class="number" id="number3">03</span>
+
+          </div>
+
+          <span class="times">
+            Served 8 - 10:30
+          </span>
+
+          <span id="date01">
+            On the terrace
+          </span>
+
+          <p class="details">
+            Fresh figs, Marseille honey, pain au levain, and espresso.
+            Gluten-free option? Leave a note the night before.
+          </p>
+
+        </article>
+
+      </section>
+
+
+      <!-- FOOTER -->
+      <footer class="attribution">
+
+        <span>
+          Challenge by
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Frontend Mentor
+          </a>.
+        </span>
+
+        <span>
+          Coded by
+          <a href="#">
+            Your Name
+          </a>.
+        </span>
+
+      </footer>
+
+    </main>
+
   </div>
-  </div>
-</div>
-  <!-- Sidebar ends -->
 
-  <!-- Main content starts -->
-   <div class="main">
-<div class="header">
-  <div class="left">
-  <span class="profile1">Booking · Confirmed</span>
-  <span class="welcome">Bienvenue, <span class="name">Lucia.</span></span>
-</div>
-<div class="right">
-  <button class="white">Print receipt</button>
-  <button class="black">Add to calendar</button>
-  </div>
-</div>  
-  <!-- Booking cards start -->
-<div class="cards">
-  <!-- Receipt card -->
-   <div class="reciept-card">
-    <div class="head-cart">
- <span class="foot">Receipt</span>
-  <div class="index"><span class="foot">№ MS-2026</span>
-  <span class="foot">0421-AH</span></div>
-</div>
-  <div class="times1">Your stay</div>
-  <div class="date">
-<div class="left-date">
-  <span class="foot">Check in</span>
-  <span class="times">25 Apr</span>
-  <span>Saturday · 15:00</span></div>
-<div class="right-date">
-  <span class="foot">Check out</span>
- <span class="times">29 Apr</span>
-  <span>Wednesday · 11:00</span></div></div>
-  <div class="price"><div class="list">
-  <span>Room · La Garrigue · 4 nights</span>
-  <span>€ 620.00</span></div>
-    <div class="list">
-  <span>Breakfast · 2 guests</span>
-  <span>€ 96.00</span></div>
-  <div class="list">
-  <span>Tourist tax</span>
-  <span>€ 14.40</span>
-</div></div>
-<div class="end">
-<div class="last">
-  <span class="foot">Total paid</span>
-  <span class="times" id="times">€ 730.40</span>
-</div>
-  <div class="last"><span class="foot"> Paid · Wise · GBP </span><img src="assets/images/icon-barcode.svg" alt="" srcset=""></div></div>
-  </div>
-  <!-- Barcode image -->
 
-  <!-- Note from host card -->
-   <div class="garrige">
-  <span class="foot" id="foot1">Welcome card</span>
-  <div class="middle">
-  <span class="italics">A note from your host,</span> 
-  <span class="times" id="time">Margaux.</span>
-  <span class="description">We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to notice you.</span></div>
-  <span class="foot" id="foot2">Room</span>
-  <span class="Times">La Garrigue</span>
-</div>
-</div>
-  <!-- Booking cards end -->
+  <script>
+    /* Print receipt */
+    document
+      .getElementById("printReceipt")
+      .addEventListener("click", () => {
+        window.print();
+      });
 
-  <!-- Guest info row starts -->
 
-  <!-- Arrival -->
-   <div class="grids">
-   <div class="grid1">
-    <div class="one"><span class="foot" id="arrival"><img src="assets/images/icon-key.svg" alt="" srcset="" class="arrival">Arrival</span> <span class="times" id="number1">01</span></div>
-  <span class="times" id="one">Check-in from 15:00</span>
-  <span id="date01">Sat, 25 April</span>
-  <span class="details">Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.</span>
-</div>
-  <!-- Wifi -->
-   <div class="grid2">
-  <div class="two"><span class="foot" id="wifi"><img src="assets/images/icon-wifi.svg" alt="" srcset="" class="wifi">Wifi</span>
-  <span class="times" id="number2">02</span></div>
-  <span class="times" id="one">Le Soleil · Guest</span>
-  <span id="date01">Password below</span>
-  <span class="description">Network</span>
-  <span class="description">Le Soleil · Guest</span>
-  <span class="description">Password</span>
-  <span class="description">soleil-2026</span>
-  <button id="copy">Copy</button>
-</div>
-  <!-- Breakfast -->
-<div class="grid3">
-  <div class="three"><span class="foot" id="breakfast"><img src="assets/images/icon-breakfast.svg" alt="" srcset="" class="breakfast">Breakfast</span>
-  <span class="times" id="number3">03</span></div>
-  <span class="times" id="one">Served 8 - 10:30</span>
-  <span id="date01">On the terrace</span>
-  <span class="details">Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.</span>
-</div>
-</div>
-</div>
-</div>
-  <!-- Guest info row ends -->
+    /* Copy Wi-Fi password */
+    const copyButton = document.getElementById("copy");
+    const wifiPassword = document.getElementById("wifiPassword");
 
-  <!-- Main content ends -->
+    copyButton.addEventListener("click", async () => {
 
-  <footer class="attribution">
-    <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</span>
-    <span>Coded by <a href="#">Your Name Here</a>.</span>
-  </footer>
+      try {
+        await navigator.clipboard.writeText(
+          wifiPassword.textContent.trim()
+        );
+
+        copyButton.textContent = "Copied!";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy password";
+        }, 1800);
+
+      } catch (error) {
+
+        copyButton.textContent = "Copy failed";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy password";
+        }, 1800);
+
+      }
+
+    });
+
+
+    /* Add booking to calendar */
+    document
+      .getElementById("calendarButton")
+      .addEventListener("click", () => {
+
+        const event = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "BEGIN:VEVENT",
+          "SUMMARY:Maison Soleil Stay",
+          "DTSTART:20260425T150000",
+          "DTEND:20260429T110000",
+          "LOCATION:Maison Soleil, 12 Rue des Oliviers, Cassis",
+          "DESCRIPTION:Booking MS-2026 / 0421-AH",
+          "END:VEVENT",
+          "END:VCALENDAR"
+        ].join("\r\n");
+
+        const blob = new Blob([event], {
+          type: "text/calendar"
+        });
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = "maison-soleil-booking.ics";
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        URL.revokeObjectURL(url);
+      });
+
+
+    /* Active sidebar navigation */
+    const links = document.querySelectorAll(".sidebar-link");
+
+    links.forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        links.forEach(item => {
+          item.classList.remove("active");
+        });
+
+        link.classList.add("active");
+
+      });
+
+    });
+  </script>
+
 </body>
 </html>
