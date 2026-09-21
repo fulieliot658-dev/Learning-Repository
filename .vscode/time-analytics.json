@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2604354431,
-    "totalActiveTime": 45807052
+    "totalFocusTime": 2604928641,
+    "totalActiveTime": 45808700
   },
   "files": {
     "javascript.html": {
@@ -91,7 +91,7 @@
     },
     "Day-1/index.html": {
       "pending": 2911047,
-      "focus": 19415903
+      "focus": 19448527
     },
     "Day-6/Challenge-4.html": {
       "pending": 279305,
@@ -167,7 +167,7 @@
     },
     "Day_12/index2.html": {
       "pending": 389762,
-      "focus": 4460308
+      "focus": 4523426
     },
     "Day_12/index.html": {
       "pending": 8116,
@@ -175,7 +175,7 @@
     },
     "Day-13/index.html": {
       "pending": 1412288,
-      "focus": 10323896
+      "focus": 10328470
     },
     "Day-14/my-first-app/package.json": {
       "pending": 0,
@@ -251,7 +251,7 @@
     },
     "Day_17/index.html": {
       "pending": 45375,
-      "focus": 1067359
+      "focus": 1132463
     },
     "Day_18/index.html": {
       "pending": 1225451,
@@ -270,8 +270,16 @@
       "focus": 6430612
     },
     "Day-22/src/pages/Projects.jsx": {
-      "pending": 561,
-      "focus": 72751
+      "pending": 937,
+      "focus": 145176
+    },
+    "Day-2/CSS1.html": {
+      "pending": 1272,
+      "focus": 23344
+    },
+    "Day-2/CSS8.html": {
+      "pending": 0,
+      "focus": 21619
     }
   },
   "deleted": {
