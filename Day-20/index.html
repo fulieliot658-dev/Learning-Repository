@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="file" name="files" id="picker" value="No files chosen">
+        <image id="preview" src=""></image>
+        <video src="" id="play"></video>
+        <script>
+            document.getElementById("picker").addEventListener('change', (event)=>{
+                event.stopImmediatePropagation();
+                const file = event.target.files;
+                const file_size= file.length;
+               console.log(`You selected ${file_size} file(s)`);
+console.log(file[0].name, file[0].size, file[0].type);
+const reader = new FileReader();
+reader.onload = (e)=>{
+    if(!document.getElementById("preview").src){
+    console.log(`[LOG] File contents: ${e.target.result}`);}
+    else if(document.getElementById("preview").src){
+        document.getElementById("preview").src = e.target.result;
+    }
+   else{
+    document.getElementById("play").src= event.target.result;
+   } 
+
+};
+reader.onerror = ()=>{
+    console.error(`[ERROR]: Could not load read files`);
+};
+reader.readAsArrayBuffer(file[0]);
+// reader.readAsDataURL(file[0]);
+// document.createElement('p').textContent=`${reader.readAsText(file[0])}`
+;});
+
+// reader.onload = (e) => {
+// document.getElementById("preview").src = e.target.result;
+// };
+ const dropZone = document.getElementById("dropzone");
+ dropZone.addEventListener("dragover", (e)=>{
+e.preventDefault();
+dropZone.classList.add("hover");
+ });
+ dropZone.addEventlistener("dragleave", ()=>{
+dropZone.classList.remove("hover");
+ });
+ dropZone.addEventlistener("drop", (e)=>{
+    e.preventDefault();
+    dropZone.classlist.remove("hover");
+    const files = e.dataTransfer.files;
+    console.log(`Dropped: ${files[0].name}`); 
+ });
+        </script>
+    </body>
+</html>
