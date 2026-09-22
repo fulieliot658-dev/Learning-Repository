@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2606533137,
-    "totalActiveTime": 45874215
+    "totalFocusTime": 2607729606,
+    "totalActiveTime": 45874724
   },
   "files": {
     "javascript.html": {
@@ -298,12 +298,12 @@
       "focus": 75951
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/forms.js": {
-      "pending": 0,
-      "focus": 17762
+      "pending": 509,
+      "focus": 37619
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/pages/Projects.js": {
       "pending": 22762,
-      "focus": 138869
+      "focus": 144146
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/pages/About.js": {
       "pending": 0,
@@ -311,15 +311,15 @@
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/lib/html.js": {
       "pending": 0,
-      "focus": 19593
+      "focus": 46537
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/main.js": {
       "pending": 0,
-      "focus": 18491
+      "focus": 27200
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/store.js": {
       "pending": 0,
-      "focus": 12533
+      "focus": 29111
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/styles.css": {
       "pending": 0,
@@ -339,7 +339,7 @@
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/data/seed.js": {
       "pending": 22989,
-      "focus": 116523
+      "focus": 158537
     }
   },
   "deleted": {
