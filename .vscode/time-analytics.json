@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2605765786,
-    "totalActiveTime": 45820337
+    "totalFocusTime": 2605991083,
+    "totalActiveTime": 45827279
   },
   "files": {
     "javascript.html": {
@@ -284,6 +284,26 @@
     "Day-4/Challenge_2.html": {
       "pending": 0,
       "focus": 3356
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/index.html": {
+      "pending": 0,
+      "focus": 37210
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/App.js": {
+      "pending": 0,
+      "focus": 8198
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/actions.js": {
+      "pending": 0,
+      "focus": 55040
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/forms.js": {
+      "pending": 0,
+      "focus": 8121
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/pages/Projects.js": {
+      "pending": 6942,
+      "focus": 14619
     }
   },
   "deleted": {
