@@ -28,7 +28,7 @@ export const Projects = (state) => {
     <section class="wrap page-head">
       <div>
         <h1>Projects</h1>
-        <p class="page-intro">${all.length} projects from my learning repository, ${liveCount} deployed so far. A project switches to Live when it has a live link.</p>
+        <p class="page-intro">${all.length} projects from my learning repository, ${liveCount} deployed so far. A project goes to Live when it has an active link.</p>
       </div>
       ${admin ? html`<button type="button" class="btn btn-primary" data-action="project:add">Add project</button>` : ''}
     </section>
