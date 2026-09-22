@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2609377595,
-    "totalActiveTime": 45947111
+    "totalFocusTime": 2609899227,
+    "totalActiveTime": 45958173
   },
   "files": {
     "javascript.html": {
@@ -277,10 +277,6 @@
       "pending": 1272,
       "focus": 23344
     },
-    "Day-2/CSS8.html": {
-      "pending": 0,
-      "focus": 54296
-    },
     "Day-4/Challenge_2.html": {
       "pending": 0,
       "focus": 3356
@@ -340,6 +336,10 @@
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/data/seed.js": {
       "pending": 68549,
       "focus": 271191
+    },
+    "Day-2/index.html": {
+      "pending": 11062,
+      "focus": 98268
     }
   },
   "deleted": {
