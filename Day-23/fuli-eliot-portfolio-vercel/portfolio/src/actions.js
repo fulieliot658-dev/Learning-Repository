@@ -59,5 +59,6 @@ export const actions = {
     confirmLabel: 'Reset',
     onConfirm: db.reset,
   }),
+    'admin:enter': () => { setAdmin(true); notify('Manage mode is on. Your edits are saved in this browser.'); },
   'admin:exit': () => { setAdmin(false); notify('Manage mode is off'); },
 };

@@ -49,6 +49,7 @@ export const Layout = ({ route, admin, menuOpen, dirty, toast, data, children })
       <div class="wrap footer-in">
         <p>${profile.name}</p>
         <p>${acronym(profile.institution)}, ${profile.location}</p>
+        ${admin ? '' : html`<button type="button" class="footer-manage" data-action="admin:enter">Manage this site</button>`}
       </div>
     </footer>
     <div class="toast-region" aria-live="polite">

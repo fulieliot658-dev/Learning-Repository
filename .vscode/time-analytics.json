@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2607729606,
-    "totalActiveTime": 45874724
+    "totalFocusTime": 2608389581,
+    "totalActiveTime": 45885975
   },
   "files": {
     "javascript.html": {
@@ -294,8 +294,8 @@
       "focus": 12966
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/actions.js": {
-      "pending": 0,
-      "focus": 75951
+      "pending": 1790,
+      "focus": 113717
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/forms.js": {
       "pending": 509,
@@ -330,8 +330,8 @@
       "focus": 16890
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/components/Layout.js": {
-      "pending": 0,
-      "focus": 15112
+      "pending": 9461,
+      "focus": 29732
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/components/ProjectRow.js": {
       "pending": 0,
