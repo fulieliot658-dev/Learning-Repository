@@ -197,6 +197,8 @@ dialog::backdrop { background: rgba(11, 43, 31, .55); }
 .site-footer { border-top: 1px solid var(--line); background: #eef2f0; }
 .footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-block: 28px; font-size: .9375rem; color: var(--muted); }
 .footer-in p:first-child { color: var(--ink); font-weight: 600; }
+.footer-manage { border: 0; background: transparent; padding: 4px 0; font-size: .875rem; font-weight: 600; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-manage:hover { color: var(--forest-deep); }
 .toast-region { position: fixed; left: 50%; bottom: 24px; z-index: 60; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); pointer-events: none; }
 .toast { padding: 12px 18px; border-radius: 8px; background: var(--ink); color: #fff; font-size: .9375rem; box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .5); }
 .toast-error { background: var(--danger); }

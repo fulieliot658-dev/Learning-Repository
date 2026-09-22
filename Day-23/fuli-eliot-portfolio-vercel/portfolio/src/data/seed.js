@@ -23,7 +23,7 @@ export const seed = {
     name: 'Fuli Eliot Nchongtakang',
     headline: 'Front-end and back-end developer',
     tagline: 'Building my skills, one project at a time.',
-    bio: 'I am an aspiring software developer focused on practical web development, responsive design and continuous learning. I work across the front end and the back end, from HTML, CSS, SCSS and React to MySQL and PostgreSQL, and I use Git and GitHub to snapshot and Vercel for hosting everything I build.',
+    bio: 'I am an aspiring software developer focused on practical web development, responsive design and continuous learning. I work across the front end and the back end, from HTML, CSS, SCSS and React to MySQL and PostgreSQL, and I use Git, Vercel, Netlify and GitHub to document and host everything I build.',
     institution: 'Heritage Higher Institute of Peace and Development Studies (HEHIPEDS)',
     location: 'Yaoundé, Cameroon',
   },
