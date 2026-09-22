@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 2605991083,
-    "totalActiveTime": 45827279
+    "totalFocusTime": 2606533137,
+    "totalActiveTime": 45874215
   },
   "files": {
     "javascript.html": {
@@ -286,24 +286,60 @@
       "focus": 3356
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/index.html": {
-      "pending": 0,
-      "focus": 37210
+      "pending": 8127,
+      "focus": 91695
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/App.js": {
       "pending": 0,
-      "focus": 8198
+      "focus": 12966
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/actions.js": {
       "pending": 0,
-      "focus": 55040
+      "focus": 75951
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/forms.js": {
       "pending": 0,
-      "focus": 8121
+      "focus": 17762
     },
     "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/pages/Projects.js": {
-      "pending": 6942,
-      "focus": 14619
+      "pending": 22762,
+      "focus": 138869
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/pages/About.js": {
+      "pending": 0,
+      "focus": 44242
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/lib/html.js": {
+      "pending": 0,
+      "focus": 19593
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/main.js": {
+      "pending": 0,
+      "focus": 18491
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/store.js": {
+      "pending": 0,
+      "focus": 12533
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/styles.css": {
+      "pending": 0,
+      "focus": 2448
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/vercel.json": {
+      "pending": 0,
+      "focus": 16890
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/components/Layout.js": {
+      "pending": 0,
+      "focus": 15112
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/components/ProjectRow.js": {
+      "pending": 0,
+      "focus": 11209
+    },
+    "Day-23/fuli-eliot-portfolio-vercel/portfolio/src/data/seed.js": {
+      "pending": 22989,
+      "focus": 116523
     }
   },
   "deleted": {
